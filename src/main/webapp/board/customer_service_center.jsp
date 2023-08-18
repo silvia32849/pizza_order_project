@@ -4,7 +4,7 @@
 <head>	
 			 
 			<div id="toptest-content">
-				<jsp:include page="toptest.jsp"/>
+				<jsp:include page="customer_service_center_top.jsp"/>
 			</div>
 			
 			<style>
@@ -18,19 +18,19 @@
 			    margin-bottom: 180px; 
 			  }
 			</style>
+			
+			
+	<link rel="stylesheet" type="text/css" href="webapp/css/font.css"> 
+	<link rel="stylesheet" type="text/css" href="webapp/css/common.css"> 
+	<link rel="stylesheet" type="text/css" href="webapp/css/sub.css">
+	
+
+		
 </head>
 <body>
 	<title>∞Ì∞¥ºæ≈Õ</title>
 
-
-	<link rel="stylesheet" type="text/css" href="css/font.css"> 
-	<link rel="stylesheet" type="text/css" href="css/common.css"> 
-	<link rel="stylesheet" type="text/css" href="css/sub.css">
-	
-
-	
-
-				
+			
 			<div class="inner-box">
 				
 				
@@ -42,7 +42,7 @@
 				<input type="hidden" id="pageNo" name="pageNo" value="1">
 	                       
                 <div id="navigation">
-					<jsp:include page="lefttest.jsp"/>
+					<jsp:include page="customer_service_center_left.jsp"/>
 				</div>
                         <div class="table-type3">
                             <p class="side">√— 437∞«</p>
