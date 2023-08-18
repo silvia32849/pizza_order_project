@@ -1,0 +1,295 @@
+body, button, input, select, table, textarea {
+    color: #222;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,Helvetica Neue,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+}
+
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin: 0px;
+    padding:0px;
+    color: #000;
+
+}
+
+li, ol, ul {
+    list-style: none;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+/* header 맨윗부분 시작*/
+
+.header {
+    box-shadow: 0 1px 0 0 rgba(0,0,0,.1);
+    background-color: #fff;
+}
+
+.header.fixed {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 3;
+}
+
+.header >:not(.portal_target) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px;
+}
+
+
+.header_top .header_top_inner {
+    display: flex;
+    height: 22px;
+    padding: 8px 40px 0;
+    margin-top: 20px;
+}
+
+
+.header_top_inner  {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    margin: 0 auto;
+}
+
+.header_top .header_top_list {
+    align-items: center;
+    display: flex;
+    margin-left: auto;
+    margin-top: 25px;
+   
+}
+
+.header_top_list .header_top_item+.header_top_item {
+    margin-left: 20px;
+}
+
+
+.header_top .header_top_link {
+    align-items: center;
+    color: rgba(34,34,34,.8);
+    display: flex;
+    font-size: 16px;
+    letter-spacing: -.1px;
+    padding: 10px;
+}
+
+
+*, :after, :before {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    box-sizing: border-box;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+
+
+.logo {
+    display: flex;
+    height: 60px;
+    width: 160px;
+    background-image: url('image/logo.jpg');
+    margin-top: -30px;
+}
+
+
+
+/*
+.search_area {
+    width:200px;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.search_area > form > input {
+    border: none;
+    width:150px;
+    height: 25px;
+    background: rgba(0, 0, 0,0.0);
+    color: #fff;
+    padding-left:10px;
+}
+
+
+.search_area > form > span {
+    width:10px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+*/
+
+
+
+/* header 마지막 하단부분 */
+
+.updated .tab_name:after {
+    background-color: #ef6253;
+    border-radius: 5px;
+    content: "";
+    height: 5px;
+    position: absolute;
+    right: -7px;
+    top: 0;
+    width: 5px;
+}
+
+.tabs {
+    margin-top: 50px;
+}
+
+.lg .ul_tab.inline {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.lg .home_tabs {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px;
+}
+
+.ul_tab.inline {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 44px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+
+.ul_tab.inline .li_tab  {
+    display: inline-flex;
+}
+.ul_tab.inline > {
+    flex: 0 0 auto;
+}
+
+
+.ul_tab.inline .tab {
+    display: inline-flex;
+    height: 100%;
+    padding-bottom: 6px;
+    padding-top: 15px;
+}
+.tab.active {
+    font-weight: 700;
+}
+.tab {
+    border-bottom: 2px solid #222;
+    color: #222;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab:not(.active) {
+    border-bottom-color: transparent!important;
+}
+
+.ul_tab.inline .tab_name {
+    font-size: 20px;
+    line-height: 1.25;
+}
+.tab_name {
+    background-color: #fff;
+    position: relative;
+}
+
+.ul_tab.inline .li_tab+.li_tab {
+    margin-left: 100px;
+}
+
+
+/* container */
+.container {
+    position: relative;
+    overflow: hidden;
+}
+
+.home_card_list .banner {
+    margin-bottom: 28px;
+    margin-top: 28px;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+
+
+
+
+
+
+
+/* footer */
+
+.footer {
+    border-top: 1px solid #ebebeb;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.footer .inner {
+    position: relative;
+}
+
+.corporation_area {
+    margin-top: 30px;
+    position: relative;
+}
+
+.info_item:last-child {
+    margin-right: 0;
+}
+
+.info_item {
+    float: left;
+    margin-right: 17px;
+}
+
+
+.lg .business_title {
+    max-width: 653px;
+}
+.business_title {
+    margin-right: 4px;
+}
+
+.business_title {
+    color: rgba(34,34,34,.5);
+    float: left;
+    font-size: 13px;
+    letter-spacing: -.0.7px;
+    line-height: 20px;
+}
+
+.info_list:after {
+    clear: both;
+    content: "";
+    display: block;
+}
