@@ -1,5 +1,5 @@
 package com.itwill.pizza.userinfo;
 
-public class userinfo {
+public class Userinfo {
 
 }
