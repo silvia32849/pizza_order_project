@@ -1,0 +1,8 @@
+--insert
+
+--update
+
+--delete
+
+--select
+
