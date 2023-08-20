@@ -1,5 +1,5 @@
 package com.itwill.pizza.product;
 
-public class product {
+public class Product {
 
 }
