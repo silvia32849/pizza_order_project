@@ -16,7 +16,12 @@ CREATE TABLE board(
 		board_id                      		VARCHAR2(50)		 NULL 
 );
 
-
+COMMENT ON TABLE board is 'board';
+COMMENT ON COLUMN board.board_no is 'board_no';
+COMMENT ON COLUMN board.board_title is 'board_title';
+COMMENT ON COLUMN board.board_content is 'board_content';
+COMMENT ON COLUMN board.board_date is 'board_date';
+COMMENT ON COLUMN board.board_id is 'board_id';
 
 
 /**********************************/
@@ -34,7 +39,16 @@ CREATE TABLE userinfo(
 		board_no                      		NUMBER(10)		 NULL 
 );
 
-
+COMMENT ON TABLE userinfo is 'userinfo';
+COMMENT ON COLUMN userinfo.user_id is 'user_id';
+COMMENT ON COLUMN userinfo.user_pw is 'user_pw';
+COMMENT ON COLUMN userinfo.user_name is 'user_name';
+COMMENT ON COLUMN userinfo.user_address is 'user_address';
+COMMENT ON COLUMN userinfo.user_email is 'user_email';
+COMMENT ON COLUMN userinfo.user_jumin is 'user_jumin';
+COMMENT ON COLUMN userinfo.user_phone is 'user_phone';
+COMMENT ON COLUMN userinfo.user_gender is 'user_gender';
+COMMENT ON COLUMN userinfo.board_no is 'board_no';
 
 
 /**********************************/
@@ -52,7 +66,16 @@ CREATE TABLE orders(
 		user_id                       		VARCHAR2(100)		 NULL 
 );
 
-
+COMMENT ON TABLE orders is 'orders';
+COMMENT ON COLUMN orders.order_no is 'order_no';
+COMMENT ON COLUMN orders.order_name is 'order_name';
+COMMENT ON COLUMN orders.order_address is 'order_address';
+COMMENT ON COLUMN orders.order_price is 'order_price';
+COMMENT ON COLUMN orders.order_date is 'order_date';
+COMMENT ON COLUMN orders.order_count is 'order_count';
+COMMENT ON COLUMN orders.order_delivery is 'order_delivery';
+COMMENT ON COLUMN orders.order_takeout is 'order_takeout';
+COMMENT ON COLUMN orders.user_id is 'user_id';
 
 
 /**********************************/
@@ -68,6 +91,14 @@ CREATE TABLE product(
 		product_size                  		VARCHAR2(10)		 DEFAULT 'M'		 NOT NULL
 );
 
+COMMENT ON TABLE product is 'product';
+COMMENT ON COLUMN product.product_no is 'product_no';
+COMMENT ON COLUMN product.product_name is 'product_name';
+COMMENT ON COLUMN product.product_price is 'product_price';
+COMMENT ON COLUMN product.product_image is 'product_image';
+COMMENT ON COLUMN product.product_desc is 'product_desc';
+COMMENT ON COLUMN product.product_category is 'product_category';
+COMMENT ON COLUMN product.product_size is 'product_size';
 
 
 /**********************************/
@@ -80,7 +111,11 @@ CREATE TABLE order_item(
 		product_no                    		NUMBER(10)		 NULL 
 );
 
-
+COMMENT ON TABLE order_item is 'order_item';
+COMMENT ON COLUMN order_item.oi_no is 'oi_no';
+COMMENT ON COLUMN order_item.oi_qty is 'oi_qty';
+COMMENT ON COLUMN order_item.order_no is 'order_no';
+COMMENT ON COLUMN order_item.product_no is 'product_no';
 
 
 /**********************************/
@@ -93,7 +128,11 @@ CREATE TABLE cart(
 		product_no                    		NUMBER(10)		 NULL 
 );
 
-
+COMMENT ON TABLE cart is 'cart';
+COMMENT ON COLUMN cart.cart_no is 'cart_no';
+COMMENT ON COLUMN cart.cart_qty is 'cart_qty';
+COMMENT ON COLUMN cart.user_id is 'user_id';
+COMMENT ON COLUMN cart.product_no is 'product_no';
 
 
 
