@@ -25,4 +25,12 @@ delete from cart where cart_no=2;
 delete from cart where user_id='user7';
 
 --select
-select * from cart where cart_no=3;
+--아이디로 한사람의 카트아이템 리스트 가져오기
+select * from cart c join product p on c.product_no=p.product_no where c.user_id = 'user1';
+
+--카트번호로 카트아이템 리스트 가져오기
+select * from cart c join product p on c.product_no=p.product_no where c.cart_no = 1;
+
+--아이디와 제품번호로 카트 개수가 몇개인지 세기
+select count(*)  as p_count from cart  where user_id='user1' and product_no=1;
+
