@@ -22,7 +22,7 @@ public interface OrderMapper {
 	//1. insert
 		   //주문추가   
 		   @Insert("insert into orders (order_no, order_name, order_address, order_price, order_date, user_id) "
-		         + "      values(orders_order_no_SEQ.nextval, #{order_name}, #{order_address}, #{order_price}, #{order_date}, #{user_id}")
+		         + "      values(orders_order_no_SEQ.nextval, #{order_name}, #{order_address}, #{order_price}, #{order_date}, #{user_id})")
 		   int insertOrder(Order order) throws Exception;
 		   //주문상세 추가
 		   @Insert("insert into order_item(oi_no, oi_qty, order_no, product_no) values(order_item_oi_no_SEQ.nextval, #{oi_qty}, #{order_no}, #{product_no})")
@@ -39,7 +39,7 @@ public interface OrderMapper {
 		   @Delete("delete from orders where user_id=#{user_id}")
 		   int deleteOrderByUserId(String user_id) throws Exception;
 		   //회원 한명의 주문 상세내역 삭제
-		   @Delete("delete from order_item where order_no in(select order_no from orders where user_id=#{user_id}")
+		   @Delete("delete from order_item where order_no in(select order_no from orders where user_id=#{user_id})")
 		   int deleteOrderItemByUserId(String user_id) throws Exception;
 		   
 		   
