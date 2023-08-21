@@ -23,7 +23,7 @@ public interface ProductMapper {
 					keyProperty = "product_no",
 					resultType = Integer.class
 					)
-			@Insert("insert into product values(#{product_no}, #{product_name}, #{product_price}, #{product_image},#{product_desc}, #{product_category}, #{product_size}")
+			@Insert("insert into product values(#{product_no}, #{product_name}, #{product_price}, #{product_image},#{product_desc}, #{product_category}, #{product_size})")
 			int insert(Product entity) throws Exception;
 			
 			//상품 수정(admin)
