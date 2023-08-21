@@ -11,11 +11,11 @@ public class ProductService {
 	}
 	
 	//admin용 C,U,D작업
-	public int insert(ProductEntity entity) throws Exception {
+	public int insert(Product entity) throws Exception {
 		
 		return dao.insert(entity);
 	}
-	public int update(ProductEntity entity) throws Exception {
+	public int update(Product entity) throws Exception {
 		return dao.update(entity);
 	}
 	public int delete(int product_no) throws Exception {
@@ -26,17 +26,17 @@ public class ProductService {
 	
 	//1. 리스트 전체 출력
 	
-	public List<ProductEntity> findByAll() throws Exception{
+	public List<Product> findByAll() throws Exception{
 		return dao.findByAll();
 	}
  
 	//2. 카테고리별 리스트 출력
-	public List<ProductEntity> findByCategory(int category_no) throws Exception{
+	public List<Product> findByCategory(int category_no) throws Exception{
 		return dao.findByCategory(category_no);
 	}
 	
 	//3. 키워드(검색)
-	public List<ProductEntity> findByKeyword(String keyword) throws Exception{
+	public List<Product> findByKeyword(String keyword) throws Exception{
 		return dao.findByKeyword(keyword);
 	}
 }

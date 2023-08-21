@@ -2,7 +2,7 @@ package com.itwill.pizza.product.test;
 
 import java.util.List;
 
-import com.itwill.pizza.product.ProductEntity;
+import com.itwill.pizza.product.Product;
 import com.itwill.pizza.product.ProductMyBatis;
 
 
@@ -11,7 +11,7 @@ public class ProductMyBatisTestMain {
 	public static void main(String[] args) throws Exception {
 
 	ProductMyBatis dao;
-	List<ProductEntity> productList;
+	List<Product> productList;
 //	ProductEntity pe;
 	
 	System.out.println("1.객체 생성");
@@ -20,12 +20,12 @@ public class ProductMyBatisTestMain {
 	System.out.println("------------------------------------------");
 	
 	System.out.println("2.admin용)상품 추가하기");
-	int result = dao.insert(new ProductEntity(0,"test",8000,"producttest","producttest",3,"M"));
+	int result = dao.insert(new Product(0,"test",8000,"producttest","producttest",3,"M"));
 	System.out.println(result+"개의 상품 추가 완료");
 	System.out.println("------------------------------------------");
 	
 	System.out.println("3.admin용)상품 업데이트");
-	result = dao.update(new ProductEntity(14,"test",8000,"producttest","producttest",3,"M"));
+	result = dao.update(new Product(14,"test",8000,"producttest","producttest",3,"M"));
 	System.out.println(result+"개의 상품 업데이트 완료");
 	System.out.println("------------------------------------------");
 	

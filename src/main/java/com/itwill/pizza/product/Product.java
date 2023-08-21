@@ -10,7 +10,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Getter @Setter
-public class ProductEntity {
+public class Product {
 
 	private int product_no;
 	private String product_name;
