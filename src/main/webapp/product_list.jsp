@@ -1,14 +1,14 @@
 <%@page import="java.util.List"%>
 
 <%@page import="com.itwill.pizza.product.ProductService"%>
-<!--<%@page import="com.itwill.pizza.product.ProductEntity"%>-->
+<%@page import="com.itwill.pizza.product.Product"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-	//ProductEntity pe = new ProductEntity();
-	//ProductService ps = new ProductService();
-	//List<ProductEntity> productList;
+	Product pe = new Product();
+	ProductService ps = new ProductService();
+	List<Product> productList;
 
 	
 %>
@@ -72,7 +72,7 @@ $thumbnail-box-shadow:              var(--#{$prefix}box-shadow-sm);
   <tbody>
   <% 
   	String size= "";
-  	for(ProductEntity product :productList ) { %>
+  	for(Product product :productList ) { %>
     <tr>
     <%if(product.getProduct_size().equals("M")){
     	size = "M(미디움)";
