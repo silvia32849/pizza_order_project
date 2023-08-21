@@ -8,15 +8,15 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.itwill.pizza.userinfo.UserInfo;
-
+import com.itwill.pizza.userinfo.User;
 
 
 
 
 public interface UserMapper {
 	
-	
+	//@Insert
+	int insert(User user) throws Exception;
 	
 	
 }

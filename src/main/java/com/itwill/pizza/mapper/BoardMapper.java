@@ -17,7 +17,7 @@ public interface BoardMapper {
 	 * @throws Exception 
 	 */
 	@Insert("insert into board (BOARD_NO, BOARD_TITLE, BOARD_CONTENT, USER_ID) "
-			+ "		values(board_sequence.nextval, #{BOARD_TITLE},#{BOARD_CONTENT}), #{USER_ID}")
+			+ "		values(board_sequence.nextval, #{BOARD_TITLE},#{BOARD_CONTENT}, #{USER_ID}")
 	int create(Board board) throws Exception;
 //	
 //	/**

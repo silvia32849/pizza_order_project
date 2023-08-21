@@ -1,6 +1,6 @@
 package com.itwill.pizza.userinfo;
 
-public class UserInfo {
+public class User {
 	
 	private String userId;
 	private String userPw;
@@ -11,11 +11,11 @@ public class UserInfo {
 	private String userGender;
 	private String userJumin;
 	
-	public UserInfo() {
+	public User() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public UserInfo(String userId, String userPw, String userName, String userEmail, 
+	public User(String userId, String userPw, String userName, String userEmail, 
 					String userAddress, String userPhone, String userGender, String userJumin) {
 		super();
 		this.userId = userId;
@@ -97,7 +97,7 @@ public class UserInfo {
 	/*
 	 *패스워드 일치여부 검사 
 	 */
-	public boolean isMatchPassword(String userPw){
+	public boolean isMatchPassword(String u_pw){
 		boolean isMatch=false;
 		if(this.userPw.equals(userPw)){
 			isMatch=true;
@@ -112,6 +112,10 @@ public class UserInfo {
 				+ ", userJumin=" + userJumin + "]";
 	}
 	
-
+	/*
+	 * @Override public String toString() { return "UserInfo [u_id=" + u_id +
+	 * ", u_pw=" + u_pw + ", u_name=" + u_name + ", u_email=" + u_email +
+	 * ", u_address=" + u_address + ", u_phone=" + u_phone +"]"; }
+	 */
 
 }
