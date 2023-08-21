@@ -112,10 +112,6 @@ public class User {
 				+ ", userJumin=" + userJumin + "]";
 	}
 	
-	/*
-	 * @Override public String toString() { return "UserInfo [u_id=" + u_id +
-	 * ", u_pw=" + u_pw + ", u_name=" + u_name + ", u_email=" + u_email +
-	 * ", u_address=" + u_address + ", u_phone=" + u_phone +"]"; }
-	 */
+	
 
 }
