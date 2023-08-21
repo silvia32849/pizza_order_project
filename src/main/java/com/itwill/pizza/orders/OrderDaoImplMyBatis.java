@@ -9,7 +9,7 @@ import com.itwill.pizza.mapper.OrderMapper;
 
 
 
-/*
+
 public class OrderDaoImplMyBatis implements OrderDao {
 
 	private SqlSessionFactory sqlSessionFactory;
@@ -35,4 +35,3 @@ public class OrderDaoImplMyBatis implements OrderDao {
 	SqlSession sqlSession=sqlSessionFactory.openSession(true);
 	}
 }
- */
