@@ -97,7 +97,7 @@ public class UserInfo {
 	/*
 	 *패스워드 일치여부 검사 
 	 */
-	public boolean isMatchPassword(String u_pw){
+	public boolean isMatchPassword(String userPw){
 		boolean isMatch=false;
 		if(this.userPw.equals(userPw)){
 			isMatch=true;
@@ -112,10 +112,6 @@ public class UserInfo {
 				+ ", userJumin=" + userJumin + "]";
 	}
 	
-	/*
-	 * @Override public String toString() { return "UserInfo [u_id=" + u_id +
-	 * ", u_pw=" + u_pw + ", u_name=" + u_name + ", u_email=" + u_email +
-	 * ", u_address=" + u_address + ", u_phone=" + u_phone +"]"; }
-	 */
+
 
 }
