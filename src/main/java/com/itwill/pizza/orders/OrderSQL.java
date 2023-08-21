@@ -16,14 +16,11 @@ public class OrderSQL {
 	public static String ORDER_DELETE_BY_O_NO=
 			"delete from orders where order_no=?";
 	// 주문 상세 삭제
-	public static String ORDERITEM_DELETE_BY_O_NO=
+	public static String ORDERITEM_DELETE_BY_ORDER_NO=
 			"delete from order_item where order_no=?";
 	// 회원 한사람의 주문내역 전체삭제
 	public static String ORDER_DELETE_BY_USER_ID=
 			"delete from orders where user_id=?";
-	// 주문 1개의 상세내역 삭제
-	public static String ORDERITEM_DELETE_BY_ORDER_NO=
-			"delete from order_item where order_no=?";
 	// 유저 1명의 주문 상세내역 삭제
 	public static String ORDERITEM_DELETE_BY_USER_ID=
 			"delete from order_item where order_no in(select order_no from orders where user_id=?)";
