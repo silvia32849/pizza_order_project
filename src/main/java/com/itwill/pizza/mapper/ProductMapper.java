@@ -28,7 +28,7 @@ public interface ProductMapper {
 			
 			//상품 수정(admin)
 			@Update("update product set product_name=#{product_name}, product_price=#{product_price}, product_image=#{product_image}, product_desc=#{product_desc}, product_category=#{product_category}, product_size=#{product_size} where product_no=#{product_no}")
-			int update(int product_no) throws Exception;
+			int update(ProductEntity entity) throws Exception;
 			
 			//상품 삭제(admin)
 			@Delete("delete product where product_no=#{product_no}")
