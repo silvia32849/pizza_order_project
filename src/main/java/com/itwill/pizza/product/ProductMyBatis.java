@@ -33,7 +33,7 @@ public class ProductMyBatis implements ProductRepository{
 		
 		int count = mapper.insert(entity);
 		sqlSession.close();
-		return entity.getProduct_no();
+		return count;
 	}
 
 	@Override
