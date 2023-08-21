@@ -7,8 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.itwill.pizza.cart.Cart;
-import com.itwill.pizza.mapper.CartMapper;
 import com.itwill.pizza.mapper.OrderMapper;
 
 
