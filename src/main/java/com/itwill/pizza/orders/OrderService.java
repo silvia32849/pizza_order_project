@@ -2,7 +2,7 @@ package com.itwill.pizza.orders;
 
 public class OrderService {
 	
-	private OrderDao orderDao;
+	private OrdersDao orderDao;
 	public OrderService() throws Exception{
 		orderDao=new OrderDaoImplMyBatis();
 	}
