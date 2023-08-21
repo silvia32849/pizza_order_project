@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.itwill.pizza.mapper.CartMapper;
 import com.itwill.pizza.mapper.UserMapper;
 
 
@@ -32,6 +31,59 @@ public class UserDaoImplMyBatis implements UserDao {
 		sqlSession.close();
 		return rowCount;
 	}
+
+
+	@Override
+	public int update(User user) throws Exception {
+		System.out.println("#### UserDaoImplMyBatis : update() 호출  ");
+		SqlSession sqlSession= sqlSessionFactory.openSession(true);
+		UserMapper userMapper=sqlSession.getMapper(UserMapper.class);
+		int rowCount=userMapper.update(user);
+		sqlSession.close();
+		return rowCount;
+	}
+
+
+	@Override
+	public int delete(String userId) throws Exception {
+		System.out.println("#### UserDaoImplMyBatis : delete() 호출  ");
+		SqlSession sqlSession= sqlSessionFactory.openSession(true);
+		UserMapper userMapper=sqlSession.getMapper(UserMapper.class);
+		int rowCount=userMapper.delete(userId);
+		sqlSession.close();
+		return rowCount;
+	}
+
+
+	@Override
+	public User findUser(String userId) throws Exception {
+		System.out.println("#### UserDaoImplMyBatis : findUser() 호출  ");
+		SqlSession sqlSession= sqlSessionFactory.openSession(true);
+		UserMapper userMapper=sqlSession.getMapper(UserMapper.class);
+		User finduser=userMapper.findUser(userId);
+		sqlSession.close();
+		return finduser;
+	}
+
+
+	@Override
+	public List<User> findUserList() throws Exception {
+		System.out.println("#### UserDaoImplMyBatis : findUserList() 호출  ");
+		SqlSession sqlSession= sqlSessionFactory.openSession(true);
+		UserMapper userMapper=sqlSession.getMapper(UserMapper.class);
+		List<User> userList =userMapper.findUserList();
+		sqlSession.close();
+		return userList;
+	}
+
+
+	@Override
+	public int countByUserId(String userId) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
 
 	
 }
