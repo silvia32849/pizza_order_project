@@ -9,12 +9,15 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.itwill.pizza.cart.Cart;
+
+
 
 
 
 
 public interface CartMapper {
 
-	
+	int insert(Cart cart) ;
 
 }

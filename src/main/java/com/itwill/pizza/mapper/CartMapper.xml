@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwill.pizza.mapper.CartMapper">
-	<resultMap id="cartResultMap"
-		type="com.itwill.pizza.cart.Cart" autoMapping="true">
-		<id column="cart_no" property="cart_no" />
-		
-	</resultMap>
+	
+	
 
 </mapper>
