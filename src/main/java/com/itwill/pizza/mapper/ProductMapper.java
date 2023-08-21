@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 
 
-import com.itwill.pizza.product.ProductEntity;
+import com.itwill.pizza.product.Product;
 
 
 public interface ProductMapper {
@@ -24,11 +24,11 @@ public interface ProductMapper {
 					resultType = Integer.class
 					)
 			@Insert("insert into product values(#{product_no}, #{product_name}, #{product_price}, #{product_image},#{product_desc}, #{product_category}, #{product_size}")
-			int insert(ProductEntity entity) throws Exception;
+			int insert(Product entity) throws Exception;
 			
 			//상품 수정(admin)
 			@Update("update product set product_name=#{product_name}, product_price=#{product_price}, product_image=#{product_image}, product_desc=#{product_desc}, product_category=#{product_category}, product_size=#{product_size} where product_no=#{product_no}")
-			int update(ProductEntity entity) throws Exception;
+			int update(Product entity) throws Exception;
 			
 			//상품 삭제(admin)
 			@Delete("delete product where product_no=#{product_no}")
@@ -39,14 +39,14 @@ public interface ProductMapper {
 			 */
 			//상품 전체출력
 			@Select("select * from product")
-			List<ProductEntity> findByAll() throws Exception;
+			List<Product> findByAll() throws Exception;
 			
 			//상품 카테고리별 출력
-			@Select("select * from where product_no=#{product_no}")
-			List<ProductEntity> findByCategory(int category_no) throws Exception;
+			@Select("select * from product where product_no=#{product_no}")
+			List<Product> findByCategory(int category_no) throws Exception;
 			
 			//키워드 검색 출력
-			@Select("select * from product where product_name LIKE '%#{keyword}%' or product_desc LIKE '%#{keyword}%' ;")
-			List<ProductEntity> findByKeyword(String keyword) throws Exception;
+			@Select("select * from product where product_name LIKE '%#{keyword}%' or product_desc LIKE '%#{keyword}%'")
+			List<Product> findByKeyword(String keyword) throws Exception;
 
 }

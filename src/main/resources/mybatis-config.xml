@@ -28,6 +28,7 @@
 	<mappers>
 		<!-- <mapper resource="com/itwill/user/mapper/UserMapper.xml" /> -->
 		<!--<mapper class="com.itwill.user.mapper.UserMapper" />-->
+		<mapper class="com.itwill.pizza.mapper.ProductMapper"/>
 	</mappers>
 </configuration>
 

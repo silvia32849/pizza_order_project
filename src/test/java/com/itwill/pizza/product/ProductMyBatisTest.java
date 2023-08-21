@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
 
 class ProductMyBatisTest {
 	ProductMyBatis dao;
-	List<ProductEntity> productList;
-	ProductEntity pe;
+	List<Product> productList;
+	Product pe;
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -30,14 +30,14 @@ class ProductMyBatisTest {
 	@Test
 	void testInsert() throws Exception {
 		//insert into product values(product_p_no_seq.nextval, '갈릭 디핑 소스', 29000, 'images/source.jpg', '#담백한 갈릭 디핑 소스!', 3, 'M'); 
-		int result = dao.insert(new ProductEntity(0,"test",8000,"producttest","producttest",3,"M"));
+		int result = dao.insert(new Product(0,"test",8000,"producttest","producttest",3,"M"));
 		assertTrue(result==1,"삽입실패");
 		
 	}
 	@DisplayName("2.admin용)상품 업데이트")
 	@Test
 	void testUpdate() throws Exception {
-		int result = dao.update(new ProductEntity(14,"test",8000,"producttest","producttest",3,"M"));
+		int result = dao.update(new Product(14,"test",8000,"producttest","producttest",3,"M"));
 		assertTrue(result==1,"업데이트 실패");
 	}
 	@DisplayName("3.admin용)상품 삭제")

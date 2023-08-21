@@ -3,15 +3,15 @@ package com.itwill.pizza.product.test;
 
 import java.util.List;
 
-import com.itwill.pizza.product.ProductEntity;
+import com.itwill.pizza.product.Product;
 import com.itwill.pizza.product.ProductMyBatis;
 import com.itwill.pizza.product.ProductService;
 public class ProductServiceTest {
 
 	public static void main(String[] args) throws Exception {
 		ProductService ps;
-		List<ProductEntity> productList;
-		ProductEntity pe ;
+		List<Product> productList;
+		Product pe ;
 		
 		System.out.println("1.객체 생성");
 		ps = new ProductService();
@@ -19,12 +19,12 @@ public class ProductServiceTest {
 		System.out.println("------------------------------------------");
 		
 		System.out.println("2.admin용)상품 추가하기");
-		int result = ps.insert(new ProductEntity(0,"test",8000,"producttest","producttest",3,"M"));
+		int result = ps.insert(new Product(0,"test",8000,"producttest","producttest",3,"M"));
 		System.out.println(result+"개의 상품 추가 완료");
 		System.out.println("------------------------------------------");
 		
 		System.out.println("3.admin용)상품 업데이트");
-		result = ps.update(new ProductEntity(14,"test",8000,"producttest","producttest",3,"M"));
+		result = ps.update(new Product(14,"test",8000,"producttest","producttest",3,"M"));
 		System.out.println(result+"개의 상품 업데이트 완료");
 		System.out.println("------------------------------------------");
 		

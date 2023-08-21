@@ -26,7 +26,7 @@ public class ProductMyBatis implements ProductRepository{
 	
 	// 추가된 상품 번호 리턴해서 상품 업로시 업로드 된 product_no를 리턴받음.
 		@Override
-	public int insert(ProductEntity entity) throws Exception {
+	public int insert(Product entity) throws Exception {
 		SqlSession sqlSession =sqlSessionFactory.openSession(true);
 		ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
 			
@@ -36,7 +36,7 @@ public class ProductMyBatis implements ProductRepository{
 	}
 
 	@Override
-	public int update(ProductEntity entity) throws Exception {
+	public int update(Product entity) throws Exception {
 		SqlSession sqlSession =sqlSessionFactory.openSession(true);
 		ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
 			
@@ -56,28 +56,28 @@ public class ProductMyBatis implements ProductRepository{
 	}
 
 	@Override
-	public List<ProductEntity> findByAll() throws Exception {
+	public List<Product> findByAll() throws Exception {
 		SqlSession sqlSession =sqlSessionFactory.openSession(true);
 		ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
-		List<ProductEntity> entityList =mapper.findByAll();
+		List<Product> entityList =mapper.findByAll();
 		sqlSession.close();
 		return entityList;
 	}
 
 	@Override
-	public List<ProductEntity> findByCategory(int category_no) throws Exception {
+	public List<Product> findByCategory(int category_no) throws Exception {
 		SqlSession sqlSession =sqlSessionFactory.openSession(true);
 		ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
-		List<ProductEntity> entityList =mapper.findByCategory(category_no);
+		List<Product> entityList =mapper.findByCategory(category_no);
 		sqlSession.close();
 		return entityList;
 	}
 
 	@Override
-	public List<ProductEntity> findByKeyword(String keyword) throws Exception {
+	public List<Product> findByKeyword(String keyword) throws Exception {
 		SqlSession sqlSession =sqlSessionFactory.openSession(true);
 		ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
-		List<ProductEntity> entityList =mapper.findByKeyword(keyword);
+		List<Product> entityList =mapper.findByKeyword(keyword);
 		sqlSession.close();
 		return entityList;
 	}
