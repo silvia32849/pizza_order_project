@@ -9,10 +9,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @Getter @Setter
+
 /*
  이름      널?       유형            
 ------- -------- ------------- 
@@ -37,6 +44,10 @@ public class Order {
 	private String order_takeout;
 	/************ FK ************/
 	private String user_id;
+
 	/************ List ************/
 	private List<OrderItem> orderItemList;
 }
+	
+
+
