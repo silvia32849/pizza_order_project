@@ -6,14 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-/*
-이름      널?       유형            
-------- -------- ------------- 
-oi_no    NOT NULL NUMBER(10)    
-oi_qty            NUMBER(10)
-order_no          NUMBER(10)          
-product_no        NUMBER(10)    
-*/
 
 
 @NoArgsConstructor

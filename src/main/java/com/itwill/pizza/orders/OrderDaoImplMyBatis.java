@@ -31,17 +31,15 @@ public class OrderDaoImplMyBatis implements OrdersDao {
 		return rowCount;
 	}
 
-
 	@Override
-	public int updateOrder(Order order) throws Exception {
+	public int insertOrderItem(OrderItem orderItem) throws Exception {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
 		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
-		int rowCount=orderMapper.updateOrder(order);
+		int rowCount=orderMapper.insertOrderItem(orderItem);
 		sqlSession.close();
 		return rowCount;
 	}
-
-
+	
 	@Override
 	public int deleteOrder(int order_no) throws Exception {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
@@ -51,37 +49,6 @@ public class OrderDaoImplMyBatis implements OrdersDao {
 		return rowCount;
 	}
 
-
-	@Override
-	public int deleteOrderByUserId(String user_id) throws Exception {
-		SqlSession sqlSession= sqlSessionFactory.openSession(true);
-		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
-		int rowCount=orderMapper.deleteOrderByUserId(user_id);
-		sqlSession.close();
-		return rowCount;
-	}
-
-
-	@Override
-	public int insertOrderItem(OrderItem orderItem) throws Exception {
-		SqlSession sqlSession= sqlSessionFactory.openSession(true);
-		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
-		int rowCount=orderMapper.insertOrderItem(orderItem);
-		sqlSession.close();
-		return rowCount;
-	}
-
-
-	@Override
-	public int updateOrderItem(OrderItem orderItem) throws Exception {
-		SqlSession sqlSession= sqlSessionFactory.openSession(true);
-		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
-		int rowCount=orderMapper.updateOrderItem(orderItem);
-		sqlSession.close();
-		return rowCount;
-	}
-
-
 	@Override
 	public int deleteOrderItem(int order_no) throws Exception {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
@@ -90,7 +57,15 @@ public class OrderDaoImplMyBatis implements OrdersDao {
 		sqlSession.close();
 		return rowCount;
 	}
-
+	
+	@Override
+	public int deleteOrderByUserId(String user_id) throws Exception {
+		SqlSession sqlSession= sqlSessionFactory.openSession(true);
+		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
+		int rowCount=orderMapper.deleteOrderByUserId(user_id);
+		sqlSession.close();
+		return rowCount;
+	}
 
 	@Override
 	public int deleteOrderItemByUserId(String user_id) throws Exception {
@@ -101,7 +76,6 @@ public class OrderDaoImplMyBatis implements OrdersDao {
 		return rowCount;
 	}
 
-
 	@Override
 	public List<Order> findAllOrders() throws Exception {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
@@ -110,7 +84,6 @@ public class OrderDaoImplMyBatis implements OrdersDao {
 		sqlSession.close();
 		return orderList;
 	}
-
 
 	@Override
 	public Order findOrderByNo(int order_no) throws Exception {
@@ -121,7 +94,6 @@ public class OrderDaoImplMyBatis implements OrdersDao {
 		return order;
 	}
 
-
 	@Override
 	public Order findOrderByUserId(String user_id) throws Exception {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
@@ -130,7 +102,6 @@ public class OrderDaoImplMyBatis implements OrdersDao {
 		sqlSession.close();
 		return order;
 	}
-
 
 	@Override
 	public List<OrderItem> findAllOrderItems() throws Exception {
@@ -141,7 +112,6 @@ public class OrderDaoImplMyBatis implements OrdersDao {
 		return orderList;
 	}
 
-
 	@Override
 	public OrderItem findOrderItemByOrderNo(int order_no) throws Exception {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
@@ -150,7 +120,6 @@ public class OrderDaoImplMyBatis implements OrdersDao {
 		sqlSession.close();
 		return orderItem;
 	}
-
 
 	@Override
 	public OrderItem findOrderItemByOiNo(int oi_no) throws Exception {

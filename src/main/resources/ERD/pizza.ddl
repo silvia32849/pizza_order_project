@@ -21,6 +21,7 @@ CREATE TABLE userinfo(
 
 
 
+
 /**********************************/
 /* Table Name: orders */
 /**********************************/
@@ -30,15 +31,14 @@ CREATE TABLE orders(
 		order_address                 		VARCHAR2(100)		 NULL ,
 		order_price                   		NUMBER(10)		 NULL ,
 		order_date                    		DATE		 DEFAULT sysdate		 NULL ,
-		order_count                   		NUMBER(10)		 NULL ,
-		order_delivery                		VARCHAR2(100)		 NULL ,
-		order_takeout                 		VARCHAR2(100)		 NULL ,
+		order_delivery                		NUMBER(10)		 NULL ,
 		user_id                       		VARCHAR2(100)		 NULL 
 );
 
 DROP SEQUENCE orders_order_no_SEQ;
 
 CREATE SEQUENCE orders_order_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
 
 
 
@@ -61,6 +61,7 @@ CREATE SEQUENCE product_product_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
 
+
 /**********************************/
 /* Table Name: order_item */
 /**********************************/
@@ -74,7 +75,6 @@ CREATE TABLE order_item(
 DROP SEQUENCE order_item_oi_no_SEQ;
 
 CREATE SEQUENCE order_item_oi_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
 
 
 

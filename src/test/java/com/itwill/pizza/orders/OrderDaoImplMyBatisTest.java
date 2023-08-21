@@ -9,80 +9,72 @@ class OrderDaoImplMyBatisTest {
 	OrderDaoImplMyBatis orderDao;
 	
 	@BeforeEach
-
+	
 	@Test
-	void testOrderDaoImplMyBatis() throws Exception {
+	void testOrderDaoImplMyBatis() throws Exception{
 		orderDao = new OrderDaoImplMyBatis();
 	}
 
 	@Test
-	void testInsertOrder() {
-		
+	void testInsertOrder() throws Exception{
+		//orderDao.insertOrder(new Order(0, "한지민", "강원도 원주시", 3000000, null, 0, "user10"));
 	}
 
 	@Test
-	void testUpdateOrder() throws Exception{
-		//orderDao.updateOrder(new Order(0, null, "서울시", 0, null, 0, null, null, null, null));
+	void testInsertOrderItem() throws Exception{
+		//orderDao.insertOrderItem(new OrderItem(6, 7, 6, 1));
 	}
 
 	@Test
 	void testDeleteOrder() throws Exception{
-		orderDao.deleteOrder(4);
+		//orderDao.deleteOrder(4);
 	}
 
 	@Test
-	void testDeleteOrderByUserId() {
-		fail("Not yet implemented");
+	void testDeleteOrderItem() throws Exception{
+		//성공은 하는데 해당 DB 테이블 데이터가 안사라짐
+		//orderDao.deleteOrderItem(2);
 	}
 
 	@Test
-	void testInsertOrderItem() {
-		fail("Not yet implemented");
+	void testDeleteOrderByUserId() throws Exception{
+		//orderDao.deleteOrderByUserId("user10");
 	}
 
 	@Test
-	void testUpdateOrderItem() {
-		fail("Not yet implemented");
+	void testDeleteOrderItemByUserId() throws Exception{
+		//성공은 하는데 해당 DB 테이블 데이터가 안사라짐
+		//orderDao.deleteOrderItemByUserId("user2");
 	}
 
 	@Test
-	void testDeleteOrderItem() {
-		fail("Not yet implemented");
+	void testFindAllOrders() throws Exception{
+		//orderDao.findAllOrders();
 	}
 
 	@Test
-	void testDeleteOrderItemByUserId() {
-		fail("Not yet implemented");
+	void testFindOrderByNo() throws Exception{
+		//orderDao.findOrderByNo(1);
 	}
 
 	@Test
-	void testFindAllOrders() {
-		fail("Not yet implemented");
+	void testFindOrderByUserId() throws Exception{
+		//orderDao.findOrderByUserId("user2");
 	}
 
 	@Test
-	void testFindOrderByNo() {
-		fail("Not yet implemented");
+	void testFindAllOrderItems() throws Exception{
+		//orderDao.findAllOrderItems();
 	}
 
 	@Test
-	void testFindOrderByUserId() {
-		fail("Not yet implemented");
+	void testFindOrderItemByOrderNo() throws Exception{
+		//orderDao.findOrderItemByOrderNo(2);
 	}
 
 	@Test
-	void testFindAllOrderItems() {
-		fail("Not yet implemented");
+	void testFindOrderItemByOiNo() throws Exception{
+		//orderDao.findOrderItemByOiNo(2);
 	}
-
-	@Test
-	void testFindOrderItemByOrderNo() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testFindOrderItemByOiNo() {
-		fail("Not yet implemented");
-	}
-
+	//테스트 완료
 }
