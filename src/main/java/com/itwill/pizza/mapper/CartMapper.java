@@ -9,11 +9,10 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-<<<<<<< HEAD
-import com.itwill.pizza.cart.CartMapper;
-=======
 
->>>>>>> refs/heads/master
+import com.itwill.pizza.cart.CartMapper;
+
+
 
 
 
