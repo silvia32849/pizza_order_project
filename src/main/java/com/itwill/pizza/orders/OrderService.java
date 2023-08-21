@@ -11,7 +11,7 @@ public class OrderService {
 	
 	private OrdersDao orderDao;
 	public OrderService() throws Exception{
-		orderDao=new OrdersDaoImplMyBatis();
+		orderDao=new OrderDaoImplMyBatis();
 	}
 	
 	//1. insert
