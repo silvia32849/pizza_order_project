@@ -14,20 +14,18 @@ public class BoardServiceTest {
 	bo =new BoardService();
 	System.out.println("-------------------------");
 	
-	System.out.println("추가");
-	int result =bo.create(new Board(0,"a","b",null,"c"));
-	System.out.println("-------");
-	
-	System.out.println("찾기");
-	Board board =bo.findBoard(1);
-	System.out.println(board);
-	
+//	System.out.println("추가");
+//	int result =bo.create(new Board(0,"a","b",null,"c"));
+//	System.out.println("-------");
+//	
+//	System.out.println("찾기");
+//	Board board =bo.findBoard(1);
+//	System.out.println(board);
+//	
 	System.out.println("삭제");
-	int result1 = bo.remove(14);
+	int result1 = bo.remove(13);
 	System.out.println("------");
 	
-	System.out.println("수정");
-	
-	
+//	
 	}
 }

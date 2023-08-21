@@ -18,7 +18,10 @@ public interface CartMapper {
 
 	
 	@Insert("insert into cart (cart_no, cart_qty, user_id, product_no) "
-			+ "		values(cart_cart_no_SEQ.nextval, #{cart_qty}, #{user_id}, #{product_no}")
+			+ "		values(cart_cart_no_SEQ.nextval, #{cart_qty}, #{user_id}, #{product_no})")
 	int insert(Cart cart) throws Exception;
+	
+	@Delete("delete cart where cart_no = #{cart_no}")
+	int remove(int cart_no) throws Exception;
 
 }

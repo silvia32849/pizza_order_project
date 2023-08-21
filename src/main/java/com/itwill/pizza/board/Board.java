@@ -15,13 +15,6 @@ public class Board {
 	private String board_title;
 	private Date board_date;
 	private String user_id;
-	
-
-	
-
-	
-
-
 
 
 	public Board(int board_no, String board_content, String board_title, Date board_date, String user_id) {

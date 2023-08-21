@@ -7,4 +7,7 @@ public interface CartDao {
 	 * 새로운 장바구니 생성
 	 */
 	int insert(Cart cart) throws Exception;
+	
+	int remove(int cart_no) throws Exception;
+
 }

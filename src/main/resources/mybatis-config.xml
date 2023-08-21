@@ -27,8 +27,14 @@
 	</environments>
 	<mappers>
 		<!-- <mapper resource="com/itwill/user/mapper/UserMapper.xml" /> -->
+		<!-- 
 		<mapper class="com.itwill.pizza.mapper.ProductMapper" />
+		 -->
 		<mapper class="com.itwill.pizza.mapper.BoardMapper" />
+		<!--  
+		<mapper class="com.itwill.pizza.mapper.CartMapper" />
+		-->
+		
 	</mappers>
 </configuration>
 
