@@ -12,7 +12,7 @@ public class ProductMyBatisTestMain {
 
 	ProductMyBatis dao;
 	List<ProductEntity> productList;
-	ProductEntity pe;
+//	ProductEntity pe;
 	
 	System.out.println("1.객체 생성");
 	dao = new ProductMyBatis();

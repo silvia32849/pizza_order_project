@@ -46,7 +46,7 @@ public interface ProductMapper {
 			List<ProductEntity> findByCategory(int category_no) throws Exception;
 			
 			//키워드 검색 출력
-			@Select("select * from product where p_name LIKE '%#{keyword}%' or p_desc LIKE '%#{keyword}%' ;")
+			@Select("select * from product where product_name LIKE '%#{keyword}%' or product_desc LIKE '%#{keyword}%' ;")
 			List<ProductEntity> findByKeyword(String keyword) throws Exception;
 
 }
