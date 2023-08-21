@@ -12,19 +12,18 @@ import com.itwill.pizza.mapper.OrderMapper;
 
 
 
-public class OrderDaoImplMyBatis implements OrderDao {
+public class OrdersDaoImplMyBatis implements OrdersDao {
 
 	private SqlSessionFactory sqlSessionFactory;
 
-	public OrderDaoImplMyBatis() throws Exception {
+	public OrdersDaoImplMyBatis() throws Exception {
 		this.sqlSessionFactory = new SqlSessionFactoryBuilder()
 				.build(Resources.getResourceAsStream("mybatis-config.xml"));
 	}
 
 
 	@Override
-	public int insert(Order order) throws Exception {
-		System.out.println("#### UserDaoImplMyBatis : insert() 호출  ");
+	public int insertOrder(Order order) throws Exception {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
 		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
 		int rowCount=orderMapper.insert(order);
