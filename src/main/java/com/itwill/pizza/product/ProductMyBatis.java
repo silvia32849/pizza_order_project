@@ -30,6 +30,7 @@ public class ProductMyBatis implements ProductRepository{
 		SqlSession sqlSession =sqlSessionFactory.openSession(true);
 		ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
 			
+		
 		int count = mapper.insert(entity);
 		sqlSession.close();
 		return entity.getProduct_no();
