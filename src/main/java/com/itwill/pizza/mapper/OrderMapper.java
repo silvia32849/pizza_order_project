@@ -10,15 +10,16 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.itwill.pizza.cart.Cart;
+import com.itwill.pizza.orders.Order;
 
 
 
 
-public interface CartMapper {
+public interface OrderMapper {
 
 	
-	@Insert("insert into cart (cart_no, cart_qty, user_id, product_no) "
-			+ "		values(cart_cart_no_SEQ.nextval, #{cart_qty}, #{user_id}, #{product_no}")
-	int insert(Cart cart) throws Exception;
+	@Insert("insert into order (order_no, order_name, order_address, order_price, order_date, user_id) "
+			+ "		values(orders_order_no_SEQ.nextval, #{order_name}, #{order_address}, #{order_price}, #{order_date}, #{user_id}")
+	int insert(Order order) throws Exception;
 
 }
