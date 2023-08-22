@@ -7,7 +7,7 @@ public class Cart {
 	private int cart_no;
 	private int cart_qty;
 	private String user_id;
-	private Product product_no;
+	private Product product;
 	
 	public Cart() {
 		
@@ -18,7 +18,7 @@ public class Cart {
 		this.cart_no = cart_no;
 		this.cart_qty = cart_qty;
 		this.user_id = user_id;
-		this.product_no = product;
+		this.product = product;
 	}
 
 	public int getCart_no() {
@@ -46,11 +46,11 @@ public class Cart {
 	}
 
 	public Product getProduct() {
-		return product_no;
+		return product;
 	}
 
 	public void setProduct(Product product) {
-		this.product_no = product;
+		this.product = product;
 	}
 
 	@Override

@@ -1,13 +1,21 @@
 package com.itwill.pizza.cart;
 
-import com.itwill.pizza.cart.Cart;
+import java.util.List;
 
 public interface CartDao {
-	/*
-	 * 새로운 장바구니 생성
-	 */
+
 	int insert(Cart cart) throws Exception;
-	
-	int remove(int cart_no) throws Exception;
+
+	int count(String user_id, int product_no) throws Exception;
+
+	int updateInCart(Cart cart) throws Exception;
+
+	int updateInProduct(Cart cart) throws Exception;
+
+	int deleteByCartNo(int cart_no) throws Exception;
+
+	int deleteAll(String user_id) throws Exception;
+
+	List<Cart> findByUserId(String user_id) throws Exception;
 
 }
