@@ -16,8 +16,8 @@ List<Product> productList= ps.findByCategory(Integer.parseInt(noStr));
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css" > 
-    <link rel="stylesheet" type="text/css" href="product.css" > 
+    <link rel="stylesheet" type="text/css" href="css/style.css" > 
+    <link rel="stylesheet" type="text/css" href="css/product.css" > 
     <title>책을 피자</title>
 </head>
 <body>
@@ -197,7 +197,7 @@ List<Product> productList= ps.findByCategory(Integer.parseInt(noStr));
                                         <li>
                                
                                             <div class="prd-img">
-                                                <a href="product_detail?<%=product.getProduct_no()%>">
+                                                <a href="product_detail.jsp?product_no=<%=product.getProduct_no()%>">
                                                     <img class="lazyload" src="<%=product.getProduct_image() %>" data-src="<%=product.getProduct_image() %>" alt="<%=product.getProduct_name()%>">
                                                 </a>
                                                 
