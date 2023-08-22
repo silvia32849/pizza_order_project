@@ -20,9 +20,9 @@
 			</style>
 			
 			
-	<link rel="stylesheet" type="text/css" href="webapp/css/font.css"> 
-	<link rel="stylesheet" type="text/css" href="webapp/css/common.css"> 
-	<link rel="stylesheet" type="text/css" href="webapp/css/sub.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css"> 
+	<link rel="stylesheet" type="text/css" href="css/common.css"> 
+	<link rel="stylesheet" type="text/css" href="css/sub.css">
 	
 
 		

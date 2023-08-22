@@ -1,12 +1,12 @@
 --insert
 insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 4, 'user1', 1);
-insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 3, 'user1', 2);
-insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 2, 'user1', 1);
-insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 1, 'user1', 1);
-insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 4, 'user1', 2);
-insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 4, 'user1', 2);
-insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 3, 'user1', 1);
-insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 2, 'user1', 2);
+insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 3, 'user2', 2);
+insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 2, 'user3', 1);
+insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 1, 'user4', 1);
+insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 4, 'user5', 2);
+insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 4, 'user6', 2);
+insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 3, 'user7', 1);
+insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 2, 'user8', 2);
 
 
 --update
