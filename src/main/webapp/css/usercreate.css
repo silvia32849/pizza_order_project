@@ -1,0 +1,317 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+    letter-spacing: -0.75px;
+}
+
+body {
+    overflow-x: hidden;
+    line-height: 1;
+    font-family: "Roboto", "Noto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -1px;
+    color: #000;
+}
+
+.inner-box, #gnb .gnb-inner {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+[class^=sub-type] {
+    margin-top: 200px;
+}
+
+[class^=sub-type] {
+    padding-bottom: 100px;
+}
+
+article, section {
+    display: block;
+}
+
+[class^=sub-type] .page-title-wrap.v2 {
+    padding-bottom: 28px;
+    border-bottom: 2px solid #111;
+}
+[class^=sub-type] .page-title-wrap {
+    position: relative;
+    margin-top: 50px;
+}
+
+[class^=sub-type] .page-title {
+    font-size: 32px;
+    color: #111;
+    font-weight: 400;
+}
+
+
+[class^=sub-type] .page-title-wrap .depth-area {
+    position: absolute;
+    right: 0;
+    top: 16px;
+}
+
+
+.join-step2 .myinfo-wrap {
+    border-top: none;
+    margin-top: 0;
+}
+
+
+input, select, textarea {
+    font-size: 1em;
+    vertical-align: middle;
+}
+
+.myinfo-wrap dl {
+    padding-top: 30px;
+    font-size: 0;
+    position: relative;
+}
+
+.join-step2 .myinfo-wrap dl dt.top {
+    margin-top: 13px;
+}
+.myinfo-wrap dl dt {
+    width: 250px;
+    padding-left: 40px;
+    font-weight: 600;
+    vertical-align: top;
+    line-height: 1;
+    margin-top: 3px;
+}
+.myinfo-wrap dl dt, .myinfo-wrap dl dd {
+    display: inline-block;
+    font-size: 16px;
+    color: #111;
+}
+
+.myinfo-wrap dl dd {
+    vertical-align: middle;
+    width: calc(100% - 250px);
+}
+
+.join-step2 .myinfo-wrap dl dd .form-item.name, .join-step2 .myinfo-wrap dl dd .form-item.confirm {
+    display: inline-block;
+}
+
+
+.join-step2 .myinfo-wrap dl dd .form-item.name input, .join-step2 .myinfo-wrap dl dd .form-item.confirm input {
+    width: 275px;
+}
+.member select:disabled, .member input:disabled {
+    background: #f5f5f5;
+}
+input[type=text], input[type=password], textarea {
+    transition: all 0.3s ease-in-out;
+}
+
+input[type=text], input[type=submit], input[type=password], input[type=search], input[type=number], input[type=reset], input[type=email], input[type=tel], input[type=search], input[type=file], input[type=email], input[type=tel], textarea {
+    border-radius: 0;
+    box-shadow: none;
+    border: 1px solid #ddd;
+    height: 42px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    font-size: 15px;
+    letter-spacing: -0.2px;
+    font-weight: 500;
+    font-family: "Roboto", "Noto", sans-serif;
+}
+
+.join-area .step-list {
+    padding: 28px 0 32px;
+    border-bottom: 1px solid #ddd;
+}
+.step-list {
+    text-align: center;
+}
+
+
+.join-step2 .myinfo-wrap dl dd .form-item.number input {
+    width: 275px;
+    padding: 0 10px;
+}
+
+
+.myinfo-wrap dl dd .form-item.number input {
+    vertical-align: top;
+}
+input[type=text], input[type=password], textarea {
+    transition: all 0.3s ease-in-out;
+}
+
+.myinfo-wrap dl dd .form-item + .text-type4 {
+    margin-top: 12px;
+}
+
+.join-step2 .myinfo-wrap dl dd .form-item .btn-type {
+    vertical-align: top;
+    margin-left: 1px;
+    height: 42px;
+    line-height: 42px;
+}
+.btn-type.v7 {
+    width: 120px;
+    font-size: 16px;
+    background: #222;
+    border-color: #222;
+}
+.btn-type {
+    border: 1px solid #ff143c;
+    font-weight: 500;
+}
+
+.text-type4 {
+    color: #ff143c;
+    font-size: 13px;
+    line-height: 1;
+}
+
+
+
+.join-step2 .myinfo-wrap dl dt.top {
+    margin-top: 13px;
+}
+.myinfo-wrap dl dt {
+    width: 250px;
+    padding-left: 40px;
+    font-weight: 600;
+    vertical-align: top;
+    line-height: 1;
+}
+
+
+.form-group {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.form-group .form-item {
+    display: inline-flex;
+    width: 100%;
+}
+
+
+
+input {
+    text-rendering: auto;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    background-color: field;
+}
+
+
+.member select:disabled, .member input:disabled {
+    background: #f5f5f5;
+}
+input, select, textarea {
+    font-size: 1em;
+    vertical-align: middle;
+}
+body, button, input, select, table, textarea {
+    color: #222;
+    font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,Helvetica Neue,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+}
+
+.myinfo-wrap dl dd .chk-box {
+    vertical-align: middle;
+}
+
+.myinfo-wrap dl dd .form-group.v2 .form-item.e-mail span {
+    font-size: 16px;
+    display: inline-block;
+    padding: 0 12px;
+    line-height: 42px;
+    margin-left: -10px;
+}
+
+.myinfo-wrap dl dd .form-group.v2 .form-item input {
+    width: 130px;
+    margin-right: 5px;
+}
+
+.chk-box {
+    display: inline-block;
+    text-align: left;
+}
+
+.chk-box:nth-of-type(n+2) {
+    margin-left: 25px;
+}
+
+
+.myinfo-wrap > .btn-wrap {
+    margin-top: 60px;
+}
+.btn-wrap, .btn-wrap2 {
+    width: 100%;
+}
+[class^=btn-wrap] {
+    margin-top: 30px;
+    font-size: 0;
+    text-align: center;
+}
+
+.btn-type.v6 {
+    width: 220px;
+    font-weight: 400;
+}
+.btn-type {
+    width: 240px;
+    height: 62px;
+    background: #ff143c;
+    border: 1px solid #ff143c;
+    color: #fff;
+    font-size: 18px;
+    line-height: 62px;
+    font-weight: 500;
+}
+
+
+[class^=btn-type] {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+
+.select-type2 select, .company .sel_box select, .select-type.type2 select {
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 50px;
+    border: 1px solid #ddd;
+    color: #888888;
+    font-size: 15px;
+}
+
+
+select {
+    padding: 0 0 0 20px;
+    background: #fff;
+    box-sizing: border-box;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    outline: none;
+    font-weight: 500;
+    font-family: "Roboto", "Noto", sans-serif;
+    width: 100%;
+}

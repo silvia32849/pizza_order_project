@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>로그인</title>
+</head>
+<body>
+    <div class="header fixed social">
+        <!-- 헤더 top 시작-->
+        <div class="header_top">
+            <div class="header_top_inner">
+                <h1>
+                    <a href="/" aria-label="홈" class="logo"></a>
+                    <div class="center"></div>
+                </h1>
+                <!--
+                <div class="search_area">
+                    <form>
+                       <input type="search" placeholder="sea5rch">
+                        <span>검색</span>
+                    </form>
+                </div>
+                -->
+                <ul class="header_top_list">
+                    <li class="header_top_item">
+                        <a href="login.html" class="header_top_link"> 로그인</a>
+                    </li>
+                    <li class="header_top_item">
+                        <a href="#" class="header_top_link"> 마이페이지</a>
+                    </li>
+                    <li class="header_top_item">
+                        <a href="#" class="header_top_link"> 관심상품</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+                  
+        <!-- 헤더 마지막 시작-->
+        <div class="portal_tartget vue-portal-target">
+        <nav class="tabs">
+            <ul class="ul_tab home_tabs inline">
+                <li class="li_tab">
+                    <a href="#" class="tab">
+                        <span class="tab_name">메뉴</span>
+                    </a>
+                </li>
+                <li class="li_tab">
+                    <a href="#" class="tab">
+                        <span class="tab_name">추천</span>
+                    </a>
+                </li>
+                <li class="li_tab">
+                    <a href="#" class="tab updated">
+                        <span class="tab_name">고객센터</span>
+
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        </div>
+    </div>
+
+
+    <!-- 컨테이너 시작 -->
+    <div class="center">
+        <h1>Login</h1>
+        <form action="" method="post">
+            <div class="text_field">
+                <input type="text" id="id" name="id" placeholder="아이디" class="input_text" maxlength="40">
+                <span></span>
+            </div>
+            <div class="text_field">
+                <input type="password" id="pw" name="pw" placeholder="비밀번호" class="input_text" maxlength="16">
+                <span></span>
+            </div>
+            <div class="btn_login_wrap">
+                <button type="submit" class="btn_login" id="log.login">
+                    <span class="btn_text">로그인</span>
+                </button>
+
+            </div>
+
+            <ul class="find_wrap" id="find_wrap">
+                <li>
+                    <a target="_blank" href="https://nid.naver.com/user2/api/route?m=routePwInquiry&amp;lang=ko_KR" class="find_text">비밀번호 찾기</a>
+                </li>
+                <li>
+                <a target="_blank" href="https://nid.naver.com/user2/api/route?m=routeIdInquiry&amp;lang=ko_KR" class="find_text">아이디 찾기</a>
+                </li>
+                <li>
+                <a target="_blank" href="https://nid.naver.com/user2/V2Join?m=agree&amp;lang=ko_KR&amp;domain=www.naver.com" class="find_text">회원가입</a>
+                </li>
+            </ul>
+        </form>
+
+    </div>
+</body>
+</html>
