@@ -7,18 +7,17 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-
+String noStr = request.getParameter("product_category");
 ProductService ps = new ProductService();
-List<Product> productList= ps.findByAll();
-
+List<Product> productList= ps.findByCategory(Integer.parseInt(noStr));
 
 %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css" > 
-    <link rel="stylesheet" type="text/css" href="css/product.css" > 
+    <link rel="stylesheet" type="text/css" href="style.css" > 
+    <link rel="stylesheet" type="text/css" href="product.css" > 
     <title>책을 피자</title>
 </head>
 <body>
@@ -29,7 +28,7 @@ List<Product> productList= ps.findByAll();
                 <div class="header_top">
                     <div class="header_top_inner">
                         <h1>
-                            <a href="#" aria-label="홈" class="logo"></a>
+                            <a href="/" aria-label="홈" class="logo"></a>
                             <div class="center"></div>
                         </h1>
                         <!--
@@ -117,6 +116,7 @@ List<Product> productList= ps.findByAll();
                                 <div class="menu-nav-wrap">
                 <div class="menu-nav">
                     <ul>
+                        
                         <li class="active"><a href="product_category_list.jsp?product_category=1">피자</a></li>
                         <li class="active"><a href="product_category_list.jsp?product_category=2">사이드메뉴</a></li>
                         <li class="active"><a href="product_category_list.jsp?product_category=3">음료 & 소스</a></li>
@@ -186,7 +186,7 @@ List<Product> productList= ps.findByAll();
                                 <!-- NEW 피자 영역 -->
                                 <div class="title-wrap-center" id="category-new">
                                     <h3 class="title-type">
-                                        전체메뉴
+                                        메뉴
                                     </h3>
                                 </div> 
                                 
@@ -195,13 +195,13 @@ List<Product> productList= ps.findByAll();
                                         <!-- 피자&사이드 -->
                                         <%for (Product product : productList) { %>
                                         <li>
-                                       
+                               
                                             <div class="prd-img">
-                                                <a href="product_detail.jsp?product_no=<%=product.getProduct_no()%>">
+                                                <a href="product_detail?<%=product.getProduct_no()%>">
                                                     <img class="lazyload" src="<%=product.getProduct_image() %>" data-src="<%=product.getProduct_image() %>" alt="<%=product.getProduct_name()%>">
                                                 </a>
                                                 
-                                                <a href="product_detail.jsp?product_no=<%=product.getProduct_no()%>" class="btn-detail">
+                                                <a href="javascript:getDetailSlide('RPZ298AL','C0102');trk_call('list');" class="btn-detail">
                                                     <i class="ico-zoomImg"></i>
                                                     <span class="hidden">상세버튼</span>
                                                 </a>

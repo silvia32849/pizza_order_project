@@ -27,7 +27,7 @@ class OrderDaoImplMyBatisTest {
 
 	@Test
 	void testDeleteOrder() throws Exception{
-		//orderDao.deleteOrder(4);
+		//orderDao.deleteOrder(1);
 	}
 
 	@Test

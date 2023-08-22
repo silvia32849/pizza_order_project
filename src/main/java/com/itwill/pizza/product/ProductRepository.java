@@ -10,4 +10,5 @@ public interface ProductRepository {
 	List<Product> findByAll() throws Exception;
 	List<Product> findByCategory(int category_no) throws Exception;
 	List<Product> findByKeyword(String keyword) throws Exception;
+	Product productDetail(int product_no) throws Exception;
 }

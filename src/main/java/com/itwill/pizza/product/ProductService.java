@@ -39,4 +39,9 @@ public class ProductService {
 	public List<Product> findByKeyword(String keyword) throws Exception{
 		return dao.findByKeyword(keyword);
 	}
+	
+	//4. 상품 디테일
+	public Product productDetail(int product_no) throws Exception{
+		return dao.productDetail(product_no);
+	}
 }
