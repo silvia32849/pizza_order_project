@@ -11,6 +11,7 @@
 ProductService ps = new ProductService();
 List<Product> productList= ps.findByAll();
 
+
 %>
 <html lang="en">
 <head>
