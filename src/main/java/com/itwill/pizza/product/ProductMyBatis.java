@@ -82,6 +82,14 @@ public class ProductMyBatis implements ProductRepository{
 		sqlSession.close();
 		return entityList;
 	}
+	@Override
+	public Product productDetail(int product_no) throws Exception {
+		SqlSession sqlSession =sqlSessionFactory.openSession(true);
+		ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
+		Product product = mapper.productDetail(product_no);
+		sqlSession.close();
+		return product;
+	}
 
 	
 }
