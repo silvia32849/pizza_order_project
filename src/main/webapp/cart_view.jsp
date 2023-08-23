@@ -1,5 +1,5 @@
-<%@page import="com.itwill.pizza.userinfo.UserService"%>
 <%@page import="com.itwill.pizza.userinfo.User"%>
+<%@page import="com.itwill.pizza.userinfo.UserService"%>
 <%@page import="java.util.List"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.itwill.pizza.cart.Cart"%>
@@ -8,12 +8,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
 <%
 UserService userService = new UserService();
-userService.login("user3", "1111");
+userService.login("user1", "2222");
 CartService cartService = new CartService();
-List<Cart> cartList = cartService.getCartItemByUserId("user3"); 
+List<Cart> cartList = cartService.getCartItemByUserId("user1"); 
 %>
 
 <!DOCTYPE html>
@@ -97,7 +96,7 @@ List<Cart> cartList = cartService.getCartItemByUserId("user3");
 									<strong>주문내역</strong>
 								</h3>
 								<span class="summary side"> 
-									<a href="cart_delete_all_action.jsp">전체 삭제</a>
+									<a href="cart_delete_action.jsp">전체 삭제</a>
 								</span>
 							</div>
 							<div class="cart-list">
@@ -125,7 +124,7 @@ List<Cart> cartList = cartService.getCartItemByUserId("user3");
                                         	</div>
 											<div class="prd-info">
 												<div class="prd-img">
-													<img src="https://cdn.dominos.co.kr/admin/upload/goods/20230117_Kz7ac529.jpg" alt="아보카도 새우" onerror="this.src='https://cdn.dominos.co.kr/admin/upload/goods/goods_default.jpg'">
+													<img src="<%=cart.getProduct().getProduct_image()%>" onerror="this.src='https://cdn.dominos.co.kr/admin/upload/goods/goods_default.jpg'">
 																</div>
 												<div class="prd-cont">
 													<div class="subject"><%=cart.getProduct().getProduct_name()%></div>
@@ -143,21 +142,22 @@ List<Cart> cartList = cartService.getCartItemByUserId("user3");
 											<div class="prd-quantity">
 												<div class="quantity-box v2">
 													<a href="javascript:void(0);" onclick="changeGoodsCnt('minus',0,'RPZ290GL', '1', 1, -1);" class="minus"><button class="btn-minus"></button></a>
-													<input type="number" class="qty0" id="qty0" value="1" readonly="">
+													<input type="number" class="qty0" id="qty0" value="<%=cart.getCart_qty() %>" readonly="">
 													<a href="javascript:void(0);" onclick="changeGoodsCnt('plus',0,'RPZ290GL', '1', 1, 1);" class="plus"><button class="btn-plus"></button></a>
 													</div>
 											</div>
 											<div class="prd-total">
-												<em>총주문금액 : <%=new DecimalFormat("#,##0").format(tot_price)%>원</em>
+												<em>총주문금액 : <%=new DecimalFormat("#,##0").format(cart.getProduct().getProduct_price() * cart.getCart_qty())%>원</em>
 											</div>
-											<%} %>
 											<div class="prd-delete">
 												<a href="cart_delete_item_action.jsp" class="btn-close">
 													<span class="hidden">삭제</span>
 												</a>
 											</div>
 										</li>
-									
+										<%}%>
+										<!-- cart item end -->
+										
 									<!-- 총 주문 금액 -->
 									<li class="total-price2 side">
 			                            <p>총 금액 <em><%=new DecimalFormat("#,##0").format(tot_price)%></em>원</p>
@@ -201,7 +201,7 @@ List<Cart> cartList = cartService.getCartItemByUserId("user3");
 						<!-- 주문하기 버튼 -->
 								
 						<div class="btn-wrap">
-									<a href="/order/menuList?order_gubun=O&amp;branch_code=86308&amp;addr_sn=32220907" class="btn-type-brd">메뉴 추가하기</a>
+									<a href="product_list.jsp" class="btn-type-brd">메뉴 추가하기</a>
 								<a href="javascript:reserveValid('O', '30900');" class="btn-type v3">주문하기</a>
 							</div>
 						<!-- //주문하기 버튼 -->

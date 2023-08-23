@@ -26,20 +26,19 @@ public class OrderDaoImplMyBatis implements OrdersDao {
 	public int insertOrder(Order order) throws Exception {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
 		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
-		int rowCount=orderMapper.insertOrder(order);
+		orderMapper.insertOrder(order);
+		List<OrderItem> orderItemList= order.getOrderItemList();
+		for (OrderItem orderItem : orderItemList) {
+			orderItem.setOrder_no(order.getOrder_no());
+			orderMapper.insertOrderItem(orderItem);
+		}
+		sqlSession.commit();
 		sqlSession.close();
-		return rowCount;
+		return 0;
 	}
 
-	@Override
-	public int insertOrderItem(OrderItem orderItem) throws Exception {
-		SqlSession sqlSession= sqlSessionFactory.openSession(true);
-		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
-		int rowCount=orderMapper.insertOrderItem(orderItem);
-		sqlSession.close();
-		return rowCount;
-	}
-	
+
+
 	@Override
 	public int deleteOrder(int order_no) throws Exception {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
@@ -49,86 +48,28 @@ public class OrderDaoImplMyBatis implements OrdersDao {
 		return rowCount;
 	}
 
-	@Override
-	public int deleteOrderItem(int order_no) throws Exception {
-		SqlSession sqlSession= sqlSessionFactory.openSession(true);
-		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
-		int rowCount=orderMapper.deleteOrderItem(order_no);
-		sqlSession.close();
-		return rowCount;
-	}
-	
-	@Override
-	public int deleteOrderByUserId(String user_id) throws Exception {
-		SqlSession sqlSession= sqlSessionFactory.openSession(true);
-		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
-		int rowCount=orderMapper.deleteOrderByUserId(user_id);
-		sqlSession.close();
-		return rowCount;
-	}
 
 	@Override
-	public int deleteOrderItemByUserId(String user_id) throws Exception {
+	public List<Order> findOrderByUserId(String user_id) throws Exception {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
 		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
-		int rowCount=orderMapper.deleteOrderItemByUserId(user_id);
-		sqlSession.close();
-		return rowCount;
-	}
-
-	@Override
-	public List<Order> findAllOrders() throws Exception {
-		SqlSession sqlSession= sqlSessionFactory.openSession(true);
-		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
-		List<Order> orderList =orderMapper.findAllOrders();
+		List<Order> orderList = orderMapper.findOrderByUserId(user_id);
 		sqlSession.close();
 		return orderList;
 	}
 
-	@Override
-	public Order findOrderByNo(int order_no) throws Exception {
-		SqlSession sqlSession= sqlSessionFactory.openSession(true);
-		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
-		Order order=orderMapper.findOrderByNo(order_no);
-		sqlSession.close();
-		return order;
-	}
-
-	@Override
-	public Order findOrderByUserId(String user_id) throws Exception {
-		SqlSession sqlSession= sqlSessionFactory.openSession(true);
-		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
-		Order order=orderMapper.findOrderByUserId(user_id);
-		sqlSession.close();
-		return order;
-	}
-
-	@Override
-	public List<OrderItem> findAllOrderItems() throws Exception {
-		SqlSession sqlSession= sqlSessionFactory.openSession(true);
-		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
-		List<OrderItem> orderList =orderMapper.findAllOrderItems();
-		sqlSession.close();
-		return orderList;
-	}
 
 	@Override
 	public OrderItem findOrderItemByOrderNo(int order_no) throws Exception {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
 		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
-		OrderItem orderItem=orderMapper.findOrderItemByOrderNo(order_no);
+		OrderItem orderItem = orderMapper.findOrderItemByOrderNo(order_no);
 		sqlSession.close();
 		return orderItem;
 	}
+	
+	
 
-	@Override
-	public OrderItem findOrderItemByOiNo(int oi_no) throws Exception {
-		SqlSession sqlSession= sqlSessionFactory.openSession(true);
-		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
-		OrderItem orderItem=orderMapper.findOrderItemByOiNo(oi_no);
-		sqlSession.close();
-		return orderItem;
-	}
 
 	
 }

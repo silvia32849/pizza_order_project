@@ -10,7 +10,7 @@ if(request.getMethod().equalsIgnoreCase("GET")){
 }
 
 CartService cartService = new CartService();
-cartService.deleteAllItem(sUserId);
+cartService.deleteAllItem("user1");
 response.sendRedirect("cart_view.jsp");
 
 

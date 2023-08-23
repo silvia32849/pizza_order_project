@@ -1,5 +1,7 @@
 package com.itwill.pizza.orders;
 
+import com.itwill.pizza.product.Product;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +19,7 @@ public class OrderItem {
 	private int oi_no;
 	private int oi_qty;
 	private int order_no;
-	private int product_no;
+	private Product product;
 	
 
 	
