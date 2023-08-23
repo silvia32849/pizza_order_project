@@ -11,7 +11,6 @@
 ProductService ps = new ProductService();
 List<Product> productList= ps.findByAll();
 
-
 %>
 <html lang="en">
 <head>
@@ -29,23 +28,16 @@ List<Product> productList= ps.findByAll();
                 <div class="header_top">
                     <div class="header_top_inner">
                         <h1>
-                            <a href="#" aria-label="홈" class="logo"></a>
+                            <a href="index.jsp" aria-label="홈" class="logo"></a>
                             <div class="center"></div>
                         </h1>
-                        <!--
-                        <div class="search_area">
-                            <form>
-                               <input type="search" placeholder="search">
-                                <span>검색</span>
-                            </form>
-                        </div>
-                        -->
-
                         
-                        
-
-                        
-                        
+	                      <!--   <div class="search_area">
+	                            <form>
+	                               <input type="search" placeholder="search">
+	                                <span>검색</span>
+	                            </form>
+	                        </div> -->
                         
                         <ul class="header_top_list">
                             <li class="header_top_item">
