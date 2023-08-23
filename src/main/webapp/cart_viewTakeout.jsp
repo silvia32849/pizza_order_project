@@ -13,9 +13,6 @@
 
 CartService cartService = new CartService();
 List<Cart> cartList = cartService.getCartItemByUserId(sUserId); 
-sUserId="user1";
-sUser= new User("user1",null,"박나래",null,"서울시 노원구 골목식당",null,null,null);
-
 %>
 
 <!DOCTYPE html>
@@ -86,8 +83,8 @@ sUser= new User("user1",null,"박나래",null,"서울시 노원구 골목식당"
 					<div class="step-wrap">
 						<div class="cart-waiting-tab">
 								<ul>
-													<li class="active"><a href="">배달<span class="itemA"> ~ 60분 소요</span></a></li>
-													<li><a href="cart_viewTakeout.jsp">포장<span class="itemB"> ~ 45분 소요</span></a></li>
+													<li><a href="cart_view.jsp">배달<span class="itemA"> ~ 60분 소요</span></a></li>
+													<li class="active"><a href="">포장<span class="itemB"> ~ 45분 소요</span></a></li>
 												</ul>
 											</div>
 							<div class="title-wrap cart-waiting-btn">
@@ -98,7 +95,7 @@ sUser= new User("user1",null,"박나래",null,"서울시 노원구 골목식당"
 							
 							<div class="deli-info">
 								<div class="address">
-									<%=sUser.getUserAddress() %></div>
+									서울특별시 강남구 역삼동 아이티윌 4층</div>
 								<div class
 								="store">
 									<span>역삼점</span>&nbsp;02-564-0554</div>

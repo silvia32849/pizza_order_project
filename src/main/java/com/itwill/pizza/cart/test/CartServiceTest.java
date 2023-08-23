@@ -35,5 +35,7 @@ public class CartServiceTest {
 		System.out.println(result+"개의 상품 추가 완료");
 		System.out.println("------------------------------------------");
 		
+		//cs.deleteAllItem("user2");
+		
 	}
 }
