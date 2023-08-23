@@ -1,17 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css" >
     <title>도미노 피자</title>
 </head>
 <body>
-    <div class="
-    
-    
-    warp">
+    <div class="warp">
             <!-- 헤더 시작-->    
             <div class="header fixed social">
                 <!-- 헤더 top 시작-->
@@ -31,8 +29,8 @@
                         -->
                         
                         <ul class="header_top_list">
-                            <li class="header_top_item">
-                                <a href="login.html" class="header_top_link"> 로그인</a>
+                            <li class"header_top_item">
+                                <a href="login_form.jsp" class="header_top_link"> 로그인</a>
                             </li>
                             <li class="header_top_item">
                                 <a href="#" class="header_top_link"> 마이페이지</a>
@@ -41,7 +39,7 @@
                                 <a href="#" class="header_top_link"> 관심상품</a>
                             </li>
                         </ul>
-                    </div>
+                    </div>=
                 </div>
                 
 
@@ -108,6 +106,5 @@
                 </div>
             </div>
     </div>
-
 </body>
 </html>

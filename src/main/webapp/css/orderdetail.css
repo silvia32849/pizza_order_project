@@ -1,0 +1,492 @@
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+* {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+    letter-spacing: -0.75px;
+}
+
+body {
+    overflow-x: hidden;
+    line-height: 1;
+    font-family: "Roboto", "Noto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -1px;
+    color: #000;
+}
+
+[class^=sub-type] {
+    padding-bottom: 100px;
+}
+
+.inner-box, #gnb .gnb-inner {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+[class^=sub-type] .page-title-wrap {
+    position: relative;
+    margin-top: 200px;
+}
+
+[class^=sub-type] .page-title {
+    font-size: 32px;
+    color: #111;
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1em;
+}
+
+h2 {
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+[class^=sub-type] .page-title-wrap .depth-area {
+    position: absolute;
+    right: 0;
+    top: 16px;
+}
+
+
+[class^=sub-type] .page-title-wrap .depth-area ol {
+    font-size: 0;
+}
+ol, ul {
+    list-style: none;
+}
+
+ol {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+[class^=sub-type] .page-title-wrap .depth-area ol li {
+    display: inline-block;
+    font-size: 13px;
+    color: #888888;
+}
+
+[class^=sub-type] .page-title-wrap .depth-area ol li a, [class^=sub-type] .page-title-wrap .depth-area ol li strong {
+    font-size: inherit;
+    font-weight: inherit;
+    color: #888888;
+}
+
+[class^=sub-type] .page-title-wrap .depth-area ol li:first-child:before {
+    display: none;
+}
+
+[class^=sub-type] .page-title-wrap .depth-area ol li:before {
+    content: "";
+    margin: 3px 8px 2px 6px;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-style: solid;
+    border-color: transparent #888888 #888888 transparent;
+    border-width: 0 1px 1px 0;
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+::before, ::after {
+    box-sizing: border-box;
+}
+
+
+
+.mypage .mypage-grade {
+    margin-top: 28px;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+.mypage .menu-nav-wrap {
+    margin: 0;
+    border-bottom: none;
+}
+[class^=sub-type] .menu-nav-wrap {
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.mypage .menu-nav-wrap .menu-nav ul, .mypage .menu-nav-wrap .menu-nav li, .mypage .menu-nav-wrap .menu-nav a {
+    line-height: 1;
+}
+[class^=sub-type] .menu-nav-wrap .menu-nav ul {
+    font-size: 0;
+}
+
+ul {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+[class^=sub-type] .menu-nav-wrap .menu-nav ul li {
+    display: inline-block;
+}
+.mypage .menu-nav-wrap .menu-nav ul, .mypage .menu-nav-wrap .menu-nav li, .mypage .menu-nav-wrap .menu-nav a {
+    line-height: 1;
+}
+
+
+
+[class^=sub-type] .menu-nav-wrap .menu-nav ul li a {
+    font-size: 16px;
+    color: #888888;
+}
+
+[class^=sub-type] .menu-nav-wrap .menu-nav ul li:before {
+    display: inline-block;
+    content: "";
+    width: 1px;
+    height: 14px;
+    margin: 2px 20px 0;
+    background: #ddd;
+    vertical-align: top;
+}
+
+[class^=sub-type] .menu-nav-wrap .menu-nav ul li:first-child:before {
+    display: none;
+}
+
+[class^=sub-type] .menu-nav-wrap .menu-nav ul li.active a {
+    font-weight: 600;
+    color: #111;
+}
+[class^=sub-type] .menu-nav-wrap .menu-nav ul li a {
+    font-size: 16px;
+}
+
+.menu-nav > ul {
+    margin-left: -40px;
+}
+
+.order-view .order-top {
+    padding: 18px 40px;
+    border-top: 2px solid #111;
+}
+.order-view [class^=order-] {
+    position: relative;
+}
+
+.order-view .order-top span:first-child {
+    margin-left: 0;
+}
+.order-view .order-top span {
+    display: inline-block;
+    font-size: 15px;
+    color: #111;
+    font-weight: 700;
+    margin-left: 40px;
+}
+
+.order-view .order-top span .tit {
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.order-view .order-center {
+    border-top: 1px solid #dddddd;
+    padding: 30px 40px;
+    width: 100%;
+}
+
+.order-view .order-center .state {
+    width: 15%;
+    font-size: 27px;
+    color: #111;
+}
+
+.order-view .menu-info-wrap {
+    margin: 50px 0;
+    background: #f9f9f9;
+    padding: 38px 0;
+    font-size: 0;
+}
+
+.order-view .menu-info-wrap .menu-info {
+    display: inline-block;
+    width: 50%;
+    font-size: 0;
+    text-align: center;
+    border-right: 1px solid #dddddd;
+    vertical-align: middle;
+}
+
+.order-view .menu-info-wrap .menu-info .info-box {
+    display: inline-block;
+    text-align: left;
+    padding: 0 40px;
+}
+
+.order-view .menu-info-wrap .menu-info .title-type2 {
+    margin-bottom: 12px;
+}
+.title-type2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111;
+    line-height: 25px;
+}
+
+.order-view .menu-info-wrap .menu-info p {
+    position: relative;
+    font-size: 15px;
+    color: #111;
+    line-height: 30px;
+}
+
+.order-view .menu-info-wrap .menu-info p:before {
+    display: inline-block;
+    content: "-";
+    margin-right: 4px;
+}
+
+.order-view .menu-info-wrap .pay-info {
+    display: inline-block;
+    width: 50%;
+    font-size: 0;
+    padding: 0 110px;
+    vertical-align: middle;
+}
+
+.order-view .menu-info-wrap .pay-info dl:first-child {
+    margin-top: 0;
+}
+.order-view .menu-info-wrap .pay-info dl {
+    font-size: 0;
+}
+
+.order-view .menu-info-wrap .pay-info dl dt, .order-view .menu-info-wrap .pay-info dl dd {
+    padding: 0 18px;
+    display: inline-block;
+    font-size: 16px;
+    color: #111;
+    width: 50%;
+}
+
+.order-view .menu-info-wrap .pay-info dl dd {
+    text-align: right;
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.order-view .menu-info-wrap .pay-info dl dd em {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.order-view .menu-info-wrap .pay-info dl {
+    margin-top: 10px;
+    font-size: 0;
+}
+
+.order-view .menu-info-wrap .pay-info dl.discount dt em, .order-view .menu-info-wrap .pay-info dl.discount dd em {
+    color: #ff143c;
+}
+
+.order-view .menu-info-wrap .pay-info .apply {
+    margin-top: 6px;
+    padding: 0 20px;
+}
+
+.order-view .menu-info-wrap .pay-info .apply li {
+    font-size: 13px;
+    color: #888888;
+    position: relative;
+    padding-left: 19px;
+    line-height: 20px;
+}
+
+.order-view .menu-info-wrap .pay-info .apply li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    border-left: 1px solid #888888;
+    border-bottom: 1px solid #888888;
+    width: 8px;
+    height: 8px;
+}
+
+.order-view .menu-info-wrap .pay-info dl.total {
+    border-top: 1px solid #888888;
+    padding: 22px 0 0;
+}
+.order-view .menu-info-wrap .pay-info dl {
+    margin-top: 10px;
+    font-size: 0;
+}
+
+.order-view .menu-info-wrap .pay-info dl.total dt {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+.order-view .menu-info-wrap .pay-info dl.total dd {
+    font-size: 27px;
+}
+
+.order-view .menu-info-wrap .pay-info dl.total dd em {
+    font-size: 36px;
+    font-weight: 800;
+}
+
+
+/* 주문 정보(결제내용) */
+
+.order-view .order-info {
+    border-top: 2px solid #000;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 6px;
+}
+
+
+.order-view .order-info .title-type2 {
+    padding: 18px 40px;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+    line-height: 1;
+    margin: 0 0 22px;
+}
+.title-type2 {
+    font-weight: 600;
+    color: #111;
+}
+
+.order-view .order-info dl {
+    font-size: 0;
+    margin: 0 0 22px;
+    padding: 0 40px;
+}
+
+.order-view .order-info dl dt {
+    width: 185px;
+    font-weight: 600;
+}
+
+.order-view .order-info .order_view_copy {
+    padding-left: 15px;
+    background: none;
+    text-decoration: underline;
+    font-size: 15px;
+    color: #111;
+}
+
+
+button {
+    border: 0;
+    box-shadow: none;
+    cursor: pointer;
+    -moz-appearance: none;
+    appearance: none;
+}
+button {
+    line-height: 1;
+    font-family: "Roboto", "Noto", sans-serif;
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+
+.order-view .order-info dl dt, .order-view .order-info dl dd {
+    position: relative;
+    display: inline-block;
+    font-size: 15px;
+    color: #111;
+    line-height: 23px;
+}
+
+.order-view .order-info dl dd {
+    width: calc(100% - 185px);
+    color: #888888;
+}
+
+element.style {
+    width: 100%;
+    color: #FF752D;
+}
+
+
+/* 목록 재주문 */
+
+.order-view .order-info + .btn-wrap {
+    overflow: hidden;
+    margin-top: 50px;
+}
+.btn-wrap, .btn-wrap2 {
+    width: 100%;
+}
+[class^=btn-wrap] {
+    margin-top: 30px;
+    font-size: 0;
+    text-align: center;
+}
+
+.order-view .order-info + .btn-wrap .t-l {
+    float: left;
+}
+.t-l {
+    text-align: left !important;
+}
+
+.btn-type.v5 {
+    width: 220px;
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #888888;
+}
+
+.btn-type {
+    height: 62px;
+    font-size: 18px;
+    line-height: 62px;
+    font-weight: 500;
+}
+
+[class^=btn-type] {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+.order-view .order-info + .btn-wrap .t-r {
+    float: right;
+}
+.t-r {
+    text-align: right !important;
+}
+
+.btn-type.v3, .btn-type.chk-box.v4 {
+    width: 220px;
+}
+.btn-type {
+    height: 62px;
+    background: #ff143c;
+    border: 1px solid #ff143c;
+    color: #fff;
+    font-size: 18px;
+    line-height: 62px;
+    font-weight: 500;
+}

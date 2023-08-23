@@ -1,0 +1,835 @@
+* {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+    letter-spacing: -0.75px;
+}
+
+body {
+    overflow-x: hidden;
+    line-height: 1;
+    font-family: "Roboto", "Noto", sans-serif;
+    font-weight: 500;
+}
+
+
+form {
+    display: block;
+}
+
+
+input, select, textarea {
+    font-size: 1em;
+    vertical-align: middle;
+}
+
+input:not([type="range"]):not([type="color"]):not([type="button"]):not([type="reset"]):not([type="submit"]):not([type="file"]) {
+    writing-mode: horizontal-tb !important;
+}
+
+
+input[type="hidden" i] {
+    appearance: none;
+    background-color: initial;
+    cursor: default;
+    display: none !important;
+    padding: initial;
+    border: initial;
+}
+
+
+input {
+    text-rendering: auto;
+    color: fieldtext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    -webkit-rtl-ordering: logical;
+}
+
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+
+
+[class^=sub-type] {
+    padding-bottom: 100px;
+}
+
+.inner-box, #gnb .gnb-inner {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+[class^=sub-type] .page-title-wrap {
+    position: relative;
+    margin-top: 200px;
+}
+
+[class^=sub-type] .page-title {
+    font-size: 32px;
+    color: #111;
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1em;
+}
+
+[class^=sub-type] .page-title-wrap .depth-area {
+    position: absolute;
+    right: 0;
+    top: 16px;
+}
+
+
+[class^=sub-type] .page-title-wrap .depth-area ol {
+    font-size: 0;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+ol {
+    display: block;
+    list-style-type: decimal;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+[class^=sub-type] .page-title-wrap .depth-area ol li {
+    display: inline-block;
+    font-size: 13px;
+    color: #888888;
+}
+
+[class^=sub-type] .page-title-wrap .depth-area ol li:first-child:before {
+    display: none;
+}
+[class^=sub-type] .page-title-wrap .depth-area ol li:before {
+    display: inline-block;
+    content: "";
+    margin: 3px 8px 2px 6px;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-style: solid;
+    border-color: transparent #888888 #888888 transparent;
+    border-width: 0 1px 1px 0;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+::before, ::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+[class^=sub-type] .page-title-wrap .depth-area ol li a, [class^=sub-type] .page-title-wrap .depth-area ol li strong {
+    font-size: inherit;
+    font-weight: inherit;
+    color: #888888;
+}
+
+
+[class^=sub-type] .page-title-wrap .depth-area ol li strong {
+    color: #111;
+}
+[class^=sub-type] .page-title-wrap .depth-area ol li a, [class^=sub-type] .page-title-wrap .depth-area ol li strong {
+    font-size: inherit;
+    font-weight: inherit;
+    color: #888888;
+}
+
+
+.pay {
+    padding: 28px 0 0;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+
+.pay .step-wrap .title-wrap {
+    padding: 18px 40px;
+    background: #f5f5f5;
+    border-top: 2px solid #111;
+}
+[class^=title-wrap] {
+    position: relative;
+}
+
+.pay .step-wrap .title-wrap .title-type {
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 600;
+}
+
+
+[class^=title-wrap] [class^=title-type] {
+    display: inline-block;
+    vertical-align: middle;
+    color: #111;
+}
+
+.pay .step-wrap .title-wrap .title-type strong {
+    font-weight: 600;
+}
+
+.pay .step-wrap .deli-info {
+    position: relative;
+    padding: 30px 40px;
+    border-bottom: 1px solid #dddddd;
+}
+
+
+
+.pay .step-wrap .deli-info .address {
+    margin-bottom: 14px;
+    font-size: 18px;
+    color: #111;
+}
+
+
+.pay .step-wrap .deli-info .reserve-info.new221031 {
+    margin-top: 25px;
+}
+.pay .step-wrap .deli-info .reserve-info {
+    display: flex;
+    align-items: center;
+}
+
+.ico-reserve {
+    background: #F5F5F5 url(../image/clocklogo.png) 12px 50% no-repeat;
+    background-size: 18px 18px;
+    padding: 8px 12px 8px 36px;
+    border-radius: 16px;
+    color: #333;
+    font-size: 16px;
+    image-rendering: -webkit-optimize-contrast;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+[class^=ico-] {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+ul {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.pay .step-wrap .deli-info ul.notice-txt li {
+    margin-top: 8px;
+    color: #888;
+    font-size: 13px;
+}
+
+.notice-txt > li {
+    margin-left: -40px;
+}
+
+
+/* 배송지 정보 */
+
+.pay .step-wrap .deli-info.form {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+.pay .step-wrap .deli-info {
+    position: relative;
+    padding: 30px 40px;
+}
+.deli-info.form {
+    border-color: #888;
+}
+
+.pay .step-wrap .deli-info.form dl:first-child {
+    margin-top: 0;
+}
+
+
+
+.pay .step-wrap .deli-info.form dl.chk-wrap dt {
+    margin: 0;
+}
+.pay .step-wrap .deli-info.form dl dt {
+    width: 130px;
+    font-size: 16px;
+    color: #111;
+}
+
+
+
+.pay .step-wrap .deli-info.form dl dd {
+    width: calc(100% - 130px);
+}
+
+.pay .step-wrap:nth-child(n+2) {
+    margin-top: 80px;
+}
+
+.order-step {
+    margin-left: -40px;
+}
+
+.pay .step-wrap .deli-info.form dl {
+    font-size: 0;
+    margin-top: 18px;
+}
+
+.pay .step-wrap .deli-info.form dl:first-child {
+    margin-top: 0;
+}
+
+
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+.pay .step-wrap .deli-info.form dl dt {
+    width: 130px;
+    font-size: 16px;
+    color: #111;
+    margin-top: 15px;
+}
+
+
+
+input[type=text], input[type=password], textarea {
+    transition: all 0.3s ease-in-out;
+}
+
+.pay .step-wrap .deli-info.form dl dd .form-item {
+    width: 500px;
+}
+
+.pay .step-wrap .deli-info.form .form-group .form-item {
+    width: auto;
+    margin-top: 0;
+}
+
+.chk-box {
+    display: inline-block;
+    text-align: left;
+}
+
+label, select, input, textarea {
+    vertical-align: middle;
+}
+
+.chk-box input[type=checkbox], .chk-box input[type=radio] {
+    display: none;
+}
+
+.pay .step-wrap .deli-info ul.notice-txt li.delivery-notice {
+    color: #ff143c;
+}
+
+.pay .step-wrap .deli-info.form dl dt, .pay .step-wrap .deli-info.form dl dd {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pay .step-wrap .chk-box.v3 .checkbox {
+    background-color: #fff;
+}
+.chk-box.v3 .checkbox, .chk-box.v4 .checkbox {
+    border-color: #ddd;
+}
+
+.pay .step-wrap .deli-info.form dl dd .form-item.divide-area .chk-box {
+    margin-left: 16px;
+}
+
+.chk-box .checkbox {
+    display: inline-block;
+    position: relative;
+    width: 22px;
+    height: 22px;
+    margin-right: 5px;
+    background: #fff;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    margin-top: -2px;
+
+}
+
+
+.chk-box label {
+    position: relative;
+    cursor: pointer;
+    font-size: 16px;
+    color: #888888;
+}
+
+.form-group2 .form-item {
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
+}
+
+.form-group {
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+
+.pay .step-wrap .deli-info.form .select-group .select-type2 {
+    width: 160px;
+}
+
+
+.pay .step-wrap .deli-info.form dl dd .form-item .select-type2 select {
+    font-size: 16px;
+}
+.select-type2 select, .company .sel_box select, .select-type.type2 select {
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 50px;
+    border: 1px solid #ddd;
+    color: #888888;
+}
+select {
+    padding: 0 0 0 20px;
+    background: #fff;
+    box-sizing: border-box;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    outline: none;
+    font-weight: 500;
+    font-family: "Roboto", "Noto", sans-serif;
+    width: 100%;
+}
+input, select, textarea {
+    vertical-align: middle;
+}
+
+select:not(:-internal-list-box) {
+    overflow: visible !important;
+}
+
+
+select {
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    align-items: center;
+    white-space-collapse: preserve;
+    text-wrap: nowrap;
+    -webkit-rtl-ordering: logical;
+    cursor: default;
+}
+
+
+option {
+    font-weight: normal;
+    display: block;
+    white-space-collapse: collapse;
+    text-wrap: nowrap;
+    min-height: 1.2em;
+}
+
+.select-type2:after, .company .sel_box:after, .select-type.type2:after {
+    content: "";
+    z-index: 2;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-style: solid;
+    border-color: transparent #888 #888 transparent;
+    border-width: 0 1px 1px 0;
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all 0.15s ease-in-out;
+}
+
+.pay .step-wrap .deli-info.form .select-group input {
+    width: 160px;
+    margin-left: 10px;
+}
+
+input[type=text], input[type=submit], input[type=password], input[type=search], input[type=number], input[type=reset], input[type=email], input[type=tel], input[type=search], input[type=file], input[type=email], input[type=tel], textarea {
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-appearance: none;
+    border: 1px solid #ddd;
+    height: 42px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    font-size: 15px;
+    color: #111;
+    letter-spacing: -0.2px;
+    font-weight: 500;
+    font-family: "Roboto", "Noto", sans-serif;
+}
+
+
+.pay .step-wrap .deli-info.form dl dd .form-item.divide-area {
+    display: flex;
+    align-items: center;
+    width: auto;
+}
+.deli-info.form .form-item:first-child {
+    margin-top: 0;
+}
+
+.pay .step-wrap .deli-info.form dl dd .form-item.divide-area .select-type2 {
+    width: 500px;
+}
+.select-type2, .company .sel_box, .select-type.type2 {
+    position: relative;
+    height: 42px;
+}
+
+.pay .step-wrap .deli-info.form dl dd .form-item .select-type2 select {
+    font-size: 16px;
+}
+.select-type2 select, .company .sel_box select, .select-type.type2 select {
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 50px;
+    border: 1px solid #ddd;
+    color: #888888;
+}
+
+
+.select-type2:after, .company .sel_box:after, .select-type.type2:after {
+    content: "";
+    z-index: 2;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-style: solid;
+    border-color: transparent #888 #888 transparent;
+    border-width: 0 1px 1px 0;
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all 0.15s ease-in-out;
+}
+
+.pay .step-wrap .deli-info.form dl dd .form-item.form-text {
+    margin-top: 18px;
+}
+
+
+/* 주문내역 */
+
+.pay .step-wrap .title-wrap {
+    padding: 18px 40px;
+    background: #f5f5f5;
+    border-top: 2px solid #111;
+}
+
+.pay .step-wrap .title-wrap .title-type {
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 600;
+}
+[class^=title-wrap] [class^=title-type] {
+    display: inline-block;
+    vertical-align: middle;
+    color: #111;
+}
+
+.pay .step-wrap .order-step .menu {
+    position: relative;
+    padding: 20px 40px;
+}
+
+
+.pay .step-wrap .order-step .menu strong {
+    font-size: 18px;
+    color: #111;
+    font-weight: 500;
+}
+
+.pay .step-wrap .order-step .topping {
+    padding: 15px 40px 0;
+    border-top: 1px solid #ddd;
+}
+
+
+.pay .step-wrap .order-step .topping .item {
+    font-size: 16px;
+    color: #111;
+    line-height: 30px;
+}
+
+
+
+/* 할인 적용 */
+
+.pay .step-wrap:nth-child(n+2) {
+    margin-top: 80px;
+}
+
+.pay .step-wrap .title-wrap {
+    padding: 18px 40px;
+    background: #f5f5f5;
+    border-top: 2px solid #111;
+}
+
+.pay .step-wrap .title-wrap .title-type {
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.pay .step-wrap .guide-box3 {
+    margin: 20px 40px 0;
+    font-size: 13px;
+    color: #ff143c;
+    line-height: 1;
+}
+
+.pay .step-wrap .guide-box3::before {
+    color: #ff143c;
+    vertical-align: top;
+}
+.guide-box3:before {
+    content: "*";
+    display: inline-block;
+    font-size: 14px;
+    color: #ff752d;
+    margin-right: 2px;
+}
+
+.pay .step-wrap .discount-step ul {
+    font-size: 0;
+    text-align: left;
+    padding-left: 40px;
+    margin-top: 5px;
+}
+
+
+
+.pay .step-wrap .discount-step li:nth-child(odd) {
+    margin-left: 0;
+}
+.pay .step-wrap .discount-step li {
+    display: inline-block;
+    width: 405px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.pay .step-wrap .discount-step li .btn-type-brd5 {
+    padding-left: 30px;
+    text-align: left;
+}
+.btn-type-brd, .btn-type-brd6, .btn-type-brd5, .btn-type-brd3, .btn-type-brd4 {
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    border: 1px solid #ddd;
+    font-weight: 500;
+    line-height: 60px;
+    color: #888888;
+    font-size: 17px;
+}
+
+[class^=btn-type] {
+    display: inline-block;
+    position: relative;
+}
+
+
+/* 최종 결제 금액 */
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.pay .step-wrap .total-step {
+    padding: 50px 0 0;
+    margin-bottom: -5px;
+    text-align: center;
+}
+
+.pay .step-wrap .total-step ul {
+    padding-bottom: 50px;
+    font-size: 0;
+    text-align: center;
+    border-bottom: 1px solid #dddddd;
+}
+
+
+
+.pay .step-wrap .total-step ul li {
+    position: relative;
+    display: inline-block;
+    padding: 0 30px;
+    color: #111;
+    text-align: center;
+}
+
+.pay .step-wrap .total-step ul li .tit {
+    font-size: 18px;
+}
+
+.pay .step-wrap .total-step ul li .price {
+    margin-top: 8px;
+    font-size: 22px;
+}
+
+.pay .step-wrap .total-step ul li .price em {
+    font-size: 36px;
+    font-weight: 600;
+    color: #111;
+    vertical-align: -2px;
+}
+address, caption, em, var {
+    font-style: normal;
+}
+
+.pay .step-wrap .total-step ul li.discount {
+    padding-left: 50px;
+}
+
+.pay .step-wrap .total-step ul li.discount:before {
+    content: "-";
+    display: inline-block;
+    font-size: 60px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+
+.pay .step-wrap .total-step ul li.discount .price em {
+    color: #ff143c;
+}
+
+address, caption, em, var {
+    font-style: normal;
+}
+
+.pay .step-wrap .total-step ul li.delivery:before {
+    content: "+";
+    display: inline-block;
+    font-size: 36px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(5%);
+}
+
+.pay .step-wrap .total-step ul li.delivery .tooltip-wrap {
+    position: relative;
+    top: -20px;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.pay .step-wrap .total-step ul li.delivery .tooltip-wrap .tooltip {
+    padding: 6px 10px 7px 10px;
+    font-size: 14px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.pay .step-wrap .total-step ul li.delivery .tooltip-wrap .triangle {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid #222;
+    transform: rotate(45deg);
+    top: 21px;
+}
+
+
+.pay .step-wrap .total-step ul li.total:before {
+    content: "=";
+    display: inline-block;
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.pay .step-wrap .total-step ul li.total {
+    padding-left: 80px;
+}
+
+
+
+/* 결제하기 버튼 */
+
+.btn-wrap, .btn-wrap2 {
+    width: 100%;
+}
+[class^=btn-wrap] {
+    margin-top: 30px;
+    font-size: 0;
+    text-align: center;
+}
+
+
+.btn-type {
+    width: 240px;
+    height: 62px;
+    background: #ff143c;
+    border: 1px solid #ff143c;
+    color: #fff;
+    font-size: 18px;
+    line-height: 62px;
+    font-weight: 500;
+}
