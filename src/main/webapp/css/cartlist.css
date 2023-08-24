@@ -745,7 +745,9 @@ address, caption, em, var {
 
 .cart .cart-area > .btn-wrap .btn-type {
     font-weight: 500;
-    margin-left: auto;
+    margin-left: -100;
+    
+ 
 }
 [class^=btn-wrap] [class^=btn-] + [class^=btn-] {
     margin-left: 12px;

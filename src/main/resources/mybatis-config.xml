@@ -30,7 +30,7 @@
 		<mapper class="com.itwill.pizza.mapper.ProductMapper"/>
 		<mapper class="com.itwill.pizza.mapper.UserMapper"/>
 		<mapper class="com.itwill.pizza.mapper.CartMapper"/>
-		<mapper class="com.itwill.pizza.mapper.CartMapper"/>
+		<mapper class="com.itwill.pizza.mapper.BoardMapper"/>
 		<mapper class="com.itwill.pizza.mapper.OrderMapper"/>
 
 	</mappers>

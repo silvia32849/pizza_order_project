@@ -10,14 +10,9 @@
 
 ProductService ps = new ProductService();
 List<Product> productList= ps.findByAll();
-<<<<<<< HEAD
-
-
-=======
 if(session.getAttribute("user_id")!=null){
 	//로그인 상태라면 헤더변경 아닐시 비로그인상태의 헤더출력.
 }
->>>>>>> refs/remotes/origin/feature/product_view
 %>
 <html lang="en">
 <head>
@@ -35,19 +30,6 @@ if(session.getAttribute("user_id")!=null){
                 <div class="header_top">
                     <div class="header_top_inner">
                         <h1>
-<<<<<<< HEAD
-                            <a href="#" aria-label="홈" class="logo"></a>
-                            <div class="center"></div>
-                        </h1>
-                        <!--
-                        <div class="search_area">
-                            <form>
-                               <input type="search" placeholder="search">
-                                <span>검색</span>
-                            </form>
-                        </div>
-                        -->
-=======
                             <a href="index.jsp" aria-label="홈" class="logo"></a>
                             <div class="center"></div>
                         </h1>
@@ -73,32 +55,7 @@ if(session.getAttribute("user_id")!=null){
                     </div>
                 </div>
                 
->>>>>>> refs/remotes/origin/feature/product_view
 
-<<<<<<< HEAD
-                        
-                        
-
-                        
-                        
-                        
-                        <ul class="header_top_list">
-                            <li class="header_top_item">
-                                <a href="login.html" class="header_top_link"> 로그인</a>
-                            </li>
-                            <li class="header_top_item">
-                                <a href="#" class="header_top_link"> 마이페이지</a>
-                            </li>
-                            <li class="header_top_item">
-                                <a href="#" class="header_top_link"> 관심상품</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-
-=======
->>>>>>> refs/remotes/origin/feature/product_view
                 <!-- 헤더 마지막 시작-->
                 <div class="portal_tartget vue-portal-target">
                     <nav class="tabs">
@@ -321,11 +278,7 @@ if(session.getAttribute("user_id")!=null){
                             <div class="info_list">
                                 <dl class="info_item">
                                     <dt class="business_title">
-<<<<<<< HEAD
-                                        크림 주식회사 · 대표 김민수
-=======
                                         크림 주식회사 · 대표 차경진
->>>>>>> refs/remotes/origin/feature/product_view
                                         <span class="blank"></span>
                                         사업자등록번호 : 000-00-00000
                                         <span class="blank"></span>

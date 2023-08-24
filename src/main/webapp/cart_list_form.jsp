@@ -16,7 +16,7 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/cartlist.css">
-<title>도미노 피자</title>
+<title>인생피자</title>
 </head>
 <script type="text/javascript">
 	/*전체 삭제(장바구니 비우기)*/
@@ -32,10 +32,9 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 	function cart_deleteItem(cart_no) {
 
 		var form = document.getElementById("deleteForm" + cart_no);
-		console.log(form);
-		document.cart_delete_form.method = 'POST';
-		document.cart_delete_form.action = 'cart_delete_item_action.jsp';
-		document.cart_delete_form.submit();
+		form.method = 'POST';
+		form.action = 'cart_delete_item_action.jsp';
+		form.submit();
 	}
 
 	//카트 수량 변경
@@ -129,13 +128,13 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 									<ul>
 										<li class="active"><a href="">배달<span class="itemA">30분
 													소요</span></a></li>
-										<li><a href="javascript:selectOrderType();">포장<span
+										<li><a href="cart_takeout_list_form.jsp">포장<span
 												class="itemB">15분 소요</span></a></li>
 									</ul>
 								</div>
 								<div class="title-wrap cart-waiting-btn"></div>
 								<div class="deli-info">
-									<div class="address">서울특별시 송파구</div>
+									<div class="address">서울특별시 강남구 역삼동 아이티윌 4층</div>
 									<div class="reserve-info new221031">
 										<div class="reserve-info-div"></div>
 
@@ -252,12 +251,12 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 										<!-- cart item end -->
 
 
-										<div class="prd-delete">
-									<!-- 		<a
+									<!--	<div class="prd-delete">
+									 		<a
 												href="javascript:changeGoodsCnt('delete',1,'RPZ298AL', '1', 2, 0);"
 												class="btn-close"> <span class="hidden">삭제</span> 
-											</a> -->
-										</div>
+											</a> 
+										</div>-->
 										</li>
 										<!-- 총 주문 금액 -->
 										<li class="total-price2 side">
@@ -311,10 +310,10 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 							<!-- 주문하기 버튼 -->
 
 							<div class="btn-wrap">
-								<a href="order_into_form.jsp" class="btn-type v3">주문하기</a>
+							<a href="product_list.jsp" class="btn-type v3">메뉴 추가하기</a>
+							<a href="order_into_form.jsp" class="btn-type v3">주문하기</a>
 							</div>
 
-							<a href="product_list.jsp" class="btn-type-brd">메뉴 추가하기</a>
 
 
 							<!-- //주문하기 버튼 -->
@@ -351,10 +350,10 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 								<div class="info_list">
 									<dl class="info_item">
 										<dt class="business_title">
-											크림 주식회사 · 대표 차경진 <span class="blank"></span> 사업자등록번호 :
+											도미노 주식회사 · 대표이사 오광현, 김영훈 <span class="blank"></span> 사업자등록번호 :
 											000-00-00000 <span class="blank"></span> 통신판매업 : 제
 											2021-성남분당C-0093호 <span class="blank"></span><br> 사업장소재지
-											: 서울 강남구 무슨타워, 4층 아이티윌 <span class="blank"></span> 호스팅 서비스 :
+											: 서울 강남구 삼원타워, 4층 아이티윌 <span class="blank"></span> 호스팅 서비스 :
 											마이바티스 ㈜
 										</dt>
 									</dl>

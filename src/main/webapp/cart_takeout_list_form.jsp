@@ -17,44 +17,46 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/style.css" >
     <link rel="stylesheet" type="text/css" href="css/cartlist.css" >
-    <title>도미노 피자</title>
+    <title>인생피자</title>
 </head>
 <script type="text/javascript">
-	
-	//카트 수량 변경
-	function changeNumber(desc, cart_no){
-		var form = document.getElementById("updateForm"+cart_no);
-		var qty = document.getElementById("qty"+cart_no);
-		if(desc == '+'){
-			form.cart_qty.value = parseInt(form.cart_qty.value) +1;
-			qty.value=form.cart_qty.value;
-		} else if(desc =='-'){
-			if(form.cart_qty.value -1 >=0){
-				form.cart_qty.value = parseInt(form.cart_qty.value) -1;
-				qty.value=form.cart_qty.value;
-			}
+/*전체 삭제(장바구니 비우기)*/
+
+function cart_delete() {
+	document.cart_view_form.method = 'POST';
+	document.cart_view_form.action = 'cart_takeout_delete_action.jsp';
+	document.cart_view_form.submit();
+}
+
+/*카트아이템 1개 삭제*/
+
+function cart_deleteItem(cart_no) {
+
+	var form = document.getElementById("deleteForm" + cart_no);
+	form.method = 'POST';
+	form.action = 'cart_takeout_delete_item_action.jsp';
+	form.submit();
+}
+
+//카트 수량 변경
+function changeNumber(desc, cart_no) {
+	var form = document.getElementById("updateForm" + cart_no);
+	var qty = document.getElementById("qty" + cart_no);
+	if (desc == '+') {
+		form.cart_qty.value = parseInt(form.cart_qty.value) + 1;
+		qty.value = form.cart_qty.value;
+	} else if (desc == '-') {
+		if (form.cart_qty.value - 1 >= 0) {
+			form.cart_qty.value = parseInt(form.cart_qty.value) - 1;
+			qty.value = form.cart_qty.value;
 		}
-		
+	}
+
 	form.method = 'POST';
 	form.action = 'cart_takeout_update_action.jsp';
 	form.submit();
-		
-	}
-	
-	//장바구니 비우기
-	function cart_delete(){
-		document.cart_view_form.method='POST';
-		document.cart_view_form.action='cart_takeout_delete_action.jsp';
-		document.cart_view_form.submit();
-	}
-	
-	//장바구니 아이템 삭제
-	function cart_deleteItem(){
-		document.cart_view_form.method='POST';
-		document.cart_view_form.action='cart_takeout_delete_item_action.jsp';
-		document.cart_view_form.submit();
-	}
-	
+
+}
 </script>
 <body>
     <div class="warp">
@@ -232,11 +234,16 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 												<em>주문금액 : <%=new DecimalFormat("#,##0").format(cart.getProduct().getProduct_price() * cart.getCart_qty())%>원</em>
 											</div>
 											<div class="prd-delete">
-											<form action="cart_takeout_delete_item_action.jsp" method="post">
-												<input type="hidden" name="cart_no" value="<%=cart.getCart_no()%>">
-												<input type="submit" value="삭제">
-											</form>
+												
+													<!-- 카트 1개 삭제 -->
+												<a href="javascript:cart_deleteItem('<%=cart.getCart_no()%>')"
+													class="btn-close"><span class="hidden">삭제</span></a>
 											</div>
+											
+											<form name="cart_delete_form"
+													id="deleteForm<%=cart.getCart_no()%>">
+													<input type="hidden" name="cart_no" value="<%=cart.getCart_no()%>">
+												</form>
 										</li>
 										<%}%>
 										<!-- cart item end -->
@@ -330,13 +337,13 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
                             <div class="info_list">
                                 <dl class="info_item">
                                     <dt class="business_title">
-                                        도미노 주식회사 · 대표 김민수
+                                        도미노 주식회사 · 대표이사 오광현, 김영훈
                                         <span class="blank"></span>
                                         사업자등록번호 : 000-00-00000
                                         <span class="blank"></span>
                                         통신판매업 : 제 2021-성남분당C-0093호
                                         <span class="blank"></span><br>
-                                        사업장소재지 : 서울 강남구 무슨타워, 4층 아이티윌
+                                        사업장소재지 : 서울 강남구 삼원타워, 4층 아이티윌
                                         <span class="blank"></span>
                                         호스팅 서비스 : 마이바티스 ㈜
                                     </dt>
