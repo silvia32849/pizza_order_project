@@ -11,8 +11,13 @@
  <%@include file="login_check.jspf" %>
 <%
 
+
+//UserService userService = new UserService();
+//sUser = userService.findUser("user4");
+//sUser= new User("user7",null,"이진영",null,"서울시",null,null,null);
 CartService cartService = new CartService();
 List<Cart> cartList = cartService.getCartItemByUserId(sUserId); 
+
 %>
 
 <!DOCTYPE html>
@@ -42,25 +47,56 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 	<link rel="stylesheet" type="text/css" href="css/font.css"> 
 	<link rel="stylesheet" type="text/css" href="css/common.css"> 
 	<link rel="stylesheet" type="text/css" href="css/sub.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css" >
+    <link rel="stylesheet" type="text/css" href="css/cartlist.css" >
 	
 	
 	
 	<script type="text/javascript">
+	//카트 수량 변경
+	function changeNumber(desc, cart_no){
+		var form = document.getElementById("updateForm"+cart_no);
+		var qty = document.getElementById("qty"+cart_no);
+		if(desc == '+'){
+			form.cart_qty.value = parseInt(form.cart_qty.value) +1;
+			qty.value=form.cart_qty.value;
+		} else if(desc =='-'){
+			if(form.cart_qty.value -1 >=0){
+				form.cart_qty.value = parseInt(form.cart_qty.value) -1;
+				qty.value=form.cart_qty.value;
+			}
+		}
+		
+	form.method = 'POST';
+	form.action = 'cart_update_action.jsp';
+	form.submit();
+		
+	}
+	
+	//장바구니 비우기
 	function cart_delete(){
 		document.cart_view_form.method='POST';
 		document.cart_view_form.action='cart_delete_action.jsp';
 		document.cart_view_form.submit();
 	}
 	
-	/*
-	 카드에담긴전체상품을주문
-	*/
-	function cart_view_form_order_submit(){
-		document.cart_view_form.method='POST';
-		document.cart_view_form.buyType.value='cart';
-		document.cart_view_form.action='order_create_form.jsp';
-		document.cart_view_form.submit();
+	//장바구니 아이템 삭제
+	function cart_deleteItem(){
+		
+			var form = document.cart_view_form;
+	        
+	        // cart_no 값을 hidden input에 설정
+	        var cartNoInput = document.createElement("input");
+	        cartNoInput.type = "hidden";
+	        cartNoInput.name = "cart_no";
+	        cartNoInput.value = "cart_no";
+	        form.appendChild(cartNoInput);
+		
+			document.cart_view_form.method='POST';
+			document.cart_view_form.action='cart_delete_item_action.jsp';
+			document.cart_view_form.submit();
 	}
+	
 	
 	</script>
 	
@@ -83,8 +119,8 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 					<div class="step-wrap">
 						<div class="cart-waiting-tab">
 								<ul>
-													<li><a href="cart_view.jsp">배달<span class="itemA"> ~ 60분 소요</span></a></li>
-													<li class="active"><a href="">포장<span class="itemB"> ~ 45분 소요</span></a></li>
+													<li class="active"><a href="">배달<span class="itemA"> ~ 60분 소요</span></a></li>
+													<li><a href="cart_list_Takeout_form.jsp">포장<span class="itemB"> ~ 45분 소요</span></a></li>
 												</ul>
 											</div>
 							<div class="title-wrap cart-waiting-btn">
@@ -178,10 +214,11 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 												<em>총주문금액 : <%=new DecimalFormat("#,##0").format(cart.getProduct().getProduct_price() * cart.getCart_qty())%>원</em>
 											</div>
 											<div class="prd-delete">
-											<form action="cart_delete_item_action.jsp" method="post">
-												<input type="hidden" name="cart_no" value="<%=cart.getCart_no()%>">
-												<input type="submit" value="삭제">
-											</form>
+											<form name="cart_view_form" action="cart_delete_item_action.jsp" method="POST">
+											    <input type="submit" value="삭제" class="image-button">
+											    <!-- cart_no 값을 hidden input으로 추가 -->
+											    <input type="hidden" name="cart_no" value="<%=cart.getCart_no()%>">
+												</form>
 											</div>
 										</li>
 										<%}%>

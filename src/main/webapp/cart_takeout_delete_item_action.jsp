@@ -11,7 +11,7 @@
         String cart_noStr=request.getParameter("cart_no");
     	CartService cartService=new CartService();
     	cartService.deleteCartItemByCartNo(Integer.parseInt(cart_noStr));
-    	response.sendRedirect("cart_list_form.jsp");
+    	response.sendRedirect("cart_takeout_list_form.jsp");
     	/*
     	response.sendRedirect("cart_view_select.jsp");
     	response.sendRedirect("cart_view_select_update_qty.jsp");

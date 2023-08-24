@@ -766,3 +766,13 @@ address, caption, em, var {
     position: relative;
     text-align: center;
 }
+.btn-type-brd, .btn-type-brd6, .btn-type-brd5, .btn-type-brd3, .btn-type-brd4 {
+    width: 20%;
+    height: 60px;
+    background: #fff;
+    border: 1px solid #ddd;
+    font-weight: 500;
+    line-height: 60px;
+    color: #888888;
+    font-size: 17px;
+}

@@ -11,7 +11,7 @@ if(request.getMethod().equalsIgnoreCase("GET")){
 
 CartService cartService=new CartService();
 cartService.deleteAllItem(sUserId);
-response.sendRedirect("cart_list_form.jsp");
+response.sendRedirect("cart_takeout_list_form.jsp");
 
 
 %>
