@@ -79,8 +79,12 @@ public class UserDaoImplMyBatis implements UserDao {
 
 	@Override
 	public int countByUserId(String userId) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("#### UserDaoImplMyBatis : countByUserId 호출  ");
+		SqlSession sqlSession= sqlSessionFactory.openSession(true);
+		UserMapper userMapper=sqlSession.getMapper(UserMapper.class);
+		int rowCount=userMapper.countByUserId(userId);
+		sqlSession.close();
+		return rowCount;
 	}
 
 

@@ -1,13 +1,188 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@page import="com.itwill.pizza.userinfo.User"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
 
+String msg=(String)request.getAttribute("msg");
+if(msg==null)msg="";
+
+
+
+%> 
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/usercreate.css">
-    <title>도미노 피자</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/usercreate.css">
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript">
+	function userCreate() {
+		if (document.frm.name.value == "") {
+			alert("이름을 입력하십시요.");
+			document.frm.name.focus();
+			return false;
+		}
+		
+		
+		if (document.frm.userId.value == "") {
+			alert("사용자 아이디를 입력하십시요.");
+			document.frm.userId.focus();
+			return false;
+		}
+		
+		
+		
+		
+		let pw = document.getElementById('passwd').value;
+		let confirmpw = document.getElementById('confirmpw').value;
+		
+		let num = pw.search(/[0-9]/g);
+		let eng = pw.search(/[a-z]/ig);
+		let spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+			
+		if (document.frm.passwd.value == "") {
+			alert("비밀번호를 입력하십시요.");
+			document.frm.passwd.focus();
+			return false;
+		}else if(document.frm.passwd.length < 8 || document.frm.passwd.length > 20){
+			alert("비밀번호는 8 ~ 20자 미만으로 작성해주세요!");
+			document.frm.passwd.focus();
+			return false;
+		}else if(num < 0 || eng < 0 || spe < 0 ){
+			  alert("영문, 숫자, 특수문자를 혼합하여 입력해주세요.");
+			  return false;
+		}
+		
+			
+			
+		if (document.frm.confirmpw.value == "") {
+			alert("비밀번호확인을 입력하십시요.");
+			document.frm.confirmpw.focus();
+			return false;
+		}
+		
+		if(document.frm.passwd.value != document.frm.confirmpw.value){
+			alert("비밀번호가 일치하지 않습니다.");
+			frm.confirmpw.focus();
+			return false;
+		}
+			
+			
+		
+		if (document.frm.byear.value == "") {
+			alert("생년월일을 입력하시오.");
+			document.frm.byear.focus();
+			return false;
+		}
+		
+		if (document.frm.bmonth.value == "") {
+			alert("생년월일을 입력하시오.");
+			document.frm.bmonth.focus();
+			return false;
+		}
+		
+		if (document.frm.bday.value == "") {
+			alert("생년월일을 입력하시오.");
+			document.frm.bday.focus();
+			return false;
+		}
+		
+		if (document.frm.sel_hand_tel1.value == "") {
+			alert("전화번호를 입력하시오.");
+			document.frm.sel_hand_tel1.focus();
+			return false;
+		}
+		
+		if (document.frm.hand_tel2.value == "") {
+			alert("전화번호를 입력하시오.");
+			document.frm.hand_tel2.focus();
+			return false;
+		}
+		
+		if (document.frm.hand_tel3.value == "") {
+			alert("전화번호를 입력하시오.");
+			document.frm.hand_tel3.focus();
+			return false;
+		}
+		
+		
+		if (document.frm.email1.value == "") {
+			alert("이메일 주소를 입력하십시요.");
+			document.frm.email1.focus();
+			return false;
+		}
+		
+		if (document.frm.email2.value == "") {
+			alert("이메일 주소를 입력하십시요.");
+			document.frm.email2.focus();
+			return false;
+		}
+		
+		if (document.frm.sample4_postcode.value == "") {
+			alert("주소를 입력하십시요.");
+			document.frm.sample4_postcode.focus();
+			return false;
+		}
+		
+		
+		
+		
+		document.frm.action = "user_create_action.jsp";
+		document.frm.method='POST';
+		document.frm.submit();
+	}
+
+	
+	/*
+	아이디중복체크
+	*/
+	function openIdCheck(){
+		var left = Math.ceil(( window.screen.width)/5);
+		var top = Math.ceil(( window.screen.height)/5); 
+		let idCheckWindow = window.open("user_id_check_form.jsp","checkForm","width=430,height=200,top="+top+",left="+left+",resizable = no,location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no");
+	}
+	
+	
+    function sample4_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var roadAddr = data.roadAddress; // 도로명 주소 변수
+                var extraRoadAddr = ''; // 참고 항목 변수
+
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraRoadAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraRoadAddr !== ''){
+                    extraRoadAddr = ' (' + extraRoadAddr + ')';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                //document.getElementById('sample4_postcode').value = data.zonecode;
+                //document.getElementById("sample4_roadAddress").value = roadAddr;
+                document.getElementById("sample4_postcode").value = data.jibunAddress;
+                console.log(data);
+            }
+        }).open();
+    }
+</script>
+
+
+
+
+<title>도미노 피자</title>
 </head>
 
 <body>
@@ -32,7 +207,7 @@
 
                     <ul class="header_top_list">
                         <li class="header_top_item">
-                            <a href="login.html" class="header_top_link"> 로그인</a>
+                            <a href="user_login.html" class="header_top_link"> 로그인</a>
                         </li>
                         <li class="header_top_item">
                             <a href="#" class="header_top_link"> 마이페이지</a>
@@ -44,6 +219,7 @@
                 </div>
             </div>
 
+            
 
             <!-- 헤더 마지막 시작-->
             <div class="portal_tartget vue-portal-target">
@@ -68,7 +244,6 @@
                 </nav>
             </div>
         </div>
-
 
 
 
@@ -122,8 +297,7 @@
                                                 <dt class="top">이름</dt>
                                                 <dd>
                                                     <div class="form-item name">
-                                                        <input type="text" placeholder="" id="name" name="name"
-                                                            value="류광훈" disabled="disabled">
+                                                        <input type="text" placeholder="" id="name" name="name">
                                                     </div>
                                                 </dd>
                                             </dl>
@@ -131,9 +305,10 @@
                                                 <dt class="top">아이디</dt>
                                                 <dd>
                                                     <div class="form-item name">
-                                                        <input type="text" name="id" id="id" maxlength="16">
-                                                        <a href="javascript:idCheck($('#id'));"
+                                                        <input onclick="openIdCheck();" type="text" name="userId" id="userId"  maxlength="16" style="height: 41px" readonly="readonly">
+                                                        <a href="javascript:openIdCheck();" 
                                                             class="btn-type v7">중복확인</a>
+                                                            <font color="red"><%=msg%></font>
                                                     </div>
                                                     <div class="text-type4" id="id_alert" style="display:none;"></div>
                                                 </dd>
@@ -144,7 +319,7 @@
                                                 <dd class="mb">
                                                     <div class="form-item number">
                                                         <input type="password" name="passwd" id="passwd" maxlength="16"
-                                                            placeholder="8~16자 영문대소문자,숫자, 특수문자 사용가능">
+                                                            placeholder="8~16자 영문대소문자,숫자, 특수문자 사용가능" >
                                                     </div>
                                                     <div class="text-type4" id="passwd_alert" style="display:none;">
                                                     </div>
@@ -153,7 +328,7 @@
                                                 <dd>
                                                     <div class="form-item number">
                                                         <input type="password" name="confirmpw" id="confirmpw"
-                                                            maxlength="16" value="">
+                                                            maxlength="16" >
                                                     </div>
                                                     <div class="text-type4" id="confirmpw_alert" style="display:none;">
                                                     </div>
@@ -166,7 +341,7 @@
                                                         <div class="form-item birth">
                                                             <div class="select-type2">
                                                                 <select name="byear" id="byear" class="selected"
-                                                                    disabled="">
+                                                                    >
                                                                     <option value="">년</option>
                                                                     <option value="2023">2023</option>
                                                                     <option value="2022">2022</option>
@@ -297,17 +472,17 @@
                                                             </div>
                                                             <div class="select-type2">
                                                                 <select name="bmonth" id="bmonth" class="selected"
-                                                                    disabled="">
+                                                                    >
                                                                     <option>월</option>
-                                                                    <option value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="4" selected="">4</option>
-                                                                    <option value="5">5</option>
-                                                                    <option value="6">6</option>
-                                                                    <option value="7">7</option>
-                                                                    <option value="8">8</option>
-                                                                    <option value="9">9</option>
+                                                                    <option value="01">1</option>
+                                                                    <option value="02">2</option>
+                                                                    <option value="03">3</option>
+                                                                    <option value="04" selected="">4</option>
+                                                                    <option value="05">5</option>
+                                                                    <option value="06">6</option>
+                                                                    <option value="07">7</option>
+                                                                    <option value="08">8</option>
+                                                                    <option value="09">9</option>
                                                                     <option value="10">10</option>
                                                                     <option value="11">11</option>
                                                                     <option value="12">12</option>
@@ -315,17 +490,17 @@
                                                             </div>
                                                             <div class="select-type2">
                                                                 <select name="bday" id="bday" class="selected"
-                                                                    disabled="">
+                                                                    >
                                                                     <option>일</option>
-                                                                    <option value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="4" selected="">4</option>
-                                                                    <option value="5">5</option>
-                                                                    <option value="6">6</option>
-                                                                    <option value="7">7</option>
-                                                                    <option value="8">8</option>
-                                                                    <option value="9">9</option>
+                                                                    <option value="01">1</option>
+                                                                    <option value="02">2</option>
+                                                                    <option value="03">3</option>
+                                                                    <option value="04" selected="">4</option>
+                                                                    <option value="05">5</option>
+                                                                    <option value="06">6</option>
+                                                                    <option value="07">7</option>
+                                                                    <option value="08">8</option>
+                                                                    <option value="09">9</option>
                                                                     <option value="10">10</option>
                                                                     <option value="11">11</option>
                                                                     <option value="12">12</option>
@@ -367,7 +542,7 @@
                                                                 <input type="hidden" name="sel_hand_tel_agency"
                                                                     id="sel_hand_tel_agency" value="KTF">
                                                                 <select name="sel_hand_tel1" id="sel_hand_tel1"
-                                                                    disabled="" class="selected" title="휴대전화번호">
+                                                                    class="selected" title="휴대전화번호">
                                                                     <option value="010" selected="">010</option>
                                                                     <option value="011">011</option>
                                                                     <option value="016">016</option>
@@ -377,18 +552,15 @@
                                                                 </select>
                                                             </div>
                                                             <input type="text" name="hand_tel2" id="hand_tel2"
-                                                                maxlength="4" value="9050" disabled="" class="i_text"
-                                                                onkeyup="checkNum($(this), '숫자만 입력해주세요.');"
+                                                                maxlength="4" class="i_text"
                                                                 title="휴대전화번호">
                                                             <input type="text" name="hand_tel3" id="hand_tel3"
-                                                                maxlength="4" value="4577" disabled="" class="i_text"
-                                                                onkeyup="checkNum($(this), '숫자만 입력해주세요.');"
+                                                                maxlength="4" class="i_text"
                                                                 title="휴대전화번호">
+                                                             
                                                             <br>
 
-                                                            <a href="javascript:void(0)" class="btn-type v7">
-                                                                인증완료
-                                                            </a>
+                                                           
                                                         </div> <!-- //form-item -->
                                                         <div class="text-type4" id="tel_alert" style="display:none;">
                                                         </div>
@@ -396,14 +568,17 @@
                                                 </dd>
                                             </dl>
 
+                                            
                                             <dl>
                                                 <dt class="top">이메일</dt>
                                                 <dd>
                                                     <div class="form-group v2">
                                                         <div class="form-item e-mail">
-                                                            <input type="text" name="email1" id="email1">
+                                                            <input type="text" name="email1" id="email1" >
                                                             <span>@</span>
                                                             <input type="text" name="email2" id="email2">
+                                                            
+                                                            <!-- 
                                                             <div class="select-type2">
                                                                 <select name="email3" id="email3"
                                                                     onchange="checkEmailState($('#email3'),$('#email2'))">
@@ -415,32 +590,26 @@
                                                                     <option value="WRITE" selected="">직접입력</option>
                                                                 </select>
                                                             </div>
-                                                            <a href="javaScript:doCheckEmail();" class="btn-type v7"
-                                                                id="btn_email">인증발송</a>
+                                                            -->
                                                         </div>
-
-                                                        <div id="email_auth_area" class="form-group2"
-                                                            style="display:none;">
-                                                            <div class="form-item number">
-                                                                <div class="inputAuth">
-                                                                    <input type="number" id="email_authNum"
-                                                                        maxlength="6" value="" placeholder="인증번호 6자리"
-                                                                        onkeyup="checkNum($(this), '숫자만 입력해주세요.'); maxLengthCheck(this);">
-                                                                    <div id="authTimer">60:00</div>
-                                                                </div>
-                                                                <a href="javascript:checkEmailAuthNum();"
-                                                                    class="btn-type v4">인증확인</a>
-                                                                <a href="javascript:sendEmailAuthNum('resend');"
-                                                                    class="btn-type v4">재발송</a>
-                                                            </div>
-                                                        </div>
-
                                                         <div class="text-type4" id="email_alert" style="display:none;">
                                                         </div>
                                                     </div>
                                                 </dd>
                                             </dl>
-
+                                            
+                                            <dl>
+                                                <dt class="top">주소</dt>
+                                                <dd>
+                                                    <div class="form-item address">
+                                                         <input type="text" name="sample4_postcode" id="sample4_postcode" placeholder="">
+                                                            <a href="javascript:sample4_execDaumPostcode();" 
+                                                            class="btn-type v7">주소</a>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            
+                                            
                                             <dl>
                                                 <dt class="top">성별(선택)</dt>
                                                 <dd>
@@ -457,7 +626,7 @@
                                                                     <input type="radio" name="sex" id="sex_m" value="M">
                                                                     <label class="checkbox" for="sex_m"></label>
                                                                     <label for="sex_m">남성</label>
-                                                                </div>
+                                                                </rdiv>
                                                                 <div class="chk-box">
                                                                     <input type="radio" name="sex" id="sex_f" value="F">
                                                                     <label class="checkbox" for="sex_f"></label>
@@ -472,50 +641,8 @@
                                                 </dd>
                                             </dl>
                                             <div class="btn-wrap">
-                                                <a href="javascript:goInsert();" class="btn-type v6">가입하기</a>
-                                            </div>
-                                           
-             </section>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!--  footer 시작 -->
-        <div class="footer lg">
-            <div class="inner">
-                <div class="coporation_area">
-                    <div class="business_info">
-                        <div class="info_list">
-                            <dl class="info_item">
-                                <dt class="business_title">
-                                    크림 주식회사 · 대표 차경진
-                                    <span class="blank"></span>
-                                    사업자등록번호 : 000-00-00000
-                                    <span class="blank"></span>
-                                    통신판매업 : 제 2021-성남분당C-0093호
-                                    <span class="blank"></span><br>
-                                    사업장소재지 : 서울 강남구 무슨타워, 4층 아이티윌
-                                    <span class="blank"></span>
-                                    호스팅 서비스 : 마이바티스 ㈜
-                                </dt>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+                                                <a href="javascript:userCreate();" class="btn-type v6">가입하기</a>
+                                            
+                                            </div> 
 </body>
-
 </html>

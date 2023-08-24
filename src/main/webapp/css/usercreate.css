@@ -19,6 +19,14 @@ body {
     color: #000;
 }
 
+::before, ::after {
+    box-sizing: border-box;
+}
+
+*, :after, :before {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 .inner-box, #gnb .gnb-inner {
     position: relative;
     width: 1200px;
@@ -59,10 +67,36 @@ article, section {
     top: 16px;
 }
 
+[class^=sub-type] .page-title-wrap .depth-area ol li {
+    display: inline-block;
+    font-size: 13px;
+    color: #888888;
+}
+
+[class^=sub-type] .page-title-wrap .depth-area ol li:before {
+    content: "";
+    margin: 3px 8px 2px 6px;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-style: solid;
+    border-color: transparent #888888 #888888 transparent;
+    border-width: 0 1px 1px 0;
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+[class^=sub-type] .page-title-wrap .depth-area ol li:first-child:before {
+    display: none;
+}
 
 .join-step2 .myinfo-wrap {
     border-top: none;
     margin-top: 0;
+}
+
+.join-step2 .myinfo-wrap dl dd.mb {
+    margin-bottom: 20px;
 }
 
 
@@ -117,14 +151,23 @@ input[type=text], input[type=password], textarea {
 input[type=text], input[type=submit], input[type=password], input[type=search], input[type=number], input[type=reset], input[type=email], input[type=tel], input[type=search], input[type=file], input[type=email], input[type=tel], textarea {
     border-radius: 0;
     box-shadow: none;
+    -webkit-appearance: none;
     border: 1px solid #ddd;
     height: 42px;
     box-sizing: border-box;
-    padding: 0 20px;
-    font-size: 15px;
+    font-size: 13px;
+    color: #111;
     letter-spacing: -0.2px;
     font-weight: 500;
     font-family: "Roboto", "Noto", sans-serif;
+}
+
+input:not([type="range"]):not([type="color"]) {
+    writing-mode: horizontal-tb !important;
+}
+
+input[type="password" i] {
+    -webkit-text-security: disc !important;
 }
 
 .join-area .step-list {
@@ -181,6 +224,8 @@ input[type=text], input[type=password], textarea {
 .join-step2 .myinfo-wrap dl dt.top {
     margin-top: 13px;
 }
+
+
 .myinfo-wrap dl dt {
     width: 250px;
     padding-left: 40px;
@@ -189,6 +234,10 @@ input[type=text], input[type=password], textarea {
     line-height: 1;
 }
 
+.myinfo-wrap dl dd .form-group.v2 .form-item {
+    vertical-align: middle;
+    margin: 0;
+}
 
 .form-group {
     -webkit-box-orient: horizontal;
@@ -197,12 +246,99 @@ input[type=text], input[type=password], textarea {
     flex-wrap: nowrap;
 }
 
+
 .form-group .form-item {
     display: inline-flex;
     width: 100%;
 }
 
+.form-group {
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
 
+
+.myinfo-wrap dl dd .form-group.v2 .form-item .select-type2 {
+    width: 130px;
+    margin-right: 5px;
+}
+.select-type2, .company .sel_box, .select-type.type2 {
+    position: relative;
+    height: 42px;
+}
+
+.select-type2 select, .company .sel_box select, .select-type.type2 select {
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 50px;
+    border: 1px solid #ddd;
+    color: #888888;
+    font-size: 15px;
+}
+select {
+    padding: 0 0 0 20px;
+    box-sizing: border-box;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    outline: none;
+    font-weight: 500;
+    font-family: "Roboto", "Noto", sans-serif;
+    width: 100%;
+}
+
+option {
+    font-weight: normal;
+    display: block;
+    white-space-collapse: collapse;
+    text-wrap: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+
+.select-type2:after, .company .sel_box:after, .select-type.type2:after {
+    content: "";
+    z-index: 2;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-style: solid;
+    border-color: transparent #888 #888 transparent;
+    border-width: 0 1px 1px 0;
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: all 0.15s ease-in-out;
+}
+
+select:not(:-internal-list-box) {
+    overflow: visible !important;
+}
+
+select {
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    align-items: center;
+    white-space-collapse: preserve;
+    text-wrap: nowrap;
+    -webkit-rtl-ordering: logical;
+    cursor: default;
+}
 
 input {
     text-rendering: auto;
@@ -231,6 +367,12 @@ body, button, input, select, table, textarea {
     font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,Helvetica Neue,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
 }
 
+.myinfo-wrap dl dd .chk-wrap {
+    display: inline-block;
+    margin-right: 30px;
+    margin-top: 12px;
+}
+
 .myinfo-wrap dl dd .chk-box {
     vertical-align: middle;
 }
@@ -243,19 +385,27 @@ body, button, input, select, table, textarea {
     margin-left: -10px;
 }
 
+
 .myinfo-wrap dl dd .form-group.v2 .form-item input {
     width: 130px;
     margin-right: 5px;
 }
 
-.chk-box {
-    display: inline-block;
-    text-align: left;
+
+
+input[type=radio], input[type=checkbox] {
+    -moz-appearance: none;
+    appearance: none;
 }
 
-.chk-box:nth-of-type(n+2) {
-    margin-left: 25px;
+
+input[type="radio" i] {
+    background-color: initial;
+    cursor: default;
+    border: initial;
 }
+
+
 
 
 .myinfo-wrap > .btn-wrap {
@@ -315,3 +465,84 @@ select {
     font-family: "Roboto", "Noto", sans-serif;
     width: 100%;
 }
+
+
+.chk-box input[type=radio] + .checkbox {
+    border-radius: 100%;
+}
+
+.checkbox {
+    border: 2px solid #ff143c;
+}
+
+
+.chk-box .checkbox {
+    display: inline-block;
+    position: relative;
+    width: 22px;
+    height: 22px;
+    margin-right: 5px;
+    background: #fff;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+.chk-box label {
+    cursor: pointer;
+    font-size: 16px;
+    color: #888888;
+}
+
+
+.chk-box input[type=checkbox]:checked ~ .checkbox:after, .chk-box input[type=radio]:checked ~ .checkbox:after {
+    transition-delay: 100ms;
+}
+
+.chk-box input[type=radio]:checked  ~ .checkbox:after {
+    width: 10px;
+    height: 10px;
+    background: #ff143c;
+}
+
+
+
+
+.chk-box input[type=radio] + .checkbox:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0;
+    border-radius: 100%;
+    transition: all 150ms;
+}
+
+
+
+.chk-box input[type=checkbox]:checked ~ .checkbox:before, .chk-box input[type=radio]:checked ~ .checkbox:before {
+    transition-delay: 0ms;
+}
+
+.chk-box {
+    display: inline-block;
+}
+
+.chk-box:nth-of-type(n+2) {
+    margin-left: 25px;
+}
+
+.chk-box {
+    text-align: left;
+}
+
+.chk-box input[type=checkbox], .chk-box input[type=radio] {
+    display: none;
+}
+
+
+.join-step2 .myinfo-wrap dl dd .form-item.address input {
+	width: 450px;	
+}
+

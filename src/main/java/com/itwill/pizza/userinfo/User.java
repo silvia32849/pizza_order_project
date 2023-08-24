@@ -2,14 +2,14 @@ package com.itwill.pizza.userinfo;
 
 public class User {
 	
-	private String userId;
-	private String userPw;
-	private String userName;
-	private String userEmail;
-	private String userAddress;
-	private String userPhone;
-	private String userGender;
-	private String userJumin;
+	private String user_id;
+	private String user_pw;
+	private String user_name;
+	private String user_email;
+	private String user_address;
+	private String user_phone;
+	private String user_gender;
+	private String user_jumin;
 	
 	public User() {
 		// TODO Auto-generated constructor stub
@@ -18,80 +18,80 @@ public class User {
 	public User(String userId, String userPw, String userName, String userEmail, 
 					String userAddress, String userPhone, String userGender, String userJumin) {
 		super();
-		this.userId = userId;
-		this.userPw = userPw;
-		this.userName = userName;
-		this.userEmail = userEmail;
-		this.userAddress = userAddress;
-		this.userPhone = userPhone;
-		this.userGender = userGender;
-		this.userJumin = userJumin;
+		this.user_id = userId;
+		this.user_pw = userPw;
+		this.user_name = userName;
+		this.user_email = userEmail;
+		this.user_address = userAddress;
+		this.user_phone = userPhone;
+		this.user_gender = userGender;
+		this.user_jumin = userJumin;
 	}
 	
 	
 	
 	public String getUserId() {
-		return userId;
+		return user_id;
 	}
 
 	public void setUserId(String userId) {
-		this.userId = userId;
+		this.user_pw = userId;
 	}
 
 	public String getUserPw() {
-		return userPw;
+		return user_name;
 	}
 
 	public void setUserPw(String userPw) {
-		this.userPw = userPw;
+		this.user_email = userPw;
 	}
 
 	public String getUserName() {
-		return userName;
+		return user_name;
 	}
 
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.user_name = userName;
 	}
 
 	public String getUserEmail() {
-		return userEmail;
+		return user_email;
 	}
 
 	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
+		this.user_email = userEmail;
 	}
 
 	public String getUserAddress() {
-		return userAddress;
+		return user_address;
 	}
 
 	public void setUserAddress(String userAddress) {
-		this.userAddress = userAddress;
+		this.user_address = userAddress;
 	}
 
 	public String getUserPhone() {
-		return userPhone;
+		return user_phone;
 	}
 
 	public void setUserPhone(String userPhone) {
-		this.userPhone = userPhone;
+		this.user_phone = userPhone;
 	}
 
 	public String getUserGender() {
-		return userGender;
+		return user_gender;
 	}
 
 	public void setUserGender(String userGender) {
-		this.userGender = userGender;
+		this.user_gender = userGender;
 	}
 
 	public String getUserJumin() {
-		return userJumin;
+		return user_jumin;
 	}
 
 	public void setUserJumin(String userJumin) {
-		this.userJumin = userJumin;
+		this.user_jumin = userJumin;
 	}
 
 	/*
@@ -99,7 +99,7 @@ public class User {
 	 */
 	public boolean isMatchPassword(String u_pw){
 		boolean isMatch=false;
-		if(this.userPw.equals(userPw)){
+		if(this.user_pw.equals(user_pw)){
 			isMatch=true;
 		}
 		return isMatch;
@@ -107,10 +107,12 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "UserInfo [userId=" + userId + ", userPw=" + userPw + ", userName=" + userName + ", userEmail="
-				+ userEmail + ", userAddress=" + userAddress + ", userPhone=" + userPhone + ", userGender=" + userGender
-				+ ", userJumin=" + userJumin + "]";
+		return "User [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_email="
+				+ user_email + ", user_address=" + user_address + ", user_phone=" + user_phone + ", user_gender="
+				+ user_gender + ", user_jumin=" + user_jumin + "]";
 	}
+
+	
 	
 	
 

@@ -1,13 +1,74 @@
+<%@page import="com.itwill.pizza.userinfo.UserService"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>  
+<%
+	
+	UserService userService=new UserService();
+	User user=userService.findUser(sUserId);
+	
+	String email = user.getUserEmail();
+	int idx = email.indexOf("@");
+	String email1 = email.substring(0, idx);
+	String email2 = email.substring(idx+1);
+	
+	String jumin = user.getUserJumin();
+	String year = "19"+jumin.substring(0, 2);
+	String month = jumin.substring(2,4);
+	String day = jumin.substring(4, 6);
+	
+	String phone = user.getUserPhone();
+	String phone1 = phone.substring(4,8);
+	String phone2 = phone.substring(9);
+	
+
+%>    
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css" >
-    <link rel="stylesheet" type="text/css" href="css/userinfo.css" >
-    <title>도미노 피자</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" >
+<link rel="stylesheet" type="text/css" href="css/userinfo.css" >
+
+<script type="text/javascript">
+
+
+	function userRemove() {
+		
+		if(confirm("회원 탈퇴하시겠습니까?")) {
+			document.frm.action = "user_remove_action.jsp";
+			document.frm.method='POST';
+			document.frm.submit();
+		}
+	}
+
+</script>
+
+<script type="text/javascript">
+	//초기화(리셋)
+	function location.reload () {
+		document.frm.action = "user_info_form.jsp";
+		document.frm.method = 'POST';
+		document.frm.submit();
+	}
+	
+	
+	
+</script>
+
+<script type="text/javascript">
+	function update() {
+		document.frm.action = "user_info_action.jsp";
+		document.frm.method = 'POST';
+		document.frm.submit();
+	}
+
+</script>
+
+
+<title>도미노피자</title>
 </head>
 <body>
+    
     <div class="warp">
             <!-- 헤더 시작-->    
             <div class="header fixed social">
@@ -18,18 +79,13 @@
                             <a href="/" aria-label="홈" class="logo"></a>
                             <div class="center"></div>
                         </h1>
-                        <!--
-                        <div class="search_area">
-                            <form>
-                               <input type="search" placeholder="search">
-                                <span>검색</span>
-                            </form>
-                        </div>
-                        -->
+                       
+                        
+
                         
                         <ul class="header_top_list">
                             <li class="header_top_item">
-                                <a href="login.html" class="header_top_link"> 로그인</a>
+                                <a href="user_logout_action.jsp" class="header_top_link"> 로그아웃</a>
                             </li>
                             <li class="header_top_item">
                                 <a href="#" class="header_top_link"> 마이페이지</a>
@@ -78,8 +134,8 @@
                                 <h2 class="page-title">나의 정보</h2>
                                 <div class="depth-area">
                                     <ol>
-                                        <li><a href="/main">홈</a></li>
-                                        <li><a href="/mypage/myOrderList">나의 정보</a></li>
+                                        <li><a href="index.jsp">홈</a></li>
+                                        <li><a href="user_info_form.jsp">나의 정보</a></li>
                                         <li><strong>정보수정</strong></li>
                                     </ol>
                                 </div>
@@ -89,18 +145,18 @@
                                     <div class="menu-nav">
                                         <ul>
                                             <li class="li_tab">
-                                                <a href="#" class="tab">
-                                                    <span class="tab_name">메뉴</span>
+                                                <a href="order_list_form.jsp" class="tab">
+                                                    <span class="tab_name">주문내역</span>
                                                 </a>
                                             </li>
                                             <li class="li_tab">
-                                                <a href="#" class="tab">
-                                                    <span class="tab_name">추천</span>
+                                                <a href="user_info_form.jsp" class="tab">
+                                                    <span class="tab_name">나의정보</span>
                                                 </a>
                                             </li>
                                             <li class="li_tab">
                                                 <a href="#" class="tab updated">
-                                                    <span class="tab_name">고객센터</span>
+                                                    <span class="tab_name">주소록</span>
                         
                                                 </a>
                                             </li>
@@ -113,7 +169,7 @@
                                     </div>
                                     <div class="text-type">회원정보를 정확히 기입하시면 다양한 서비스를 원활하게 이용할 수 있습니다.</div>
                                 </div>
-                                <form name="frm" id="frm" action="/member/modMemberProc" method="post">
+                                <form name="frm" id="frm"  method="post">
                                 <div class="myinfo-wrap">
                                     <input type="hidden" name="old_auth_type" id="old_auth_type" value="H">
                                     <input type="hidden" name="old_hand_tel" id="old_hand_tel" value="01020625328">
@@ -151,7 +207,9 @@
                                         <dl>
                                             <dt>이름</dt>
                                             <dd>
-                                                <span id="name_area">임범준</span>
+
+                                                <span id="name_area"><%=user.getUserName() %></span>
+                                                <!--
                                                 <div class="name-change">
                                                     <span>본인인증</span>
                                                     <a href="javascript:changeName('kg');" class="btn-type v7">휴대전화 인증</a>
@@ -162,63 +220,47 @@
                                                         <li>개명을 한 경우, 본인 인증 시 이름 정보 변경이 가능합니다.</li>
                                                     </ul>
                                                 </div>
+                                                -->
                                             </dd>
                                             
                                         </dl>
                                         <dl>
                                             <dt class="center">아이디</dt>
-                                            <dd>KAKAO_20220420550625</dd>
+                                            <dd><%=user.getUserId() %></dd>
                                         </dl>
                                         <dl class="pw" style="">
                                             <dt>현재 비밀번호</dt>
                                             <dd>
                                                 <div class="form-item number">
-                                                    <input type="password" name="old_passwd" id="old_passwd" maxlength="16" value="">
+                                                    <input type="password" name="old_passwd" id="old_passwd" maxlength="20" value="<%=user.getUserPw()%>">
                                                 </div>
                                                 <div class="text-type4" id="old_passwd_alert" style="display:none;"></div>
                                             </dd>
                                             <dt>새 비밀번호</dt>
                                             <dd>
                                                 <div class="form-item number">
-                                                    <input type="password" name="passwd" id="passwd" maxlength="16" value="" placeholder="8~16자 영문대소문자,숫자,특수문자 사용가능">
+                                                    <input type="password" name="passwd" id="passwd" maxlength="20" value="" placeholder="8~20자 영문대소문자,숫자,특수문자 사용가능">
                                                 </div>
                                                 <div class="text-type4" id="passwd_alert" style="display:none;"></div>
                                             </dd>
                                             <dt>새 비밀번호 확인</dt>
                                             <dd>
                                                 <div class="form-item number">
-                                                    <input type="password" name="confirmpw" id="confirmpw" maxlength="16" value="" placeholder="8~16자 영문대소문자,숫자,특수문자 사용가능">
-                                                    <a href="javascript:updateChangePasswd();" class="btn-type v4">수정하기</a>
+                                                    <input type="password" name="confirmpw" id="confirmpw" maxlength="20" value="" placeholder="8~20자 영문대소문자,숫자,특수문자 사용가능">
                                                 </div>
                                                 <div class="text-type4" id="confirmpw_alert" style="display:none;"></div>
                                             </dd>
                                         </dl>
-                                        <dl class="non-pw" style="display: none;">
-                                            <dt class="center">비밀번호</dt>
-                                            <dd>
-                                                <a href="javascript:openPasswordChange();" class="btn-type v7">비밀번호 변경</a>
-                                            </dd>
-                                        </dl>
+                                       
                                         <dl>
                                             <dt class="center">생년월일</dt>
                                             <dd>
                                                 <div class="form-group v2">
                                                     <div class="form-item birth">
-                                                        <div class="chk-wrap">
-                                                            <div class="chk-box selected">
-                                                                <input type="radio" name="birth_fl" id="birth_s" value="S" checked="" disabled="">
-                                                                <label class="checkbox" for="birth_s"></label>
-                                                                <label for="birth_s">양력</label>
-                                                            </div>
-                                                            <div class="chk-box disabled">
-                                                                <input type="radio" name="birth_fl" id="birth_m" value="M" disabled="">
-                                                                <label class="checkbox" for="birth_m"></label>
-                                                                <label for="birth_m">음력</label>
-                                                            </div>
-                                                        </div>
+                                                        
                                                         <div class="select-type2">
-                                                            <select name="byear" id="byear" class="selected" disabled="">
-                                                                <option>년</option>
+                                                            <select name="byear" id="byear" class="selected" disabled="" >
+                                                                <option><%=year%></option>
                                                                 <option value="1900">1900</option>
                                                                 <option value="1901">1901</option>
                                                                 <option value="1902">1902</option>
@@ -313,7 +355,7 @@
                                                                 <option value="1991">1991</option>
                                                                 <option value="1992">1992</option>
                                                                 <option value="1993">1993</option>
-                                                                <option value="1994" selected="selected">1994</option>
+                                                                <option value="1994">1994</option>
                                                                 <option value="1995">1995</option>
                                                                 <option value="1996">1996</option>
                                                                 <option value="1997">1997</option>
@@ -346,15 +388,15 @@
                                                                 </select>
                                                         </div>
                                                         <div class="select-type2">
-                                                            <select name="bmonth" id="bmonth" class="selected" disabled="">
-                                                                <option>월</option>
+                                                            <select name="bmonth" id="bmonth" class="selected" disabled="" >
+                                                                <option><%=month %></option>
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
                                                                 <option value="3">3</option>
                                                                 <option value="4">4</option>
                                                                 <option value="5">5</option>
                                                                 <option value="6">6</option>
-                                                                <option value="7" selected="">7</option>
+                                                                <option value="7">7</option>
                                                                 <option value="8">8</option>
                                                                 <option value="9">9</option>
                                                                 <option value="10">10</option>
@@ -363,13 +405,13 @@
                                                                 </select>
                                                         </div>
                                                         <div class="select-type2">
-                                                            <select name="bday" id="bday" class="selected" disabled="">
-                                                                <option>일</option>
+                                                            <select name="bday" id="bday" class="selected" disabled="" >
+                                                                <option><%=day %></option>
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
                                                                 <option value="3">3</option>
                                                                 <option value="4">4</option>
-                                                                <option value="5" selected="">5</option>
+                                                                <option value="5">5</option>
                                                                 <option value="6">6</option>
                                                                 <option value="7">7</option>
                                                                 <option value="8">8</option>
@@ -417,38 +459,24 @@
                                                                 <option value="019">019</option>
                                                             </select>
                                                         </div>
-                                                        <input type="text" name="hand_tel2" id="hand_tel2" maxlength="4" value="2062">
-                                                        <input type="text" name="hand_tel3" id="hand_tel3" maxlength="4" value="5328">
-                                                        <a href="javascript:doUpdatePhone();" id="updatePhoneBtn" class="btn-type v7">변경</a>
-                                                        <a href="javascript:doSendAuthKey();" id="sendAuthBtn" class="btn-type v7" style="display:none;">인증요청</a>
-                                                        <a href="javascript:void(0);" id="successAuthBtn" class="btn-type v7" style="display:none;">인증완료</a>
+                                                        <input type="text" name="hand_tel2" id="hand_tel2" maxlength="4" value="<%=phone1%>">
+                                                        <input type="text" name="hand_tel3" id="hand_tel3" maxlength="4" value="<%=phone2%>">
                                                     </div>
                                                     <div class="text-type4" id="tel_alert" style="display:none;"></div>
                                                 </div>
             
                                             </dd>
                                         </dl>
-                                        <dl id="securityAuth" style="display:none;">
-                                            <dt class="center">인증번호 입력</dt>
-                                            <dd>
-                                                <div class="form-group2">
-                                                    <div class="form-item number">
-                                                        <input type="text" name="security_no" id="security_no" disabled="disabled" maxlength="4">
-                                                        <a href="javascript:doAuthKeyChk();" class="btn-type v4">인증하기</a>
-                                                    </div>
-                                                    <div class="text-type4" id="security_aleart" style="display:none;"></div>
-                                                </div>
-                                            </dd>
-                                        </dl>
+                                        
                                         
                                         <dl>
                                             <dt class="top name">이메일</dt>
                                             <dd>
                                                 <div class="form-group v2">
                                                     <div class="form-item e-mail">
-                                                        <input type="text" name="email1" id="email1" value="bjbj0705" disabled="">
+                                                        <input type="text" name="email1" id="email1" value="<%=email1 %>" disabled="" >
                                                         <span>@</span>
-                                                        <input type="text" name="email2" id="email2" value="naver.com" disabled="">
+                                                        <input type="text" name="email2" id="email2" value="<%=email2 %>" disabled="">
                                                         <div class="select-type2">
                                                             <select name="email3" id="email3" onchange="checkEmailState($('#email3'),$('#email2'))" disabled="">
                                                                 <option>선택</option>
@@ -499,13 +527,13 @@
                 
                                             </dd>
                                         </dl>
-                                        
                                         </div>
                                     <div class="btn-wrap">
                                         <a href="javascript:location.reload();" class="btn-type v4">초기화</a>
-                                        <a href="javascript:goUpdte();" class="btn-type v6">수정하기</a>
-                                        <p class="desc">도미노피자를 더 이상 이용하지 않는다면<a href="javascript:goOutreason();" class="btn-link"><span>회원탈퇴 바로가기</span></a></p>
+                                        <a href="javascript:update(); " class="btn-type v6">수정하기</a>
+                                        <p class="desc">도미노피자를 더 이상 이용하지 않는다면<a href="javascript:userRemove();" class="btn-link"><span>회원탈퇴 바로가기</span></a></p>
                                     </div>
+                                    
                                 </div>
                                 </form>
                             </article>
@@ -546,7 +574,5 @@
                     </div>
                 </div>
             </div>
-    </div>
-
 </body>
 </html>
