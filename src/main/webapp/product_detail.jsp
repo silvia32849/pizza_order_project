@@ -318,6 +318,7 @@ function yungyang(){
         <a href="javascript:add_cart_popup_window(this.parentElement);" title="장바구니[팝업]" class="btn-type">장바구니</a>
         <a href="javascript:order_create_form();" title="주문하기[팝업]" class="btn-type">주문하기</a>
     </form>	
+							
 									
 									</div>
 								</div>
