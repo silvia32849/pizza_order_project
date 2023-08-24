@@ -51,6 +51,12 @@ public class ProductMyBatisTestMain {
 	System.out.println("7.키워드 상품(들) 출력");
 	productList=dao.findByKeyword("콜라");
 	System.out.println(productList);
+	System.out.println("------------------------------------------");
+	
+	System.out.println("8.상품 하나출력");
+	Product pro= dao.productDetail(11);
+	System.out.println(pro);
 	}
+	
 
 }
