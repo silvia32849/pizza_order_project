@@ -1,110 +1,62 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"   pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css" >
-    <title>ë„ë¯¸ë…¸ í”¼ìž</title>
+<meta charset="EUC-KR">
+<title>ÀÎ»ýÇÇÀÚ</title>
+
+<style>
+        .inner-box {
+            display: flex; /* °¡·Î·Î ³ª¿­ÇÏ±â À§ÇØ flexbox »ç¿ë */
+        }
+
+        .inner-box ul {
+            list-style-type: none; /* ¸ñ·Ï ½ºÅ¸ÀÏ Á¦°Å */
+            display: flex; /* °¡·Î·Î ³ª¿­ÇÏ±â À§ÇØ flexbox »ç¿ë */
+            padding: 0; /* ¸ñ·ÏÀÇ ³»ºÎ ¿©¹é Á¦°Å */
+        }
+
+        .inner-box li {
+            margin-right: 100px; /* ÀÌ¹ÌÁö °£ °£°ÝÀ» Á¶Àý */
+        }
+
+        .inner-box img {
+            width: 250px; /* ÀÌ¹ÌÁöÀÇ °¡·Î Å©±â¸¦ Á¶Àý */
+            height: 250px; /* ÀÌ¹ÌÁöÀÇ ¼¼·Î Å©±â¸¦ Á¶Àý */
+        }
+    </style>
 </head>
 <body>
-    <div class="warp">
-            <!-- í—¤ë” ì‹œìž‘-->    
-            <div class="header fixed social">
-                <!-- í—¤ë” top ì‹œìž‘-->
-                <div class="header_top">
-                    <div class="header_top_inner">
-                        <h1>
-                            <a href="/" aria-label="í™ˆ" class="logo"></a>
-                            <div class="center"></div>
-                        </h1>
-                        <!--
-                        <div class="search_area">
-                            <form>
-                               <input type="search" placeholder="search">
-                                <span>ê²€ìƒ‰</span>
-                            </form>
-                        </div>
-                        -->
-                        
-                        <ul class="header_top_list">
-                            <li class"header_top_item">
-                                <a href="login_form.jsp" class="header_top_link"> ë¡œê·¸ì¸</a>
-                            </li>
-                            <li class="header_top_item">
-                                <a href="#" class="header_top_link"> ë§ˆì´íŽ˜ì´ì§€</a>
-                            </li>
-                            <li class="header_top_item">
-                                <a href="#" class="header_top_link"> ê´€ì‹¬ìƒí’ˆ</a>
-                            </li>
-                        </ul>
-                    </div>=
-                </div>
-                
-
-                <!-- í—¤ë” ë§ˆì§€ë§‰ ì‹œìž‘-->
-                <div class="portal_tartget vue-portal-target">
-                    <nav class="tabs">
-                        <ul class="ul_tab home_tabs inline">
-                           <li class="li_tab">
-                                <a href="#" class="tab">
-                                 <span class="tab_name">ë©”ë‰´</span>
-                              </a>
-                           </li>
-                          <li class="li_tab">
-                               <a href="#" class="tab">
-                                 <span class="tab_name">ì¶”ì²œ</span>
-                               </a>
-                           </li>
-                           <li class="li_tab">
-                                <a href="#" class="tab updated">
-                                    <span class="tab_name">ê³ ê°ì„¼í„°</span>
-                                </a>
-                            </li>
-                         </ul>
-                    </nav>
-                </div>
-            </div>
-            
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <!--  footer ì‹œìž‘ -->
-            <div class="footer lg">
-                <div class="inner">
-                    <div class="coporation_area">
-                        <div class="business_info">
-                            <div class="info_list">
-                                <dl class="info_item">
-                                    <dt class="business_title">
-                                        ë„ë¯¸ë…¸ ì£¼ì‹íšŒì‚¬ Â· ëŒ€í‘œ ê¹€ë¯¼ìˆ˜
-                                        <span class="blank"></span>
-                                        ì‚¬ì—…ìžë“±ë¡ë²ˆí˜¸ : 000-00-00000
-                                        <span class="blank"></span>
-                                        í†µì‹ íŒë§¤ì—… : ì œ 2021-ì„±ë‚¨ë¶„ë‹¹C-0093í˜¸
-                                        <span class="blank"></span><br>
-                                        ì‚¬ì—…ìž¥ì†Œìž¬ì§€ : ì„œìš¸ ê°•ë‚¨êµ¬ ë¬´ìŠ¨íƒ€ì›Œ, 4ì¸µ ì•„ì´í‹°ìœŒ
-                                        <span class="blank"></span>
-                                        í˜¸ìŠ¤íŒ… ì„œë¹„ìŠ¤ : ë§ˆì´ë°”í‹°ìŠ¤ ãˆœ
-                                    </dt>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div id="toptest-content">
+        <jsp:include page="include_common_top.jsp"/>
     </div>
+    
+   <div id="container" >
+	<section id="content"   style="margin-bottom: 500px;">
+		<div class="main">
+			<!-- visual -->
+			    <img src="images/¸ÞÀÎ¹è³Ê.jpg" alt="ÀÌ¹ÌÁö ¼³¸í">
+		</div>
+
+			<!-- //visual -->
+	
+	<div id="wrap">
+            <div class="inner-box" style="margin-bottom: 100px;">
+                <ul>
+                <a href="cart_list_form.jsp">
+                    <li><img src="images/¹è´ÞÁÖ¹®.jpg" alt="±×·¡ÇÈ ÀÌ¹ÌÁö: È¸»ç ·Î°í"></li>
+                </a>
+                <a href="">
+                    <li><img src="images/Äü¿À´õ.jpg" alt="ÀÌ¹ÌÁö 2"></li>
+               </a>
+               <a href="cart_takeout_list_form.jsp">
+                    <li><img src="images/Æ÷ÀåÁÖ¹®.jpg" alt="ÀÌ¹ÌÁö 3"></li>
+               </a>
+                </ul>
+            </div>
+        </div>
+
+</div>
+			
 </body>
 </html>

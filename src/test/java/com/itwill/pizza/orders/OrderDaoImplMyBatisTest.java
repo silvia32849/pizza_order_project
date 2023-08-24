@@ -20,13 +20,7 @@ class OrderDaoImplMyBatisTest {
 		orderDao = new OrderDaoImplMyBatis();
 		assertNotNull(orderDao);
 	}
-	@Test
-	void testInsertOrder() throws Exception {
-		List<OrderItem> orderList = new ArrayList<OrderItem>();
-		orderList.add(new OrderItem(0, 3, 0, null));
-		
-		int rowCount = orderDao.insertOrder(new Order(0, "와일드 와일드 웨스크 스테이크+블랙타이거", "서울시 강남구", 20350, null, 1, "user1", orderList));
-	}
+
 	
 	@Test
 	void testDeleteOrder() throws Exception {

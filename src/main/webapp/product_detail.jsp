@@ -1,28 +1,27 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.itwill.pizza.product.Product"%>
 
 <%@page import="com.itwill.pizza.product.ProductService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@include file="login_check.jspf" %>
 <%
+
 String noStr = request.getParameter("product_no");
 if (noStr == null || noStr.equals("")) {
 	response.sendRedirect("product_list.jsp");
 	return;
 }
 boolean isLogin = false;
-if (session.getAttribute("userId") != null) {
+if (session.getAttribute("sUserId") != null) {
 	isLogin = true;
 }
+
 ProductService ps = new ProductService();
+
 Product product = ps.productDetail(Integer.parseInt(noStr));
-if (product == null) {
-	out.println("<script>");
-	out.println("alert('잘못된 요청입니다.');");
-	out.println("location.href='product_list.jsp';");
-	out.println("</script>");
-	return;
-}
+
 %>
 
 <!DOCTYPE HTML>
@@ -43,7 +42,6 @@ if (product == null) {
 			alert('로그인 하세요');
 			location.href = 'user_login_form.jsp';
 		} else {
-
 			var left = Math.ceil((window.screen.width) / 5);
 			var top = Math.ceil((window.screen.height) / 3);
 			console.log(left);
@@ -57,7 +55,7 @@ if (product == null) {
 									+ ",left="
 									+ 0
 									+ ",location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no");
-			document.add_cart_form.action = 'cart_add_action_popup_window.jsp';
+			document.add_cart_form.action = 'cart_add_action.jsp';
 			document.add_cart_form.target = 'cartForm';
 			document.add_cart_form.method = 'POST';
 			document.add_cart_form.submit();
@@ -72,7 +70,7 @@ if (product == null) {
 			location.href = 'user_login_form.jsp';
 		} else {
 			document.product_detail_form.method = 'POST';
-			document.product_detail_form.action = 'order_create_form.jsp';
+			document.product_detail_form.action = 'order_create_action.jsp';
 			document.product_detail_form.submit();
 		}
 	}
@@ -94,7 +92,7 @@ if (product == null) {
 <!-- 사용자지정 태그 -->
 <meta name="description" content="<%=product.getProduct_desc()%>" />
 <meta name="title" content="<%=product.getProduct_name()%>- 책을 피자" />
-<title><%=product.getProduct_name()%> - 책을 피자</title>
+<title><%=product.getProduct_name()%> - 인생 피자</title>
 <meta property="og:type" content="website" />
 <meta property="og:title"
 	content="<%=product.getProduct_name()%> - 책을 피자" />
@@ -138,13 +136,27 @@ if (product == null) {
 		<header id="header">
 		<div class="top-wrap">
 				<div class="inner-box" id="tip-box-top">
-					<a href="index.html" class="btn-logo"> <i class="ico-logo"></i>
+					<a href="index.jsp" class="btn-logo"> <i class="ico-logo"></i>
 						<h1 class="hidden">도미노피자</h1>
 					</a>
 
-					<div class="util-nav">
-						<a href="login.jsp">로그인</a> <a href="signup.jsp">회원가입</a>
-					</div>
+					<ul class="header_top_list">
+                            <li class="header_top_item">
+                            <%if(sUserId!=null){%>
+                            	<a href="logout.html" class="header_top_link"> 로그아웃</a>
+                            <%}else {%>
+                                <a href="login.html" class="header_top_link"> 로그인</a>
+                            <%} %>
+                            	
+                            </li>
+                            <li class="header_top_item">
+                            <%if(sUserId!=null){%>
+                                <a href="user_info.jsp?userId=?<%=sUserId %>" class="header_top_link"> 마이페이지</a>
+                             <%}else {%>
+                             	<a href="user_login_form.jsp" class="header_top_link"> 로그인</a>
+                             <%} %>
+                            </li>
+                      </ul>
 				</div>
 			</div>
 
@@ -318,6 +330,7 @@ function yungyang(){
         <a href="javascript:add_cart_popup_window(this.parentElement);" title="장바구니[팝업]" class="btn-type">장바구니</a>
         <a href="javascript:order_create_form();" title="주문하기[팝업]" class="btn-type">주문하기</a>
     </form>	
+							
 									
 									</div>
 								</div>

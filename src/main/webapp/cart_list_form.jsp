@@ -83,7 +83,7 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 						<li class="header_top_item"><a href="#"
 							class="header_top_link"> 마이페이지</a></li>
 						<li class="header_top_item"><a href="#"
-							class="header_top_link"> 관심상품</a></li>
+							class="header_top_link"> 장바구니</a></li>
 					</ul>
 				</div>
 			</div>
@@ -93,7 +93,7 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 			<div class="portal_tartget vue-portal-target">
 				<nav class="tabs">
 					<ul class="ul_tab home_tabs inline">
-						<li class="li_tab"><a href="#" class="tab"> <span
+						<li class="li_tab"><a href="product_list.jsp" class="tab"> <span
 								class="tab_name">메뉴</span>
 						</a></li>
 						<li class="li_tab"><a href="#" class="tab"> <span

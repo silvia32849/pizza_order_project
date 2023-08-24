@@ -57,12 +57,13 @@ public interface OrderMapper {
 		   /* 관리자 
 		   @Select("select * from orders")
 		   List<Order> findAllOrders() throws Exception;
+		   */
 		   
 		   //주문 1개 조회
 		   @Select("select * from orders where order_no=#{order_no}")
-		   Order findOrderByNo(int order_no) throws Exception;
+		   Order findOrderByOrderNo(int order_no) throws Exception;
 		   
-		   */
+		   
 		   //회원 한사람의 주문전체목록 조회
 		   @Select("select * from orders where user_id=#{user_id}")
 		   List<Order> findOrderByUserId(String user_id) throws Exception;
@@ -71,8 +72,8 @@ public interface OrderMapper {
 		   //전체 주문아이템 조회
 		   @Select("select * from order_item")
 		   List<OrderItem> findAllOrderItems() throws Exception;
+		    */
 		   
-		   */
 		   // 주문 1개의 전체 주문아이템 조회
 		   @Select("select * from order_item where order_no=#{order_no}")
 		   OrderItem findOrderItemByOrderNo(int order_no) throws Exception;

@@ -16,19 +16,23 @@ public class Board {
 	private Date board_date;
 	private String user_id;
 
+	public Board() {
+	}
 
-	public Board(int board_no, String board_content, String board_title, Date board_date, String user_id) {
+	public Board(int board_no, String board_content, String board_title, Date board_date, String user_id, int groupNo,
+			int step, int depth) {
 		super();
 		this.board_no = board_no;
 		this.board_content = board_content;
 		this.board_title = board_title;
 		this.board_date = board_date;
 		this.user_id = user_id;
+
 	}
 
 
-
-
+	
+	
 	public int getBoard_no() {
 		return board_no;
 	}
@@ -99,12 +103,21 @@ public class Board {
 
 
 
+	public Board(int board_no, String board_content, String board_title, Date board_date, String user_id) {
+		super();
+		this.board_no = board_no;
+		this.board_content = board_content;
+		this.board_title = board_title;
+		this.board_date = board_date;
+		this.user_id = user_id;
+	}
+
 	@Override
 	public String toString() {
 		return "Board [board_no=" + board_no + ", board_content=" + board_content + ", board_title=" + board_title
 				+ ", board_date=" + board_date + ", user_id=" + user_id + "]";
 	}
 	
-	
+
 
 }

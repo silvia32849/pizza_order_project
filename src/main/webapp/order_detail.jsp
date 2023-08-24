@@ -1,5 +1,23 @@
+<%@page import="com.itwill.pizza.orders.OrderItem"%>
+<%@page import="com.itwill.pizza.userinfo.User"%>
+<%@page import="com.itwill.pizza.userinfo.UserService"%>
+<%@page import="com.itwill.pizza.orders.Order"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.itwill.pizza.orders.OrderService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>    
+<%
+
+OrderService orderService = new OrderService();
+String orderNoStr = request.getParameter("order_no");
+Order order = orderService.findOrderByOrderNo(Integer.parseInt(orderNoStr));
+sUserId = "user1";
+//String userId, String userPw, String userName, String userEmail, String userAddress, String userPhone, String userGender, String userJumin
+sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주소","010-1234-5678","테스트성별",null);
+System.out.println(sUser);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,15 +113,18 @@
                                         </ul>
                                     </div>
                                 </div>
+
+
                             <div class="order-view">
                                 <div class="order-top">
                                     <span class="type">포장</span>
+                                    	<%=order.getOrder_delivery()%>
                                     <span class="date">
                                         <span class="tit">주문일시</span>
-                                        2023-05-26 20:16</span>
+                                        <%=order.getOrder_date()%></span>
                                     <span class="num">
                                         <span class="tit">주문번호</span>
-                                        20230526866658990026</span>
+                                        <%=order.getOrder_no() %></span>
                                     </div>
                                 <div class="order-center">
                                     <div class="state">
@@ -116,32 +137,31 @@
                                 
                                 <!-- S: 201102 도미노스팟 로봇배달 -->
                                 <!-- E: 201102 도미노스팟 로봇배달 -->
-        
+        						
                                 <div class="menu-info-wrap">
                                     <div class="menu-info">
                                         <div class="info-box">
                                             <div class="title-type2">주문내역</div>
-                                            <p>와일드 와일드 웨스트 스테이크+블랙타이거 슈림프 슈퍼시드 화이버 함유 도우L x 1  /  38,400원</p>
-                                                    <p>코카콜라 1.25L x 1  /  2,300원</p>
-                                                    <p>[기본제공]갈릭디핑소스 x 2  / 0원</p>
+                                            <p><%=order.getOrder_name() %>  /  38,400원</p>
+                                            <p>[기본제공]갈릭디핑소스 x 2  / 0원</p>
                                             <p>[기본제공]핫소스 x 1  / 0원</p>
                                             </div>
                                     </div>
                                     <div class="pay-info">
                                                 <dl>
                                                             <dt>주문금액</dt>
-                                                            <dd><em>40,700</em>원</dd>
+                                                            <dd><em><%=order.getOrder_price() %></em>원</dd>
                                                         </dl>
                                                     <dl class="discount">
                                                 <dt>할인 금액</dt>
-                                                <dd><em>-20,350</em>원</dd>
+                                                <dd><em>0</em>원</dd>
                                             </dl>
                                             <ul class="apply">
                                                     <li>kt_daldal_50% 50%</li>
                                                 </ul>
                                             <dl class="total">
                                                     <dt>결제금액</dt>
-                                                    <dd><em>20,350</em>원</dd>
+                                                    <dd><em><%=order.getOrder_price() %></em>원</dd>
                                                 </dl>
                                             </div>
                                 </div>
@@ -150,36 +170,27 @@
                                     <dl>
                                         <dt>결제방법</dt>
                                         <dd>
-                                            신용카드(선결제)&nbsp;20,350원
+                                            신용카드(선결제)&nbsp;<%=order.getOrder_price() %>&nbsp;원
                                             </dd>
                                         <dd style="width:100%; color:#FF752D">
                                             </dd>
                                     </dl>
                                     <dl>
                                         <dt>수령인</dt>
-                                        <dd>임범준</dd>
+                                        <dd><%=sUser.getUserName() %></dd>
                                     </dl>
                                     <dl>
                                         <dt>수령인 연락처</dt>
-                                        <dd>010-2062-5328</dd>
+                                        <dd><%=sUser.getUserPhone() %></dd>
                                     </dl>
                                     <dl>
-                                        <dt>포장요청시간</dt>
-                                        <dd>바로 주문</dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>매장주소</dt>
+                                        <dt>배달주소</dt>
                                             <dd>
-                                            서울특별시 송파구 <input type="hidden" id="myInput" value="서울특별시 송파구 ">
-                                                <button type="button" class="order_view_copy" onclick="copy_to_clipboard();">복사</button>
+                                            <%=order.getOrder_address() %> <input type="hidden" id="myInput" value="">
                                             </dd>
                                     </dl>
+                                    
                                     <dl>
-                                        <dt>매장정보</dt>
-                                        <dd>석촌점&nbsp;<a href="tel:02-2202-3082" class="tel">02-2202-3082</a></dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>추가요청</dt>
                                         <dd></dd>
                                     </dl>
                                 </div>
@@ -192,6 +203,7 @@
                                                     </div>
                                                 </div>
                             </div>
+                    
                         </article>
                     </div>
                 </div>

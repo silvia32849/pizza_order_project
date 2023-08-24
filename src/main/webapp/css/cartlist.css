@@ -778,3 +778,12 @@ address, caption, em, var {
     color: #888888;
     font-size: 17px;
 }
+/* 활성화된 버튼 스타일 */
+.cart-waiting-tab ul li.active a {
+    color: black; /* 검은색으로 변경 */
+}
+
+/* 비활성화된 버튼 스타일 */
+.cart-waiting-tab ul li a {
+    color: initial; /* 기본 색상으로 변경 */
+}

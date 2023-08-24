@@ -2,7 +2,7 @@ DROP TABLE board CASCADE CONSTRAINTS;
 
 
 /**********************************/
-/* Table Name: board */
+/* Table Name: inquiries */
 /**********************************/
 CREATE TABLE board(
 		board_no                      		NUMBER(10)		 NOT NULL ,

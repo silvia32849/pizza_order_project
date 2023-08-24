@@ -72,7 +72,7 @@ if(fuser==null) {
                         <a href="#" class="header_top_link"> 마이페이지</a>
                     </li>
                     <li class="header_top_item">
-                        <a href="#" class="header_top_link"> 관심상품</a>
+                        <a href="cart_list_form.jsp" class="header_top_link"> 장바구니</a>
                     </li>
                 </ul>
             </div>

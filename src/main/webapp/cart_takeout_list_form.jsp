@@ -98,7 +98,7 @@ function changeNumber(desc, cart_no) {
                     <nav class="tabs">
                         <ul class="ul_tab home_tabs inline">
                            <li class="li_tab">
-                                <a href="#" class="tab">
+                                <a href="product_list.jsp" class="tab">
                                  <span class="tab_name">메뉴</span>
                               </a>
                            </li>

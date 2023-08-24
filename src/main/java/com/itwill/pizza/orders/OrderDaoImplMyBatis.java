@@ -69,7 +69,14 @@ public class OrderDaoImplMyBatis implements OrdersDao {
 	}
 	
 	
-
+	@Override
+	public Order findOrderByOrderNo(int order_no) throws Exception {
+		SqlSession sqlSession= sqlSessionFactory.openSession(true);
+		OrderMapper orderMapper=sqlSession.getMapper(OrderMapper.class);
+		Order order = orderMapper.findOrderByOrderNo(order_no);
+		sqlSession.close();
+		return order;
+	}
 
 	
 }

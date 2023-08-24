@@ -6,7 +6,7 @@ insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SE
 insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 4, 'user5', 2);
 insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 4, 'user6', 2);
 insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 3, 'user7', 1);
-insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, 2, 'user8', 2);
+insert into cart (cart_no, cart_qty, user_id, product_no) values(cart_cart_no_SEQ.nextval, null, 'user12', 2);
 
 
 --update

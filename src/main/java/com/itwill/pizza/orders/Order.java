@@ -36,7 +36,7 @@ public class Order {
 	}
 
 	public Order(int order_no, String order_name, String order_address, int order_price, Date order_date,
-			int order_delivery, String user_id , List<OrderItem> orderItemList) {
+			int order_delivery, String user_id ) {
 		super();
 		this.order_no = order_no;
 		this.order_name = order_name;
@@ -45,11 +45,12 @@ public class Order {
 		this.order_date = order_date;
 		this.order_delivery = order_delivery;
 		this.user_id = user_id;
-		this.orderItemList = orderItemList;
+		this.orderItemList = new ArrayList<OrderItem>();
 	}
 	
 	
 	
 }
 	
+
 

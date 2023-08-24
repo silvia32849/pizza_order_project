@@ -57,12 +57,13 @@ public class OrderService {
 	public List<Order> findAllOrders() throws Exception{
 		return orderDao.findAllOrders();
 	}
-	
-	   //주문 1개 조회
-	public Order findOrderByNo(int order_no) throws Exception{
-		return orderDao.findOrderByNo(order_no);
-	}	
 	*/
+	
+	 //주문 1개 조회
+	public Order findOrderByOrderNo(int order_no) throws Exception{
+		return orderDao.findOrderByOrderNo(order_no);
+	}	
+	
 	   //회원 한사람의 주문전체목록 조회
 	public List<Order> findOrderByUserId(String user_id) throws Exception{
 		return orderDao.findOrderByUserId(user_id);
@@ -90,3 +91,21 @@ public class OrderService {
 	   
 	 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

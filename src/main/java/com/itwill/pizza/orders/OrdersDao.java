@@ -25,8 +25,9 @@ public interface OrdersDao {
 	/* 관리자
 	List<Order> findAllOrders() throws Exception;
 	
-	Order findOrderByNo(int order_no) throws Exception;
 	*/
+	
+	Order findOrderByOrderNo(int order_no) throws Exception;
 	
 	List<Order> findOrderByUserId(String user_id) throws Exception;
 	
@@ -34,6 +35,8 @@ public interface OrdersDao {
 	//List<OrderItem> findAllOrderItems() throws Exception;
 	
 	OrderItem findOrderItemByOrderNo(int order_no) throws Exception;
+
+
 	
 	//OrderItem findOrderItemByOiNo(int oi_no) throws Exception;
 	

@@ -76,7 +76,7 @@
                 <div class="header_top">
                     <div class="header_top_inner">
                         <h1>
-                            <a href="/" aria-label="홈" class="logo"></a>
+                            <a href="user_loginsuccess_form.jsp" aria-label="홈" class="logo"></a>
                             <div class="center"></div>
                         </h1>
                        
@@ -88,10 +88,10 @@
                                 <a href="user_logout_action.jsp" class="header_top_link"> 로그아웃</a>
                             </li>
                             <li class="header_top_item">
-                                <a href="#" class="header_top_link"> 마이페이지</a>
+                                <a href="user_info_form.jsp" class="header_top_link"> 마이페이지</a>
                             </li>
                             <li class="header_top_item">
-                                <a href="#" class="header_top_link"> 관심상품</a>
+                                <a href="cart_list_form.jsp" class="header_top_link"> 장바구니</a>
                             </li>
                         </ul>
                     </div>
@@ -103,7 +103,7 @@
                     <nav class="tabs">
                         <ul class="ul_tab home_tabs inline">
                            <li class="li_tab">
-                                <a href="#" class="tab">
+                                <a href="product_list.jsp" class="tab">
                                  <span class="tab_name">메뉴</span>
                               </a>
                            </li>
@@ -113,7 +113,7 @@
                                </a>
                            </li>
                            <li class="li_tab">
-                                <a href="#" class="tab updated">
+                                <a href="board_list.jsp" class="tab updated">
                                     <span class="tab_name">고객센터</span>
                                 </a>
                             </li>
@@ -134,7 +134,7 @@
                                 <h2 class="page-title">나의 정보</h2>
                                 <div class="depth-area">
                                     <ol>
-                                        <li><a href="index.jsp">홈</a></li>
+                                        <li><a href="user_loginsuccess_form.jsp">홈</a></li>
                                         <li><a href="user_info_form.jsp">나의 정보</a></li>
                                         <li><strong>정보수정</strong></li>
                                     </ol>
@@ -558,7 +558,7 @@
                             <div class="info_list">
                                 <dl class="info_item">
                                     <dt class="business_title">
-                                        크림 주식회사 · 대표 차경진
+                                        도미노 주식회사 · 대표이사 오광현, 김영훈
                                         <span class="blank"></span>
                                         사업자등록번호 : 000-00-00000
                                         <span class="blank"></span>

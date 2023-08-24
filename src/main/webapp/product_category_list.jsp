@@ -5,12 +5,13 @@
 <%@page import="com.itwill.pizza.product.ProductService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <%
 String noStr = request.getParameter("product_category");
 ProductService ps = new ProductService();
 List<Product> productList= ps.findByCategory(Integer.parseInt(noStr));
-
+String userId=request.getParameter("user_id");
 %>
 <html lang="en">
 <head>
@@ -18,7 +19,7 @@ List<Product> productList= ps.findByCategory(Integer.parseInt(noStr));
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css" > 
     <link rel="stylesheet" type="text/css" href="css/product.css" > 
-    <title>책을 피자</title>
+    <title>인생피자</title>
 </head>
 <body>
     <div class="warp">
@@ -28,33 +29,33 @@ List<Product> productList= ps.findByCategory(Integer.parseInt(noStr));
                 <div class="header_top">
                     <div class="header_top_inner">
                         <h1>
-                            <a href="/" aria-label="홈" class="logo"></a>
+                            <a href="index.jsp" aria-label="홈" class="logo"></a>
                             <div class="center"></div>
                         </h1>
-                        <!--
-                        <div class="search_area">
-                            <form>
-                               <input type="search" placeholder="search">
-                                <span>검색</span>
-                            </form>
-                        </div>
-                        -->
-
-                        
-                        
-
-                        
-                        
-                        
+                     
                         <ul class="header_top_list">
+                        <li class="header_top_item">
+                            <%if(userId!=null){%>
+                            	<a href="user_logout_action.jsp" class="header_top_link"> 로그아웃</a>
+                            <%}else {%>
+                                <a href="user_login_form.jsp" class="header_top_link">로그인</a>
+                            <%} %>
+                            	
+                         </li>
                             <li class="header_top_item">
-                                <a href="login.html" class="header_top_link"> 로그인</a>
-                            </li>
-                            <li class="header_top_item">
-                                <a href="#" class="header_top_link"> 마이페이지</a>
-                            </li>
-                            <li class="header_top_item">
-                                <a href="#" class="header_top_link"> 관심상품</a>
+                            <%if(userId!=null){%>
+                                <a href="user_info.jsp?user_id=?<%=userId %>" class="header_top_link"> 마이페이지</a>
+                             <%}else {%>
+                             	<a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
+                             <%} %>
+                             </li>
+                             <li class="header_top_item">
+                             <%if(userId!=null){%>
+                            	<a href="cart_list_form.jsp?user_id?<%=userId %>" class="header_top_link">장바구니</a>
+                            	<%}else {%>
+                                <a href="user_login_form.jsp" class="header_top_link">장바구니</a>
+                            <%} %>
+                           
                             </li>
                         </ul>
                     </div>
@@ -70,13 +71,9 @@ List<Product> productList= ps.findByCategory(Integer.parseInt(noStr));
                                  <span class="tab_name">전체 메뉴</span>
                               </a>
                            </li>
-                          <li class="li_tab">
-                               <a href="#" class="tab">
-                                 <span class="tab_name">추천</span>
-                               </a>
-                           </li>
+                         
                            <li class="li_tab">
-                                <a href="#" class="tab updated">
+                                <a href="borad_list.jsp" class="tab updated">
                                     <span class="tab_name">고객센터</span>
                                 </a>
                             </li>

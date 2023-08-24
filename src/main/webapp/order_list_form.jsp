@@ -1,5 +1,19 @@
+<%@page import="java.util.List"%>
+<%@page import="com.itwill.pizza.userinfo.User"%>
+<%@page import="com.itwill.pizza.orders.Order"%>
+<%@page import="com.itwill.pizza.orders.OrderService"%>
+<%@page import="com.itwill.pizza.userinfo.UserService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>
+
+<% 
+sUserId = "user1";
+//String userId, String userPw, String userName, String userEmail, String userAddress, String userPhone, String userGender, String userJumin
+sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주소","010-1234-5678","테스트성별",null);
+System.out.println(sUser);
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -108,10 +122,16 @@
                                 </ul>
                             </div>
                         </div>
-
                         <div class="info-wrap">
+<%
+
+OrderService orderService=new OrderService();
+List<Order> orderList=orderService.findOrderByUserId(sUserId);
+for(Order order : orderList) {
+
+%>
                             <div class="user">
-                                <span><strong>임범준</strong>님이 주문하신 내역입니다.</span>
+                                <span><strong><%=sUser.getUserName() %></strong>님이 주문하신 내역입니다.</span>
                                 
                             </div>
                             <div class="text-type">주문을 취소하시려면 해당 매장으로 전화하셔야 합니다.</div>
@@ -122,36 +142,36 @@
                             <ul>
                                 <li>
                                     <div class="order-top">
-                                        <span class="type">포장</span>
+                                        <span class="type">배달</span>
                                         <span class="date">
                                         <span class="tit">주문일시</span>
-                                            2023-05-26 20:16
+                                            <%=order.getOrder_date() %>
                                         </span>
                                         <span class="num">
                                             <span class="tit">주문번호</span>
-                                            20230526866658990026
+                                            <%=order.getOrder_no() %>
                                         </span>
                                     </div>
                                     <div class="order-center">
                                         <div class="state od-box">
-                                            <strong>수령완료</strong>
+                                            <strong>주문접수완료</strong>
                                         </div>
                                         <div class="info od-box">
                                             <a href="javascript:goView('20230526866658990026');">
                                                 <div class="menu">
-                                                    와일드 와일드 웨스트 스테이크+블랙타이거 슈림프 슈퍼시드 화이버 함유 도우 외 1건&nbsp;
-                                                    20,350원
+                                                    <%=order.getOrder_name() %>&nbsp;
+                                                    
                                                 </div>
                                             </a>
                                         </div>
                                         <div class="btn-detail od-box">
-                                            <a href="javascript:goView('20230526866658990026');" class="detail">상세보기</a>
+                                            <a href="order_detail.jsp?order_no=<%=order.getOrder_no() %>" class="detail">상세보기</a>
                                         </div>
                                     </div>
+										<%}%>
                                 </li>    
                             </ul>
                         </div>
-
                     </article>
                 </div>
             </div>

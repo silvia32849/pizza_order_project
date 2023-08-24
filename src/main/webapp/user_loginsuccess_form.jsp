@@ -73,7 +73,7 @@ if(fuser==null) {
                         <a href="user_info_form.jsp" class="header_top_link"> 마이페이지</a>
                     </li>
                     <li class="header_top_item">
-                        <a href="#" class="header_top_link"> 관심상품</a>
+                        <a href="cart_list_form.jsp" class="header_top_link"> 장바구니</a>
                     </li>
                 </ul>
             </div>
@@ -85,7 +85,7 @@ if(fuser==null) {
         <nav class="tabs">
             <ul class="ul_tab home_tabs inline">
                 <li class="li_tab">
-                    <a href="#" class="tab">
+                    <a href="product_list.jsp" class="tab">
                         <span class="tab_name">메뉴</span>
                     </a>
                 </li>
