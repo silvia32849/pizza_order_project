@@ -1,4 +1,3 @@
-
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.itwill.pizza.product.Product"%>
 
@@ -38,6 +37,7 @@ if (product == null) {
 		}
 		return true;
 	}
+	//제품 상세 페이지에서 장바구니 담기
 	function add_cart_popup_window() {
 		if (<%=!isLogin%>) {
 			alert('로그인 하세요');
@@ -64,7 +64,7 @@ if (product == null) {
 		}
 	}
 	/*
-	제품상세보기에서주문
+	제품상세보기에서 다이렉트 주문
 	 */
 	function order_create_form() {
 		if (<%=!isLogin%>) {
@@ -122,12 +122,13 @@ if (product == null) {
 	content="<%=product.getProduct_image()%>" />
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.dominos.co.kr/domino/asset/css/font.css">
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.dominos.co.kr/domino/pc/css/common.css">
+<link rel="stylesheet" type="text/css" href="css/common.css" > 
+<!-- <link rel="stylesheet" type="text/css"
+	href="https://cdn.dominos.co.kr/domino/pc/css/common.css"> -->
 <link rel="stylesheet" type="text/css" href="/resources/css/ol.css">
 <!--메인에는 sub.css 호출하지않음-->
 <link rel="stylesheet" type="text/css"
-	href="https://cdn.dominos.co.kr/domino/pc/css/sub.css">
+	href="https://cdn.dominos.co.kr/domino/pc/css/sub.css"> 
 
 
 </head>
@@ -183,8 +184,8 @@ if (product == null) {
 							<h2 class="page-title">메뉴</h2>
 							<div class="depth-area">
 								<ol>
-									<li><a href="#">홈</a></li>
-									<li><a href="#">메뉴</a></li>
+									<li><a href="index.html">홈</a></li>
+									<li><a href="product_list.jsp">메뉴</a></li>
 									<li><strong><%=product.getProduct_name() %></strong></li>
 								</ol>
 							</div>
@@ -242,59 +243,23 @@ if (product == null) {
 									<div class="guide-box2">원산지 정보는 사진 우측 하단 돋보기 메뉴를 통해 확인
 										가능합니다.</div>
 <script>
-function setSizePrice(selectedSize) {
-    var sizeRadio = document.getElementById("size" + selectedSize);
-    var sizeCheckbox = sizeRadio.nextElementSibling; // 체크박스 엘리먼트
-
-    if (!sizeCheckbox.classList.contains("selected")) {
-        var price = 0;
-        var formattedPrice = "";
-
-        if (selectedSize === 'L') {
-            price = <%=product.getProduct_price() + 5000%>;
-        } else if (selectedSize === 'M') {
-            price = <%=product.getProduct_price()%>;
-        }
-
-        formattedPrice = addCommas(price);
-        document.getElementById("sizePrice" + selectedSize).textContent = formattedPrice + "원";
-
-        // 모든 사이즈 체크박스의 클래스를 기본값으로 설정
-        var allSizeCheckboxes = document.querySelectorAll('.size-box .chk-box2');
-        for (var i = 0; i < allSizeCheckboxes.length; i++) {
-            allSizeCheckboxes[i].classList.remove("chk-box2 selected");
-        }
-
-        sizeCheckbox.classList.add("chk-box2 selected"); // 선택된 사이즈 체크박스에 클래스 추가
-
-        if (selectedSize === 'L') {
-            enableEdgeOption();
-        } else if (selectedSize === 'M') {
-            disableEdgeOption();
-        }
-    }
+//영양성분표시
+function yungyang(){
+	window.open("https://web.dominos.co.kr/contents/deliveryIngredient","imageView","width=500,height=500,top=50,left=50,location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no")
 }
-
-function enableEdgeOption() {
-    var edgeOptions = document.querySelectorAll('.option-box.edge input[type="radio"]');
-    for (var i = 0; i < edgeOptions.length; i++) {
-        edgeOptions[i].disabled = false;
-        edgeOptions[i].parentNode.classList.add("active");
-    }
-}
-
-function disableEdgeOption() {
-    var edgeOptions = document.querySelectorAll('.option-box.edge input[type="radio"]');
-    for (var i = 0; i < edgeOptions.length; i++) {
-        edgeOptions[i].disabled = true;
-        edgeOptions[i].parentNode.classList.remove("active");
-    }
-}
-
-function addCommas(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+				
 </script>
+<script type="text/javascript">
+	
+</script>
+<%
+	DecimalFormat df = new DecimalFormat("#,###");
+	int lPrice = product.getProduct_price()+5000;
+	int mPrice = product.getProduct_price();
+	String formatLPrice=df.format(lPrice);
+	String formatMPrice=df.format(mPrice);
+				
+%>
 								</div>
 								<div class="detail-wrap">
 									<div class="menu-box">
@@ -308,66 +273,59 @@ function addCommas(number) {
 										</div>
 
 										<div class="btn-wrap2">
-											<a href="javascript:UI.layerPopUp({selId:'#pop-allergy', url:'https://web.dominos.co.kr/contents/deliveryIngredient'})" class="btn-type-left v2">원산지·영양성분 ·알레르기 유발성분 정보</a>
+											<a href="javascript:yungyang();" class="btn-type-left v2">원산지·영양성분 ·알레르기 유발성분 정보</a>
 										</div>
 									</div>
 
 									<!-- 주문 옵션 선택 -->
-									<!-- L 사이즈 라디오 버튼 -->
-				<div class="select-box">
-					<div class="step-wrap">
-						<div class="title-wrap">
-							<div class ="title-type2">사이즈 선택</div>
-						</div>
-							<div class="size-box">
-								<div class="chk-box2">
-									<input type="radio" id="size1" name="size" value="L"
-										onclick="setSizePrice('L')" />
-									<label class="checkbox" for="size1"></label>
-									<label for="size1">L &nbsp;<span id="sizePriceL"></span></label>
-								</div>	
-									<!-- M 사이즈 라디오 버튼 -->
-								<div class="chk-box2">
-									<input type="radio" id="size2" name="size" value="M"
-									   onclick="setSizePrice('M')" />
-									<label class="checkbox" for="size2"></label>
-									<label for="size2">M &nbsp;<span id="sizePriceM"></span></label>
-								</div>
-							</div>
-						</div>
-					</div>
-										
-										<table border="0" cellpadding="0" cellspacing="1">
-											<tr>
-												<td align=center>
-													<div class="button"><a href="javascript:order_create_form();" > 주문하기[주문폼]</a>&nbsp;</div> 
-													<input type="button" value="상품리스트" onClick="productList();">&nbsp;
-													<input type="button" value="장바구니담기" onClick="cart_update_item();">
-												</td>
-											</tr>
-										</table>
+
+<style>
+
+
+        /* 장바구니 및 주문하기 버튼 스타일 */
+        .btn-type {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .btn-type:hover {
+            background-color: #222;
+        }
+
+}
+</style>
+
+
+<form name="add_cart_form" method="POST" onsubmit="return add_cart();" action="cart_add_action.jsp"> 
+        <h3>사이즈 선택</h3>
+        <div class="radio-container">
+            <label class="radio-label" for="size1">
+                <input type="radio" id="size1" name="size" value="M" checked="checked"/>
+                <span class="radio" ></span> M &nbsp;<%=formatMPrice %>원
+            </label>
+            
+            <label class="radio-label" for="size2">
+                <input type="radio" id="size2" name="size" value="L" />
+                <span class="radio" ></span> L &nbsp;<%=formatLPrice %>원
+            </label>
+        </div>
+        <br><br>
+        <a href="javascript:add_cart_popup_window(this.parentElement);" title="장바구니[팝업]" class="btn-type">장바구니</a>
+        <a href="javascript:order_create_form();" title="주문하기[팝업]" class="btn-type">주문하기</a>
+    </form>	
+									
 									</div>
 								</div>
-							</div>
-						</article>
-						<script type="text/javascript">
-							function order_create_form() {
-								if(<%=!isLogin%>){
-									alert('로그인 하세요');
-									location.href='user_login_form.jsp';
-								}else {
-									document.product_detail_form.method ='POST';
-									document.product_detail_form.action ='order_create_form.jsp';
-									document.product_detail_form.submit();
-								}
-								
-							}
-						
-						</script>
+							</article>
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			</div>
 		</div>
-	</div>
 	</body>
 </html>

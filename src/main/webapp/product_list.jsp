@@ -10,7 +10,9 @@
 
 ProductService ps = new ProductService();
 List<Product> productList= ps.findByAll();
-
+if(session.getAttribute("user_id")!=null){
+	//로그인 상태라면 헤더변경 아닐시 비로그인상태의 헤더출력.
+}
 %>
 <html lang="en">
 <head>
