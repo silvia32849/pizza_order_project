@@ -1,26 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %> 
 <!DOCTYPE html>
+<%
+System.out.println(sUser);
+%>
 <head>
-    <!-- ¿©±â¿¡ ÇÊ¿äÇÑ ½ºÅ¸ÀÏ°ú ½ºÅ©¸³Æ®¸¦ Ãß°¡ÇÒ ¼ö ÀÖ½À´Ï´Ù. -->
+    <!-- ì—¬ê¸°ì— í•„ìš”í•œ ìŠ¤íƒ€ì¼ê³¼ ìŠ¤í¬ë¦½íŠ¸ë¥¼ ì¶”ê°€í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤. -->
     <style>
         .inner-box {
-            display: flex; /* °¡·Î·Î ³ª¿­ÇÏ±â À§ÇØ flexbox »ç¿ë */
+            display: flex; /* ê°€ë¡œë¡œ ë‚˜ì—´í•˜ê¸° ìœ„í•´ flexbox ì‚¬ìš© */
         }
 
         .inner-box ul {
-            list-style-type: none; /* ¸ñ·Ï ½ºÅ¸ÀÏ Á¦°Å */
-            display: flex; /* °¡·Î·Î ³ª¿­ÇÏ±â À§ÇØ flexbox »ç¿ë */
-            padding: 0; /* ¸ñ·ÏÀÇ ³»ºÎ ¿©¹é Á¦°Å */
+            list-style-type: none; /* ëª©ë¡ ìŠ¤íƒ€ì¼ ì œê±° */
+            display: flex; /* ê°€ë¡œë¡œ ë‚˜ì—´í•˜ê¸° ìœ„í•´ flexbox ì‚¬ìš© */
+            padding: 0; /* ëª©ë¡ì˜ ë‚´ë¶€ ì—¬ë°± ì œê±° */
         }
 
         .inner-box li {
-            margin-right: 30px; /* ÀÌ¹ÌÁö °£ °£°İÀ» Á¶Àı */
+            margin-right: 30px; /* ì´ë¯¸ì§€ ê°„ ê°„ê²©ì„ ì¡°ì ˆ */
         }
 
         .inner-box img {
-            width: 400px; /* ÀÌ¹ÌÁöÀÇ °¡·Î Å©±â¸¦ Á¶Àı */
-            height: 400px; /* ÀÌ¹ÌÁöÀÇ ¼¼·Î Å©±â¸¦ Á¶Àı */
+            width: 400px; /* ì´ë¯¸ì§€ì˜ ê°€ë¡œ í¬ê¸°ë¥¼ ì¡°ì ˆ */
+            height: 400px; /* ì´ë¯¸ì§€ì˜ ì„¸ë¡œ í¬ê¸°ë¥¼ ì¡°ì ˆ */
         }
     </style>
 </head>
@@ -33,14 +36,17 @@
         <div id="wrap">
             <div class="inner-box">
                 <ul>
+               
+                
                 <a href="board_list.jsp">
-                    <li><img src="images/°øÁö»çÇ×.jpg" alt="±×·¡ÇÈ ÀÌ¹ÌÁö: È¸»ç ·Î°í"></li>
+                    <li><img src="images/ê³µì§€ì‚¬í•­.jpg" alt="ê·¸ë˜í”½ ì´ë¯¸ì§€: íšŒì‚¬ ë¡œê³ "></li>
                 </a>
+               
                 <a href="board_faq.jsp">
-                    <li><img src="images/FAQ.jpg" alt="ÀÌ¹ÌÁö 2"></li>
+                    <li><img src="images/FAQ.jpg" alt="ì´ë¯¸ì§€ 2"></li>
                </a>
                <a href="inquiries_main.jsp">
-                    <li><img src="images/1´ë1¹®ÀÇ.jpg" alt="ÀÌ¹ÌÁö 3"></li>
+                    <li><img src="images/1ëŒ€1ë¬¸ì˜.jpg" alt="ì´ë¯¸ì§€ 3"></li>
                </a>
                 </ul>
             </div>

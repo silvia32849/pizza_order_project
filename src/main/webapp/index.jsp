@@ -1,28 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"   pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"   pageEncoding="UTF-8"%>
+<%
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>ÀÎ»ıÇÇÀÚ</title>
+<title>ì¸ìƒí”¼ì</title>
 
 <style>
         .inner-box {
-            display: flex; /* °¡·Î·Î ³ª¿­ÇÏ±â À§ÇØ flexbox »ç¿ë */
+            display: flex; /* ê°€ë¡œë¡œ ë‚˜ì—´í•˜ê¸° ìœ„í•´ flexbox ì‚¬ìš© */
         }
 
         .inner-box ul {
-            list-style-type: none; /* ¸ñ·Ï ½ºÅ¸ÀÏ Á¦°Å */
-            display: flex; /* °¡·Î·Î ³ª¿­ÇÏ±â À§ÇØ flexbox »ç¿ë */
-            padding: 0; /* ¸ñ·ÏÀÇ ³»ºÎ ¿©¹é Á¦°Å */
+            list-style-type: none; /* ëª©ë¡ ìŠ¤íƒ€ì¼ ì œê±° */
+            display: flex; /* ê°€ë¡œë¡œ ë‚˜ì—´í•˜ê¸° ìœ„í•´ flexbox ì‚¬ìš© */
+            padding: 0; /* ëª©ë¡ì˜ ë‚´ë¶€ ì—¬ë°± ì œê±° */
         }
 
         .inner-box li {
-            margin-right: 100px; /* ÀÌ¹ÌÁö °£ °£°İÀ» Á¶Àı */
+            margin-right: 200px; /* ì´ë¯¸ì§€ ê°„ ê°„ê²©ì„ ì¡°ì ˆ */
         }
 
         .inner-box img {
-            width: 250px; /* ÀÌ¹ÌÁöÀÇ °¡·Î Å©±â¸¦ Á¶Àı */
-            height: 250px; /* ÀÌ¹ÌÁöÀÇ ¼¼·Î Å©±â¸¦ Á¶Àı */
+            width: 300px; /* ì´ë¯¸ì§€ì˜ ê°€ë¡œ í¬ê¸°ë¥¼ ì¡°ì ˆ */
+            height: 300px; /* ì´ë¯¸ì§€ì˜ ì„¸ë¡œ í¬ê¸°ë¥¼ ì¡°ì ˆ */
         }
     </style>
 </head>
@@ -31,11 +33,12 @@
         <jsp:include page="include_common_top.jsp"/>
     </div>
     
+    
    <div id="container" >
 	<section id="content"   style="margin-bottom: 500px;">
 		<div class="main">
 			<!-- visual -->
-			    <img src="images/¸ŞÀÎ¹è³Ê.jpg" alt="ÀÌ¹ÌÁö ¼³¸í">
+			    <img src="images/ë©”ì¸ë°°ë„ˆ.jpg" alt="ì´ë¯¸ì§€ ì„¤ëª…">
 		</div>
 
 			<!-- //visual -->
@@ -44,13 +47,13 @@
             <div class="inner-box" style="margin-bottom: 100px;">
                 <ul>
                 <a href="cart_list_form.jsp">
-                    <li><img src="images/¹è´ŞÁÖ¹®.jpg" alt="±×·¡ÇÈ ÀÌ¹ÌÁö: È¸»ç ·Î°í"></li>
+                    <li><img src="images/ë°°ë‹¬ì£¼ë¬¸.jpg" alt="ê·¸ë˜í”½ ì´ë¯¸ì§€: íšŒì‚¬ ë¡œê³ "></li>
                 </a>
                 <a href="">
-                    <li><img src="images/Äü¿À´õ.jpg" alt="ÀÌ¹ÌÁö 2"></li>
+                    <li><img src="images/í€µì˜¤ë”.jpg" alt="ì´ë¯¸ì§€ 2"></li>
                </a>
                <a href="cart_takeout_list_form.jsp">
-                    <li><img src="images/Æ÷ÀåÁÖ¹®.jpg" alt="ÀÌ¹ÌÁö 3"></li>
+                    <li><img src="images/í¬ì¥ì£¼ë¬¸.jpg" alt="ì´ë¯¸ì§€ 3"></li>
                </a>
                 </ul>
             </div>

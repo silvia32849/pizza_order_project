@@ -1,18 +1,25 @@
 <%@page import="com.itwill.pizza.inquiries.Inquiries"%>
 <%@page import="java.util.List"%>
 <%@page import="com.itwill.pizza.inquiries.InquiriesService"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@page import="com.itwill.pizza.*" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
+<%@ include file="login_check.jspf" %>
 
 <%
 InquiriesService inquiriesService = new InquiriesService();
-String User_id="¿ìÇÑ¿µ";
-List<Inquiries> inq = inquiriesService.findInquiriesList(User_id);
+System.out.println(sUser.getUserName());
+
+
+List<Inquiries> inq = inquiriesService.findInquiriesList(sUser.getUserId());
 System.out.println(inq);
 
+if (sUser == null) {
+    // ë¡œê·¸ì¸ ì•„ì´ë””ê°€ ì—†ëŠ” ê²½ìš°, ë¡œê·¸ì¸ í˜ì´ì§€ë¡œ ë¦¬ë‹¤ì´ë ‰íŠ¸
+    response.sendRedirect("user_login_form.jsp");
+}
 
 %>
 
@@ -53,19 +60,19 @@ System.out.println(inq);
 				<article class="mypage-wrap mypage-grade mypage-counsil">
 					<div class="info-wrap">
 							<div class="text-type">
-							<strong><%=User_id %></strong>	
-							<strong>´Ô²²¼­ ¹®ÀÇÇÏ½Å ³»¿ëÀÔ´Ï´Ù.</strong>
+							<strong><%=sUser.getUserId() %></strong>	
+							<strong>ë‹˜ê»˜ì„œ ë¬¸ì˜í•˜ì‹  ë‚´ìš©ì…ë‹ˆë‹¤.</strong>
 							</div>
 								
 							<div class="text-type">
-								<%=User_id %> ´Ô²²¼­ ¹®ÀÇÇÏ½Å ³»¿ëÀº 
-								<strong>ÃÑ <%=inq.size() %>°Ç</strong> ÀÔ´Ï´Ù.
+								<%=sUser.getUserId() %> ë‹˜ê»˜ì„œ ë¬¸ì˜í•˜ì‹  ë‚´ìš©ì€ 
+								<strong>ì´ <%=inq.size() %>ê±´</strong> ì…ë‹ˆë‹¤.
 							</div>
 						</div>
 					<div class="counsil-wrap">
 						<div class="table-type4">
 							<table>
-								<caption>ÇÇÀÚ ¿µ¾ç¼ººĞ</caption>
+								<caption>í”¼ì ì˜ì–‘ì„±ë¶„</caption>
 								<colgroup>
 									<col style="width:140px">
 									<col style="width:180px">
@@ -73,9 +80,9 @@ System.out.println(inq);
 								</colgroup>
 								<thead>
 									<tr>
-										<th>¹øÈ£</th>
-										<th>Á¦¸ñ</th>
-										<th>µî·ÏÀÏ</th>
+										<th>ë²ˆí˜¸</th>
+										<th>ì œëª©</th>
+										<th>ë“±ë¡ì¼</th>
 									</tr>
 								</thead>
 								<% 
@@ -106,17 +113,17 @@ System.out.println(inq);
 								</div>
 						</div>
 						<div class="btn-wrap">
-						    <a href="#" class="btn-type v4" id="openPopup">¹®ÀÇÇÏ±â</a>
+						    <a href="#" class="btn-type v4" id="openPopup">ë¬¸ì˜í•˜ê¸°</a>
 						</div>
 						
 						<script>
 						document.getElementById("openPopup").addEventListener("click", function(event) {
-						    event.preventDefault(); // ±âº» µ¿ÀÛÀ» ¸·½À´Ï´Ù (¸µÅ©ÀÇ ÀÌµ¿À» Ãë¼ÒÇÕ´Ï´Ù).
+						    event.preventDefault(); // ê¸°ë³¸ ë™ì‘ì„ ë§‰ìŠµë‹ˆë‹¤ (ë§í¬ì˜ ì´ë™ì„ ì·¨ì†Œí•©ë‹ˆë‹¤).
 						
-						    // ¿øÇÏ´Â ÆäÀÌÁö URLÀ» ¿©±â¿¡ ¼³Á¤ÇÕ´Ï´Ù.
+						    // ì›í•˜ëŠ” í˜ì´ì§€ URLì„ ì—¬ê¸°ì— ì„¤ì •í•©ë‹ˆë‹¤.
 						    var otherPageUrl = "inquiries_write.jsp";
 						    
-						    // ÆäÀÌÁö ÀÌµ¿
+						    // í˜ì´ì§€ ì´ë™
 						    window.location.href = otherPageUrl;
 						});
 						</script>

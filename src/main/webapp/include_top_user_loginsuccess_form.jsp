@@ -1,10 +1,10 @@
-<%@page import="com.itwill.pizza.userinfo.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>  
 
 <%
 String contextPath = application.getContextPath();
-String sUserId=(String)session.getAttribute("sUserId");
-User sUser=(User)session.getAttribute("sUser");
+System.out.println(sUser);
+
 %>    
 <!DOCTYPE html>
 <html>
@@ -33,11 +33,11 @@ User sUser=(User)session.getAttribute("sUser");
                         <ul class="header_top_list">
                             <li class="header_top_item">
                             	<% if (sUser != null) { %>
-								    <a href="user_login_form.jsp" class="header_top_link">로그아웃</a>
-								<% } else { %>
-								    <a href="user_login_form.jsp" class="header_top_link">로그인</a>
-								<% } %>
-
+                                <a href="user_logout_action.jsp" class="header_top_link"> 로그아웃</a>
+       								<% } else { %>
+                                <a href="user_login_action.jsp" class="header_top_link"> 로그인</a>
+          								<% } %>
+                           
                             </li>
                             <li class="header_top_item">
                                 <a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>

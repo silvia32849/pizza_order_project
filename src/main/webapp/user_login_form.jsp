@@ -1,6 +1,5 @@
 <%@page import="com.itwill.pizza.userinfo.User"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
     
 <%
 String msg1=(String)request.getAttribute("msg1");
@@ -53,7 +52,7 @@ if(fuser==null) {
         <div class="header_top">
             <div class="header_top_inner">
                 <h1>
-                    <a href="index.jsp" aria-label="홈" class="logo"></a>
+                    <a href="user_logout_action.jsp" aria-label="홈" class="logo"></a>
                     <div class="center"></div>
                 </h1>
                 <!--
