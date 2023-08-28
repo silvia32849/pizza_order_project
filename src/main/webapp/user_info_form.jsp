@@ -3,6 +3,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="login_check.jspf" %>  
 <%
+
+
 	
 	UserService userService=new UserService();
 	User user=userService.findUser(sUserId);
@@ -79,7 +81,8 @@
 
                         <ul class="header_top_list">
                             <li class="header_top_item">
-								 <a href="user_login_form.jsp" class="header_top_link">로그인</a>
+								<a href="user_logout_action.jsp" class="header_top_link">로그아웃</a>
+
                             </li>
                             <li class="header_top_item">
                                 <a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
