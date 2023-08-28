@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <%
 
+
 ProductService ps = new ProductService();
 List<Product> productList= ps.findByAll();
 
@@ -20,76 +21,70 @@ if (session.getAttribute("sUserId") != null) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/sub.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css" > 
     <link rel="stylesheet" type="text/css" href="css/product.css" > 
     <title>인생피자</title>
+    
 </head>
 <body>
+    
     <div class="warp">
-            <!-- 헤더 시작-->    
             <div class="header fixed social">
-                <!-- 헤더 top 시작-->
                 <div class="header_top">
                     <div class="header_top_inner">
                         <h1>
-                            <a href="index.jsp.jsp" aria-label="홈" class="logo"></a>
+                            <a href="index.jsp" aria-label="홈" class="logo"></a>
                             <div class="center"></div>
                         </h1>
-                        
-	                      <!--   <div class="search_area">
-	                            <form>
-	                               <input type="search" placeholder="search">
-	                                <span>검색</span>
-	                            </form>
-	                        </div> -->
-                        
-                       
+
                         <ul class="header_top_list">
                             <li class="header_top_item">
-                            <%if(isLogin){%>
-                            	<a href="user_logout_action.jsp" class="header_top_link"> 로그아웃</a>
-                            <%}else {%>
-                                <a href="user_login_form.jsp" class="header_top_link">로그인</a>
-                            <%} %>
-                            	
+                            	<% if (isLogin) { %>
+								    <a href="user_logout_action.jsp" class="header_top_link">로그아웃</a>
+								<% } else { %>
+								    <a href="user_login_form.jsp" class="header_top_link">로그인</a>
+								<% } %>
+
                             </li>
                             <li class="header_top_item">
-                            <%if(isLogin){%>
-                                <a href="user_info.jsp?user_id=?<%=session.getAttribute("sUserId") %>" class="header_top_link"> 마이페이지</a>
-                             <%}else {%>
-                             	<a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
-                             <%} %>
-                             </li>
-                             <li class="header_top_item">
-                             <%if(isLogin){%>
-                            	<a href="cart_list_form.jsp?user_id?<%=session.getAttribute("sUserId") %>" class="header_top_link">장바구니</a>
-                            	<%}else {%>
-                                <a href="user_login_form.jsp" class="header_top_link">장바구니</a>
-                            <%} %>
-                           
+                                <a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
+                            </li>
+                            <li class="header_top_item">
+                                <a href="user_login_form.jsp" class="header_top_link"> 장바구니</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 
 
-                <!-- 헤더 마지막 시작-->
                 <div class="portal_tartget vue-portal-target">
-                    <nav class="tabs">
-                        <ul class="ul_tab home_tabs inline">
-                           <li class="li_tab">
-                                <a href="product_list.jsp" class="tab">
-                                 <span class="tab_name">전체 메뉴</span>
-                              </a>
-                           </li>
-                           <li class="li_tab">
-                                <a href="borad_list.jsp" class="tab updated">
-                                    <span class="tab_name">고객센터</span>
-                                </a>
-                            </li>
-                         </ul>
-                    </nav>
+                <nav class="tabs">
+                    <ul class="ul_tab home_tabs inline">
+                        <li class="li_tab">
+                            <a href="product_list.jsp" class="tab">
+                                <span class="tab_name">메뉴</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="#" class="tab">
+                                <span class="tab_name">추천</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="board_main.jsp" class="tab updated">
+                                <span class="tab_name">고객센터</span>
+
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </nav>
                 </div>
             </div>
 
@@ -131,63 +126,7 @@ if (session.getAttribute("sUserId") != null) {
                 </div>
                 
                 </div>
-            <script>
-            
 
-            /* 2020.09.01 랭킹 주석 
-             
-                getRankingList();
-            
-            
-                function getRankingList (){
-                // search
-                $('.sch-slider').slick({
-                    autoplay: true,
-                    autoplaySpeed: 3000,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    arrows: false,
-                    vertical: true,
-                    asNavFor: '.sch-slider-nav'
-                });
-                $('.sch-slider-nav').slick({
-                    slidesToShow:10,
-                    slidesToScroll: 1,
-                    variableWidth: true,
-                    asNavFor: '.sch-slider',
-                });
-                
-                $(".btn-open").on('click',function(e){
-                    e.preventDefault();
-                    
-                    var link = $(this);
-                    var cont = $(this).closest('.sch-box');
-                    if(cont.hasClass('active')){
-                        cont.removeClass('active');
-                        link.removeClass('active');
-                        cont.find('.sch-slider-nav').slideUp();
-                    }else{
-                        cont.addClass('active');
-                        link.addClass('active');
-                        cont.find('.sch-slider-nav').slideDown();
-                    }
-                });
-                
-                $('.sch-slider-nav').mouseleave(function(){
-                    var link = $(this).closest('.sch-box').find(".btn-open");
-                    var cont = $(this).closest('.sch-box');
-                    if(cont.hasClass('active')){
-                        cont.removeClass('active');
-                        link.removeClass('active');
-                        cont.find('.sch-slider-nav').slideUp();
-                    }
-                });	
-            } */
-            
-            
-            </script>
-            <!-- //menu-list -->
-                                
                                 <!-- 메뉴 목록 띠배너 -->
                                 <!-- 메뉴 목록 띠배너 -->
                                 <!-- NEW 피자 영역 -->

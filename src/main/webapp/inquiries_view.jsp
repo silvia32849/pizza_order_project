@@ -16,8 +16,13 @@
 	Inquiries Inquiries1 = inquiriesService.findInquiries(inquiriesno);
 	
 	
- %>   
     
+ boolean isLogin = false;
+if (session.getAttribute("sUserId") != null ) {
+isLogin = true;
+	
+}
+ %>   
 <!DOCTYPE html>
 
 
@@ -28,16 +33,63 @@
 </head>
 
 <body>
+<div class="warp">
+            <div class="header fixed social">
+                <div class="header_top">
+                    <div class="header_top_inner">
+                        <h1>
+                            <a href="index.jsp" aria-label="홈" class="logo"></a>
+                            <div class="center"></div>
+                        </h1>
+
+                        <ul class="header_top_list">
+                            <li class="header_top_item">
+                            	<% if (isLogin) { %>
+								    <a href="user_logout_action.jsp" class="header_top_link">로그아웃</a>
+								<% } else { %>
+								    <a href="user_login_form.jsp" class="header_top_link">로그인</a>
+								<% } %>
+
+                            </li>
+                            <li class="header_top_item">
+                                <a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
+                            </li>
+                            <li class="header_top_item">
+                                <a href="user_login_form.jsp" class="header_top_link"> 장바구니</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <div class="portal_tartget vue-portal-target">
+                <nav class="tabs">
+                    <ul class="ul_tab home_tabs inline">
+                        <li class="li_tab">
+                            <a href="product_list.jsp" class="tab">
+                                <span class="tab_name">메뉴</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="#" class="tab">
+                                <span class="tab_name">추천</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="board_main.jsp" class="tab updated">
+                                <span class="tab_name">고객센터</span>
+
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </nav>
+                </div>
+            </div>
+            
 	<div id="container" style="margin-top: 100px;">
-		<!-- header start -->
-		<div id="header">
-			<!-- include_common_top.jsp start-->
-			<jsp:include page="include_common_top.jsp" />
-			<!-- include_common_top.jsp end-->
-		</div>
 	</div>
 	<div class="inner-box" >
-                    
                     <article class="notice-area">
                         <div class="news-view">
                         <form id="newsForm" name="newsForm" method="post">

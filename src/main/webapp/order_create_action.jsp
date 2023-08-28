@@ -7,20 +7,24 @@
 /*
 주문생성
 */
-String buyType = request.getParameter("buyType");
-if (buyType == null)
-	buyType = "";
+	if(request.getMethod().equalsIgnoreCase("GET")){
+		response.sendRedirect("product_list.jsp");
+		return;
+	}
 
-Order order=(Order)session.getAttribute("order");
-if(order==null){
+
+	Order order=(Order)session.getAttribute("order");
+	if(order==null){
+		response.sendRedirect("order_into_form.jsp");
+		return;
+	}
+
+	OrderService orderService=new OrderService();
+	orderService.insertOrder(order);		
+
+
 	response.sendRedirect("order_list_form.jsp");
-	return;
-}
-String[] cart_item_noStr_array=(String[])session.getAttribute("cart_item_noStr_array");
-if(cart_item_noStr_array==null) {
-	cart_item_noStr_array=new String[]{};
-}
-OrderService orderService=new OrderService();
-
-
 %>
+
+
+

@@ -207,10 +207,10 @@ if(msg==null)msg="";
 
                     <ul class="header_top_list">
                         <li class="header_top_item">
-                            <a href="user_login.html" class="header_top_link"> 로그인</a>
+                            <a href="user_login_form.jsp" class="header_top_link"> 로그인</a>
                         </li>
                         <li class="header_top_item">
-                            <a href="#" class="header_top_link"> 마이페이지</a>
+                            <a href="user_info_form.jsp" class="header_top_link"> 마이페이지</a>
                         </li>
                         <li class="header_top_item">
                             <a href="cart_list_form.jsp" class="header_top_link"> 장바구니</a>
@@ -226,7 +226,7 @@ if(msg==null)msg="";
                 <nav class="tabs">
                     <ul class="ul_tab home_tabs inline">
                         <li class="li_tab">
-                            <a href="#" class="tab">
+                            <a href="product_list.jsp" class="tab">
                                 <span class="tab_name">메뉴</span>
                             </a>
                         </li>
@@ -236,7 +236,7 @@ if(msg==null)msg="";
                             </a>
                         </li>
                         <li class="li_tab">
-                            <a href="#" class="tab updated">
+                            <a href="board_list.jsp" class="tab updated">
                                 <span class="tab_name">고객센터</span>
                             </a>
                         </li>
@@ -259,7 +259,7 @@ if(msg==null)msg="";
                             <h2 class="page-title">회원가입</h2>
                             <div class="depth-area">
                                 <ol>
-                                    <li><a href="/main">홈</a></li>
+                                    <li><a href="index.jsp">홈</a></li>
                                     <li><strong>회원가입</strong></li>
                                 </ol>
                             </div>

@@ -30,22 +30,80 @@ BoardListPageMakerDto boardListpage
 System.out.println(boardListpage);
 
 
+boolean isLogin = false;
+if (session.getAttribute("sUserId") != null ) {
+	isLogin = true;
+	
+}
+
 %>
 <!DOCTYPE html>
 <html>
 <head>		
 			
-	<link rel="stylesheet" type="text/css" href="css/font.css"> 
-	<link rel="stylesheet" type="text/css" href="css/common.css"> 
-	<link rel="stylesheet" type="text/css" href="css/sub.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/sub.css">
+    
 	
 </head>
 <body>
 			 
 
-<div id="toptest-content">
-	<jsp:include page="include_common_top.jsp"/>
-</div>			
+ <div class="warp">
+            <div class="header fixed social">
+                <div class="header_top">
+                    <div class="header_top_inner">
+                        <h1>
+                            <a href="index.jsp" aria-label="홈" class="logo"></a>
+                            <div class="center"></div>
+                        </h1>
+
+                        <ul class="header_top_list">
+                            <li class="header_top_item">
+                            	<% if (isLogin) { %>
+								    <a href="user_logout_action.jsp" class="header_top_link">로그아웃</a>
+								<% } else { %>
+								    <a href="user_login_form.jsp" class="header_top_link">로그인</a>
+								<% } %>
+
+                            </li>
+                            <li class="header_top_item">
+                                <a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
+                            </li>
+                            <li class="header_top_item">
+                                <a href="user_login_form.jsp" class="header_top_link"> 장바구니</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <div class="portal_tartget vue-portal-target">
+                <nav class="tabs">
+                    <ul class="ul_tab home_tabs inline">
+                        <li class="li_tab">
+                            <a href="product_list.jsp" class="tab">
+                                <span class="tab_name">메뉴</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="#" class="tab">
+                                <span class="tab_name">추천</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="board_main.jsp" class="tab updated">
+                                <span class="tab_name">고객센터</span>
+
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </nav>
+                </div>
+            </div>		
 			
 			
 	<style>

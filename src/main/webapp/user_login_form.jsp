@@ -1,6 +1,7 @@
 <%@page import="com.itwill.pizza.userinfo.User"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <%
 String msg1=(String)request.getAttribute("msg1");
 if(msg1==null)msg1="";
@@ -52,7 +53,7 @@ if(fuser==null) {
         <div class="header_top">
             <div class="header_top_inner">
                 <h1>
-                    <a href="user_logout_action.jsp" aria-label="홈" class="logo"></a>
+                    <a href="index.jsp" aria-label="홈" class="logo"></a>
                     <div class="center"></div>
                 </h1>
                 <!--
@@ -68,7 +69,7 @@ if(fuser==null) {
                         <a href="user_login_form.jsp" class="header_top_link"> 로그인</a>
                     </li>
                     <li class="header_top_item">
-                        <a href="#" class="header_top_link"> 마이페이지</a>
+                        <a href="user_info_form.jsp" class="header_top_link"> 마이페이지</a>
                     </li>
                     <li class="header_top_item">
                         <a href="cart_list_form.jsp" class="header_top_link"> 장바구니</a>
@@ -94,7 +95,7 @@ if(fuser==null) {
                     </a>
                 </li>
                 <li class="li_tab">
-                    <a href="#" class="tab updated">
+                    <a href="board_main.jsp" class="tab updated">
                         <span class="tab_name">고객센터</span>
 
                     </a>

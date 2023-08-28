@@ -12,15 +12,19 @@
        	}
       
        	Product product = new Product();
-       	
+       	String cart_qtyStr=request.getParameter("product_qty");
        	String product_noStr=request.getParameter("product_no");
+       	System.out.println(cart_qtyStr);
+       	
+       	System.out.println(product_noStr);
        	//String noStr=product.getProduct_no();
        	int p_no =Integer.parseInt(product_noStr);
-       	System.out.println(p_no);
+       	
        	product = new Product(p_no,product.getProduct_name(),product.getProduct_price(),product.getProduct_image(),product.getProduct_desc(),product.getProduct_category(),product.getProduct_size());
        	//String cart_qtyStr=request.getParameter("cart_qty");
-       	String cart_qtyStr="1";
        	System.out.println(product);
+       	System.out.println(cart_qtyStr);
+       	
        	CartService cartService=new CartService();
        	cartService.addCart(new Cart(0, Integer.parseInt(cart_qtyStr), sUserId, product));
       

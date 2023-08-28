@@ -6,23 +6,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="login_check.jspf" %>
+<%
+OrderService orderService = new OrderService();
+List<Order> orderList = orderService.findOrderByUserId(sUserId);
 
-<% 
-sUserId = "user1";
-//String userId, String userPw, String userName, String userEmail, String userAddress, String userPhone, String userGender, String userJumin
-sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주소","010-1234-5678","테스트성별",null);
-System.out.println(sUser);
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/style.css" >
-    <link rel="stylesheet" type="text/css" href="css/mypage.css" >
-    <title>도미노피자</title>
+<link rel="stylesheet" type="text/css" href="css/mypage.css" >
+<script type="text/javascript">
+	function order_delete_action(formId){
+		 if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+		     document.removefrm.submit();
+			var delete_form= document.getElementById(formId);
+			delete_form.method='POST';
+			delete_form.action='order_delete_action.jsp';
+			delete_form.submit();
+		 }else{   //취소
+		     return false;
+
+		 }
+	
+	}
+</script>
+    
+    <title>인생피자</title>
 </head>
 <body>
+
     <div class="warp">
         <!-- 헤더 시작-->    
         <div class="header fixed social">
@@ -30,7 +44,7 @@ System.out.println(sUser);
             <div class="header_top">
                 <div class="header_top_inner">
                     <h1>
-                        <a href="/" aria-label="홈" class="logo"></a>
+                        <a href="user_loginsuccess_form.jsp" aria-label="홈" class="logo"></a>
                         <div class="center"></div>
                     </h1>
                     <!--
@@ -44,13 +58,13 @@ System.out.println(sUser);
                     
                     <ul class="header_top_list">
                         <li class="header_top_item">
-                            <a href="login.html" class="header_top_link"> 로그인</a>
+                            <a href="user_loginsuccess_form.jsp" class="header_top_link"> 로그아웃</a>
                         </li>
                         <li class="header_top_item">
-                            <a href="#" class="header_top_link"> 마이페이지</a>
+                            <a href="user_info_form.jsp" class="header_top_link"> 마이페이지</a>
                         </li>
                         <li class="header_top_item">
-                            <a href="#" class="header_top_link"> 관심상품</a>
+                            <a href="cart_list_form.jsp" class="header_top_link"> 장바구니</a>
                         </li>
                     </ul>
                 </div>
@@ -62,7 +76,7 @@ System.out.println(sUser);
             <nav class="tabs">
                 <ul class="ul_tab home_tabs inline">
                     <li class="li_tab">
-                        <a href="#" class="tab">
+                        <a href="product_list.jsp" class="tab">
                             <span class="tab_name">메뉴</span>
                         </a>
                     </li>
@@ -72,7 +86,7 @@ System.out.println(sUser);
                         </a>
                     </li>
                     <li class="li_tab">
-                        <a href="#" class="tab updated">
+                        <a href="board_main.jsp" class="tab updated">
                             <span class="tab_name">고객센터</span>
 
                         </a>
@@ -123,13 +137,12 @@ System.out.println(sUser);
                             </div>
                         </div>
                         <div class="info-wrap">
-<%
+						<%
 
-OrderService orderService=new OrderService();
-List<Order> orderList=orderService.findOrderByUserId(sUserId);
-for(Order order : orderList) {
 
-%>
+						for(Order order : orderList) {
+
+						%>
                             <div class="user">
                                 <span><strong><%=sUser.getUserName() %></strong>님이 주문하신 내역입니다.</span>
                                 
@@ -151,13 +164,20 @@ for(Order order : orderList) {
                                             <span class="tit">주문번호</span>
                                             <%=order.getOrder_no() %>
                                         </span>
+                                        <a href="javascript:order_delete_action('order_delete_form<%=order.getOrder_no()%>');" class="close">
+														<span type="hidden" value=""></span>
+														
+										</a>
+										<form id="order_delete_form<%=order.getOrder_no()%>"  >
+											<input type="hidden" name="order_no" value="<%=order.getOrder_no()%>">
+										</form>	
                                     </div>
                                     <div class="order-center">
                                         <div class="state od-box">
                                             <strong>주문접수완료</strong>
                                         </div>
                                         <div class="info od-box">
-                                            <a href="javascript:goView('20230526866658990026');">
+                                            <a href="javascript:order_delete_action();">
                                                 <div class="menu">
                                                     <%=order.getOrder_name() %>&nbsp;
                                                     

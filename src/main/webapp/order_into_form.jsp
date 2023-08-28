@@ -1,25 +1,137 @@
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="org.apache.ibatis.scripting.xmltags.ForEachSqlNode"%>
+<%@page import="com.itwill.pizza.product.Product"%>
+<%@page import="com.itwill.pizza.orders.OrderItem"%>
+<%@page import="com.itwill.pizza.cart.Cart"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.itwill.pizza.product.ProductService"%>
+<%@page import="com.itwill.pizza.userinfo.UserService"%>
+<%@page import="com.itwill.pizza.cart.CartService"%>
 <%@page import="com.itwill.pizza.orders.Order"%>
 <%@page import="com.itwill.pizza.orders.OrderService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ include file="login_check.jspf" %>
+<%@ include file="login_check.jspf" %>
 <% 
-OrderService orderService=new OrderService();
-String orderStr=request.getParameter("order_no");
-//Order order=orderService.findOrderByOrderNo(Integer.parseInt(orderStr));
-sUserId="user3";
-sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주소","010-1234-5678","테스트성별",null);
+
+
+String phone = sUser.getUserPhone();
+
+String phone1 = phone.substring(0, 4);
+String phone2 = phone.substring(4, 8);
+String phone3 = phone.substring(9);
+
+String buyType = request.getParameter("buyType");
+
+
+CartService cartService = new CartService();
+UserService userService = new UserService();
+ProductService productService = new ProductService();
+
+int tot_price = 0;
+int oi_tot_count = 0;
+
+Order order = new Order();
+
+List<Cart> cartItemList = new ArrayList<Cart>();
+cartItemList = cartService.getCartItemByUserId(sUserId);
+for (Cart cart : cartItemList) {
+	order.getOrderItemList().add(new OrderItem(0, cart.getCart_qty(), 0, cart.getProduct()));
+	tot_price += cart.getCart_qty() * cart.getProduct().getProduct_price();
+	oi_tot_count += cart.getCart_qty();
+}
+
+
+
+
+	
+/*if (buyType.equals("cart")) {
+	
+	카트테이블에있는 모든제품을 주문하기
+	
+	List<Cart> cartItemList = new ArrayList<Cart>();
+	cartItemList = cartService.getCartItemByUserId(sUserId);
+	for (Cart cart : cartItemList) {
+		order.getOrderItemList().add(new OrderItem(0, cart.getCart_qty(), 0, cart.getProduct()));
+		tot_price += cart.getCart_qty() * cart.getProduct().getProduct_price();
+		oi_tot_count += cart.getCart_qty();
+	}
+	
+	
+} else if (buyType.equals("cart_select")) {
+	/*
+	카트보기에서 선택된 제품을 주문하기
+	
+	cart_item_noStr_array = request.getParameterValues("cart_item_no");
+	if(cart_item_noStr_array==null){
+		response.sendRedirect("product_list.jsp");
+		return;
+	}
+
+	for (String cart_item_noStr : cart_item_noStr_array) {
+		Cart cart = cartService.getCartItemByCartNo(Integer.parseInt(cart_item_noStr));
+		order.getOrderItemList().add(new OrderItem(0, cart.getCart_qty(), 0, cart.getProduct()));
+		tot_price += cart.getCart_qty() * cart.getProduct().getProduct_price();
+		oi_tot_count += cart.getCart_qty();
+	}
+
+} *//*else if (buyType.equals("direct")) {
+	/*
+	상품에서에서 직접제품을 주문하기
+	*/
+	/*
+	String p_noStr = request.getParameter("product_no");
+	String p_qtyStr = request.getParameter("product_qty");
+	if (p_noStr == "" || p_qtyStr == ""){
+		response.sendRedirect("product_list.jsp");
+		return;
+	}
+	
+	Product product = productService.productDetail(Integer.parseInt(p_noStr));
+	order.getOrderItemList().add(new OrderItem(0, 1, 0, product));
+	tot_price = order.getOrderItemList().get(0).getOi_qty() * order.getOrderItemList().get(0).getProduct().getProduct_price();
+	oi_tot_count += order.getOrderItemList().get(0).getOi_qty();
+
+}*/
+String o_desc = order.getOrderItemList().get(0).getProduct().getProduct_name() + "외 " + (oi_tot_count - 1) + " 건";
+
+order.setUser_id(sUserId);
+order.setOrder_price(tot_price);
+order.setOrder_name(o_desc);
+
+/**********************세션에 주문데이타담기***************************/
+session.setAttribute("order", order);
+
+/*********************************************************************/
+User loginUser=userService.findUser(sUserId);
+
+
+
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/style.css" >
-    <link rel="stylesheet" type="text/css" href="css/orderinfo.css" >
+<link rel="stylesheet" type="text/css" href="css/orderinfo.css" >
+<script type="text/javascript">
+	/*
+	 * 주문
+	 */
+	function order_create_form_submit() {
+		document.order_create_form = 'POST';
+		document.order_create_form.action = 'order_create_action.jsp';
+		document.order_create_form.submit();
+	}
+</script>    
+    
     <title>도미노 피자</title>
 </head>
 <body>
-    
+    <form name="order_create_form" method="post">
+		<input type="hidden" name="buyType" value="<%=buyType%>">
+	</form>
     <div class="warp">
             <!-- 헤더 시작-->    
             <div class="header fixed social">
@@ -27,7 +139,7 @@ sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주
                 <div class="header_top">
                     <div class="header_top_inner">
                         <h1>
-                            <a href="/" aria-label="홈" class="logo"></a>
+                            <a href="user_loginsuccess_form.jsp" aria-label="홈" class="logo"></a>
                             <div class="center"></div>
                         </h1>
                         <!--
@@ -41,13 +153,13 @@ sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주
                         
                         <ul class="header_top_list">
                             <li class="header_top_item">
-                                <a href="login.html" class="header_top_link"> 로그인</a>
+                                <a href="user_logout_action.jsp" class="header_top_link"> 로그아웃</a>
                             </li>
                             <li class="header_top_item">
-                                <a href="#" class="header_top_link"> 마이페이지</a>
+                                <a href="user_info_form.jsp" class="header_top_link"> 마이페이지</a>
                             </li>
                             <li class="header_top_item">
-                                <a href="#" class="header_top_link"> 관심상품</a>
+                                <a href="cart_list_form.jsp" class="header_top_link"> 장바구니</a>
                             </li>
                         </ul>
                     </div>
@@ -59,7 +171,7 @@ sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주
                     <nav class="tabs">
                         <ul class="ul_tab home_tabs inline">
                            <li class="li_tab">
-                                <a href="#" class="tab">
+                                <a href="product_list.jsp" class="tab">
                                  <span class="tab_name">메뉴</span>
                               </a>
                            </li>
@@ -69,7 +181,7 @@ sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주
                                </a>
                            </li>
                            <li class="li_tab">
-                                <a href="#" class="tab updated">
+                                <a href="board_main.jsp" class="tab updated">
                                     <span class="tab_name">고객센터</span>
                                 </a>
                             </li>
@@ -131,8 +243,8 @@ sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주
                 <h2 class="page-title">결제하기</h2>
                 <div class="depth-area">
                     <ol>
-                        <li><a href="/main">홈</a></li>
-                        <li><a href="/basket/detail">장바구니</a></li>
+                        <li><a href="user_loginsuccess_form.jsp">홈</a></li>
+                        <li><a href="cart_list_form.jsp">장바구니</a></li>
                         <li><strong>결제하기</strong></li>
                         </ol>
                 </div>
@@ -148,7 +260,7 @@ sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주
                                         <!-- 배달 -->
                                         <div class="deli-info">
                                                 <div class="address">
-                                                    서울특별시 송파구 </div>
+                                                    <%=sUser.getUserAddress() %> </div>
                                                 
                                                 <div class="reserve-info new221031">
                                                     <div class="reserve-info-div">
@@ -171,13 +283,7 @@ sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주
                                                 <dt></dt>
                                                 <dd>
                                                     <div class="form-group">
-                                                        <div class="form-item">
-                                                            <div class="chk-box v3">
-                                                                <input type="checkbox" name="order_type" id="recipient" onchange="recipientChange()">
-                                                                <label class="checkbox" for="recipient"></label>
-                                                                <label for="recipient">주문자와 동일</label>
-                                                            </div>
-                                                        </div>
+                                                        
                                                         
                                                         <!-- 선물하기 -->
                                                         <div class="form-item  gift_msg_info gift_area">
@@ -208,7 +314,7 @@ sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주
                                                         <div class="form-group2 select-group">
                                                             <div class="form-item">
                                                                 <div class="select-type2">
-                                                                    <select id="tel1" name="tel1" title="휴대전화번호">
+                                                                    <select id="tel1" name="tel1" title="휴대전화번호" value="<%=phone1%>">
                                                                         <option value="010">010</option>
                                                                         <option value="011">011</option>
                                                                         <option value="016">016</option>
@@ -217,8 +323,8 @@ sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주
                                                                         <option value="019">019</option>
                                                                     </select>
                                                                 </div>
-                                                                <input type="text" id="tel2" name="tel2" maxlength="4" class="i_text" title="휴대전화번호">
-                                                                <input type="text" id="tel3" name="tel3" maxlength="4" class="i_text" title="휴대전화번호">
+                                                                <input type="text" id="tel2" name="tel2" maxlength="4" class="i_text" title="휴대전화번호" value="<%=phone2%>">
+                                                                <input type="text" id="tel3" name="tel3" maxlength="4" class="i_text" title="휴대전화번호" value="<%=phone3%>">
                                                             </div>
                                                         </div>
                                                         
@@ -255,30 +361,36 @@ sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주
                                         </div>
                                         <div class="order-step">
                                             <ul>
+                                            	
+                                                                              
+                                            
                                                 <li>
                                                     <div class="menu">
                                                         <!-- 피자 명  -->
-                                                        <strong class="goods_name">대만 콘 치즈 감자&nbsp; 슈퍼시드 화이버 함유 도우L x 1 외 2건</strong>
+                                                        <strong class="goods_name"><%=order.getOrder_name()%><!-- 대만 콘 치즈 감자&nbsp; 슈퍼시드 화이버 함유 도우L x 1 외 2건--></strong>
                                                         <!-- //피자 명  -->
                                                     </div>
+                                                    
                                                     <div class="topping">
-                                                        <span style="display:none;" id="goods_name_brief">대만 콘 치즈 감자&nbsp; 슈퍼시드 화이버 함유 도우L x 1</span>
+                                                    	<% 
+                                                    		for (OrderItem orderItem : order.getOrderItemList()) {
+                                                    	%>
+                                                        <span style="display:none;" id="goods_name_brief"><%=orderItem.getProduct().getProduct_name()%>&nbsp; 슈퍼시드 화이버 함유 도우L x <%=orderItem.getOi_qty() %></span>
                                                         
                                                         <div class="item">
-                                                            <span>대만 콘 치즈 감자 (슈퍼시드 화이버 함유 도우)&nbsp; L x 1</span>
-                                                            /&nbsp;<span>20,900</span>원
+                                                            <span><%=orderItem.getProduct().getProduct_name() %> (슈퍼시드 화이버 함유 도우)&nbsp; L x <%=orderItem.getOi_qty() %></span>
+                                                            /&nbsp;<span><%= new DecimalFormat("#,##0").format(orderItem.getOi_qty() * orderItem.getProduct().getProduct_price()) %></span>원
                                                             
-                                                            <!-- 토핑 -->
-                                                            <!-- //토핑 -->
+                                                            
                                                         </div>
+                                                        <!--  
                                                         <span style="display:none;" id="goods_name_brief">아보카도 새우&nbsp; 슈퍼시드 화이버 함유 도우L x 1</span>
                                                         
                                                         <div class="item">
                                                             <span>아보카도 새우 (슈퍼시드 화이버 함유 도우)&nbsp; L x 1</span>
                                                             /&nbsp;<span>30,900</span>원
                                                             
-                                                            <!-- 토핑 -->
-                                                            <!-- //토핑 -->
+                                                           
                                                         </div>
                                                         <span style="display:none;" id="goods_name_brief">치즈 크레이프 샌드&nbsp; 샌드L x 1</span>
                                                         
@@ -286,11 +398,15 @@ sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주
                                                             <span>치즈 크레이프 샌드 (샌드)&nbsp; L x 1</span>
                                                             /&nbsp;<span>34,900</span>원
                                                             
-                                                            <!-- 토핑 -->
-                                                            <!-- //토핑 -->
+                                                           
                                                         </div>
+                                                        -->
+                                                         <%
+                                            				}
+                                               			 %>
                                                         </div>
                                                 </li>
+                                               
                                             </ul>
                                         </div>
                                     </div>
@@ -315,21 +431,37 @@ sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주
                                     </div> -->
                         
                                     <!-- 결제방법 -->
-                                    <div class="step-wrap pay-step" id="pay_info">
-                    <input type="hidden" id="userInfo" value="">
-                    <input type="hidden" id="flagPin" value="">
-                        
-                                    <div class="step-wrap" id="final_pay_info">
+                                      <div class="step-wrap" id="final_pay_info">
                     <div class="step-wrap">
                         <div class="title-wrap">
                             <h3 class="title-type"><strong>최종결제금액</strong></h3>
                         </div>
                         
                         <div class="total-step">
-                            <ul>                                 
+                            <ul>
+                                    <li>
+                                                <p class="tit">총 상품 금액</p>
+                                                <p class="price"><em><span id="basketTotalPrice"><%=new DecimalFormat("#,###").format(order.getOrder_price())%></span></em>원</p>
+                                            </li>
+                                        <li class="discount">
+                                    <p class="tit">총 할인 금액</p>
+                                    <p class="price"><em><span id="basketDcPrice">0</span></em>원</p>
+                                </li>
+                                <li class="delivery">
+                                         <span class="tooltip-wrap">
+                                         <span class="tooltip">결제금액 49,000원 이상 무료</span>
+                                                <span class="triangle"></span>
+                                            </span>
+                                         <p class="tit">배달비</p>
+                                         <p class="price">
+                                             <em>
+                                                 <span id="deliveryFee">0</span>
+                                                 </em>원
+                                         </p>
+                                     </li>
                                 <li class="total">
                                     <p class="tit">총 결제 금액</p>
-                                    <p class="price"><em><span id="basketAccountPrice">86,700</span></em>원</p>
+                                    <p class="price"><em><span id="basketAccountPrice"><%=new DecimalFormat("#,###").format(order.getOrder_price())%></span></em>원</p>
                                     <input type="hidden" value="86700" id="tmpPrice">
                                     <input type="hidden" name="a_basketNo" id="a_basketNo" value="208774624">
                                 </li>
@@ -346,9 +478,11 @@ sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주
                                     <!-- // 결제 금액, 퀵 오더로 설정, 결제 및 주문완료 -->
                                     
                                     <!-- 주문하기 버튼 -->
+                                   
                                     <div class="btn-wrap pay-btn">
-                                        <a href="javascript:;" id="doOrder" onclick="reserveValid()" class="btn-type">결제하기</a>
+                                        <a href="javascript:order_create_form_submit();" id="doOrder"  class="btn-type">결제하기</a>
                                     </div>
+                                    
                                     <!-- //주문하기 버튼 -->
                                 
                                 </article>
@@ -358,48 +492,16 @@ sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주
             <input type="hidden" name="viewTime" id="viewTime" value="">
             <input type="hidden" name="viewReserveGubun" id="viewReserveGubun" value="">
             
-            <script>
-            $(document).ready(function() {
-                child_reserve_reset();
-            });
-            </script>
+           
             
            
             
             <script>
             //주문 예약 시간 조회
             function arriveTime(reserve_cho, orgId, targetId, timeType, viewDay, viewTime) {
+              
                 
-                var reserveDay = "";
-                var reserveTime = "";
                 
-                var validDay = "";
-                var validTime = "";
-                
-                var dayFormat = reserveDay;
-                var hourFormat = reserveDay + reserveTime.substring(0, 2);
-                var minFormat = reserveTime.substring(2, 6);
-                
-                if ($("#reserve_time11").val() != $("#reserve_time11 option").eq(0).val() && $("#reserve_time12").val() != $("#reserve_time12 option").eq(0).val()) {
-                    $(".btn-type1").prop("disabled", false);
-                } else {
-                    $(".btn-type1").prop("disabled", true);
-                }
-                
-                if (timeType == "H" || timeType == "M") {
-                    $("#reserve_time12 option").eq(0).prop("selected", true);
-                    if ("2023082219".substring(0, 8) == $("#reserve_day").val().substring(0, 8)) {
-                        reserve_cho = "TD";
-                    } else {
-                        reserve_cho = "TM";
-                    }
-                } else if (timeType == "ALL") {
-                    if ("2023082219".substring(0, 8) == $("#reserve_day").val().substring(0, 8)) {
-                        reserve_cho = "TD";
-                    } else {
-                        reserve_cho = "TM";
-                    }
-                }
                 
                 if (reserve_cho != null) {
                     var branch_code="86665";
@@ -501,94 +603,10 @@ sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주
                 }
             };
             
-            function saveReserveSetting(basket_no) {
-                
-                var reserve_gubun = "TD";
-                if ($("#reserve_day option").index($("#reserve_day option:selected")) == 0) {
-                    reserve_gubun = "TD";
-                } else {
-                    reserve_gubun = "TM";
-                }
-                
-                var param = {
-                        basket_no : basket_no,
-                        reserve_gubun : reserve_gubun,
-                        reserve_date : $("#reserve_time11").val().substring(0, 8),
-                        reserve_time : $("#reserve_time11").val().substring(8, 10) + $("#reserve_time12").val()
-                    };
-                
-                $.ajax({
-                    type: "POST",
-                    url: "/basket/reserveState",
-                    dataType : "json",
-                    data : param,
-                    success:function(data) {
-                        if (data.resultData.status != 'success') {
-                            alert(data.resultData.msg);
-                        } else {
-                            $("#viewDay").val($("#reserve_time11").val().substring(0, 10));
-                            $("#viewTime").val($("#reserve_time12").val());
-                            $("#viewReserveGubun").val(reserve_gubun);
-                            
-                            UI.layerPopUp({selId:'#pop-reserve-setting',st:'close'});
-                            
-                            $('#reserve_online').fadeIn(10, function() {
-                                $(this).find('.pop_content p').html("예약 설정이 완료되었습니다.");
-                                window.setTimeout(function(){$('#reserve_online').fadeOut(300, function(){
-                                    $(this).find('.pop_content p').html("");	
-                                });}, 1000);
-                            });
-                            
-                            var referrer = document.location.href;
-                            if ((referrer.split('/')[3]+"/"+referrer.split('/')[4]).indexOf('order/info')>=0) {
-                                location.reload();
-                            } else {
-                                $('.reserve-info').load(location.href+' .reserve-info-div');
-                                $('.set-reserve').text("예약 변경");
-                                $('.set-reserve').removeClass("ico-time2");
-                                $('.set-reserve').addClass("ico-time3");
-                            }
-                        }
-                    },
-                    error: function (error){
-                        alert("처리중 오류가 발생하였습니다.");
-                    }
-                });
-            }
             
             
-            function child_reserve(reserve_cho, viewDay, viewTime) {
-                if ($("#viewReserveGubun").val() != "" || ("" != "" && "" != "30" 
-                        && "" != "15" && "" != "TW")) {
-                    arriveTime(reserve_cho, null, "reserve_time11", "ALL", viewDay, viewTime);
-                } else {
-                    arriveTime(reserve_cho, null, "reserve_time11", "H", viewDay, viewTime);
-                }
-            }
             
-            function checkSelect() {
-                if ($("#reserve_time11").val() != $("#reserve_time11 option").eq(0).val() && $("#reserve_time12").val() != $("#reserve_time12 option").eq(0).val()) {
-                    $(".btn-type1").prop("disabled", false);
-                } else {
-                    $(".btn-type1").prop("disabled", true);
-                }
-            }
             
-            function child_reserve_reset() {
-                if ("" != "" || ("" != "" && "" != "30" 
-                    && "" != "15" && "" != "TW" )) {
-                    var reserve_cho = "";
-                    if ("2023082219".substring(0, 8) == "" || "2023082219".substring(0, 8) == "") {
-                        reserve_cho = "TD";
-                    } else {
-                        reserve_cho = "TM";
-                    }
-                    
-                    arriveTime(reserve_cho, null, "reserve_time11", "ALL", "", "");
-                } else {
-                    arriveTime("TD", null, "reserve_time11", "H", "", "");
-                }
-            }
             </script></section>
                 </form>
           

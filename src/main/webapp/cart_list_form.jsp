@@ -7,15 +7,26 @@
 	pageEncoding="UTF-8"%>
 <%@include file="login_check.jspf"%>
 <%
+boolean isLogin = false;
+if (session.getAttribute("sUserId") != null ) {
+	isLogin = true;
+	
+}
 CartService cartService = new CartService();
 List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
+
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/cartlist.css">
+	<link rel="stylesheet" type="text/css" href="css/cartlist.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/sub.css">
+  
 <title>인생피자</title>
 </head>
 <script type="text/javascript">
@@ -26,7 +37,17 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 		document.cart_view_form.action = 'cart_delete_action.jsp';
 		document.cart_view_form.submit();
 	}
-
+	
+	/*
+	주문폼요청 [anchor클릭시 데이타베이스 카트전체의제품을 주문하기위한 주문폼을보여주기]    
+	 */
+	function cart_view_form_order_submit(){
+		document.cart_view_form.method='POST';
+		document.cart_view_form.buyType.value='cart';
+		document.cart_view_form.action='order_create_form.jsp';
+		document.cart_view_form.submit();
+	}
+	
 	/*카트아이템 1개 삭제*/
 
 	function cart_deleteItem(cart_no) {
@@ -58,54 +79,63 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 	}
 </script>
 <body>
-	<div class="warp">
-		<!-- 헤더 시작-->
-		<div class="header fixed social">
-			<!-- 헤더 top 시작-->
-			<div class="header_top">
-				<div class="header_top_inner">
-					<h1>
-						<a href="/" aria-label="홈" class="logo"></a>
-						<div class="center"></div>
-					</h1>
-					<!--
-                        <div class="search_area">
-                            <form>
-                               <input type="search" placeholder="search">
-                                <span>검색</span>
-                            </form>
-                        </div>
-                        -->
+ <div class="warp">
+            <div class="header fixed social">
+                <div class="header_top">
+                    <div class="header_top_inner">
+                        <h1>
+                            <a href="index.jsp" aria-label="홈" class="logo"></a>
+                            <div class="center"></div>
+                        </h1>
 
-					<ul class="header_top_list">
-						<li class="header_top_item"><a href="login.html"
-							class="header_top_link"> 로그인</a></li>
-						<li class="header_top_item"><a href="#"
-							class="header_top_link"> 마이페이지</a></li>
-						<li class="header_top_item"><a href="#"
-							class="header_top_link"> 장바구니</a></li>
-					</ul>
-				</div>
-			</div>
+                        <ul class="header_top_list">
+                            <li class="header_top_item">
+                            	<% if (isLogin) { %>
+								    <a href="user_logout_action.jsp" class="header_top_link">로그아웃</a>
+								<% } else { %>
+								    <a href="user_login_form.jsp" class="header_top_link">로그인</a>
+								<% } %>
+
+                            </li>
+                            <li class="header_top_item">
+                                <a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
+                            </li>
+                            <li class="header_top_item">
+                                <a href="user_login_form.jsp" class="header_top_link"> 장바구니</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <div class="portal_tartget vue-portal-target">
+                <nav class="tabs">
+                    <ul class="ul_tab home_tabs inline">
+                        <li class="li_tab">
+                            <a href="product_list.jsp" class="tab">
+                                <span class="tab_name">메뉴</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="#" class="tab">
+                                <span class="tab_name">추천</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="board_main.jsp" class="tab updated">
+                                <span class="tab_name">고객센터</span>
+
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </nav>
+                </div>
+            </div>
 
 
-			<!-- 헤더 마지막 시작-->
-			<div class="portal_tartget vue-portal-target">
-				<nav class="tabs">
-					<ul class="ul_tab home_tabs inline">
-						<li class="li_tab"><a href="product_list.jsp" class="tab"> <span
-								class="tab_name">메뉴</span>
-						</a></li>
-						<li class="li_tab"><a href="#" class="tab"> <span
-								class="tab_name">추천</span>
-						</a></li>
-						<li class="li_tab"><a href="#" class="tab updated"> <span
-								class="tab_name">고객센터</span>
-						</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
+    
+	
 
 		<div id="container">
 			<section id="content">
@@ -308,13 +338,13 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 							<!-- //주문 내역 -->
 
 							<!-- 주문하기 버튼 -->
-
+						
+							
 							<div class="btn-wrap">
 							<a href="product_list.jsp" class="btn-type v3">메뉴 추가하기</a>
 							<a href="order_into_form.jsp" class="btn-type v3">주문하기</a>
 							</div>
-
-
+							
 
 							<!-- //주문하기 버튼 -->
 

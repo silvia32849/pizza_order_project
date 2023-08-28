@@ -1,4 +1,4 @@
-<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.itwill.pizza.product.Product"%>
 <%@page import="java.util.List"%>
@@ -8,10 +8,21 @@
 
 <!DOCTYPE html>
 <%
+
 String noStr = request.getParameter("product_category");
+if (noStr == null || noStr.equals("")) {
+	response.sendRedirect("product_list.jsp");
+	return;
+}
+
 ProductService ps = new ProductService();
 List<Product> productList= ps.findByCategory(Integer.parseInt(noStr));
-String userId=request.getParameter("user_id");
+
+boolean isLogin=false;
+if(session.getAttribute("sUserId")!=null) {
+	isLogin=true;
+	
+}
 %>
 <html lang="en">
 <head>
@@ -35,7 +46,7 @@ String userId=request.getParameter("user_id");
                      
                         <ul class="header_top_list">
                         <li class="header_top_item">
-                            <%if(userId!=null){%>
+                            <%if(isLogin){%>
                             	<a href="user_logout_action.jsp" class="header_top_link"> 로그아웃</a>
                             <%}else {%>
                                 <a href="user_login_form.jsp" class="header_top_link">로그인</a>
@@ -43,18 +54,14 @@ String userId=request.getParameter("user_id");
                             	
                          </li>
                             <li class="header_top_item">
-                            <%if(userId!=null){%>
-                                <a href="user_info.jsp?user_id=?<%=userId %>" class="header_top_link"> 마이페이지</a>
-                             <%}else {%>
-                             	<a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
-                             <%} %>
+                            
+                                <a href="user_info.jsp" class="header_top_link"> 마이페이지</a>
+                             
                              </li>
                              <li class="header_top_item">
-                             <%if(userId!=null){%>
-                            	<a href="cart_list_form.jsp?user_id?<%=userId %>" class="header_top_link">장바구니</a>
-                            	<%}else {%>
+                            
                                 <a href="user_login_form.jsp" class="header_top_link">장바구니</a>
-                            <%} %>
+                            
                            
                             </li>
                         </ul>
@@ -99,8 +106,8 @@ String userId=request.getParameter("user_id");
                 <h2 class="page-title">MENU</h2>
                 <div class="depth-area">
                     <ol>
-                        <li><a href="/main">홈</a></li>
-                        <li><a href="/goods/list?dsp_ctgr=C0101">메뉴</a></li>
+                        <li><a href="index.jsp">홈</a></li>
+                        <li><a href="product_list.jsp">메뉴</a></li>
                         <li><strong>피자 </strong></li>
                         </ol>
                 </div>
@@ -121,66 +128,9 @@ String userId=request.getParameter("user_id");
                 </div>
                 
                 </div>
-            <script>
-            
-
-            /* 2020.09.01 랭킹 주석 
-             
-                getRankingList();
-            
-            
-                function getRankingList (){
-                // search
-                $('.sch-slider').slick({
-                    autoplay: true,
-                    autoplaySpeed: 3000,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    arrows: false,
-                    vertical: true,
-                    asNavFor: '.sch-slider-nav'
-                });
-                $('.sch-slider-nav').slick({
-                    slidesToShow:10,
-                    slidesToScroll: 1,
-                    variableWidth: true,
-                    asNavFor: '.sch-slider',
-                });
-                
-                $(".btn-open").on('click',function(e){
-                    e.preventDefault();
-                    
-                    var link = $(this);
-                    var cont = $(this).closest('.sch-box');
-                    if(cont.hasClass('active')){
-                        cont.removeClass('active');
-                        link.removeClass('active');
-                        cont.find('.sch-slider-nav').slideUp();
-                    }else{
-                        cont.addClass('active');
-                        link.addClass('active');
-                        cont.find('.sch-slider-nav').slideDown();
-                    }
-                });
-                
-                $('.sch-slider-nav').mouseleave(function(){
-                    var link = $(this).closest('.sch-box').find(".btn-open");
-                    var cont = $(this).closest('.sch-box');
-                    if(cont.hasClass('active')){
-                        cont.removeClass('active');
-                        link.removeClass('active');
-                        cont.find('.sch-slider-nav').slideUp();
-                    }
-                });	
-            } */
-            
-            
-            </script>
-            <!-- //menu-list -->
+   
                                 
-                                <!-- 메뉴 목록 띠배너 -->
-                                <!-- 메뉴 목록 띠배너 -->
-                                <!-- NEW 피자 영역 -->
+                               
                                 <div class="title-wrap-center" id="category-new">
                                     <h3 class="title-type">
                                         메뉴

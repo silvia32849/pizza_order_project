@@ -1,9 +1,12 @@
+<%@page import="com.itwill.pizza.userinfo.UserService"%>
+<%@page import="com.itwill.pizza.userinfo.User"%>
+dlqslek<%@ include file="login_check.jspf" %>      
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<%@ include file="login_check.jspf" %>  
 
 <%
+
 String contextPath = application.getContextPath();
-System.out.println(sUser);
 
 %>    
 <!DOCTYPE html>
@@ -33,9 +36,9 @@ System.out.println(sUser);
                         <ul class="header_top_list">
                             <li class="header_top_item">
                             	<% if (sUser != null) { %>
-                                <a href="user_logout_action.jsp" class="header_top_link"> 로그아웃</a>
+                                <a href="user_login_form.jsp" class="header_top_link"> 로그아웃</a>
        								<% } else { %>
-                                <a href="user_login_action.jsp" class="header_top_link"> 로그인</a>
+                                <a href="index.jsp" class="header_top_link"> 로그인</a>
           								<% } %>
                            
                             </li>

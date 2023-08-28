@@ -19,7 +19,7 @@
 		User loginUser = userService.login(userId, password);
 		session.setAttribute("sUserId", userId);
 		session.setAttribute("sUser", loginUser);
-		response.sendRedirect("user_loginsuccess_form.jsp");
+		response.sendRedirect("index.jsp");
 		
 	}catch(UserNotFoundException e){
 		/*********************case3[forward]****************/

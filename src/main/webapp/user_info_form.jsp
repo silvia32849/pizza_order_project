@@ -28,7 +28,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css" >
 <link rel="stylesheet" type="text/css" href="css/userinfo.css" >
-
+	
 <script type="text/javascript">
 
 
@@ -68,61 +68,54 @@
 <title>도미노피자</title>
 </head>
 <body>
-    
-    <div class="warp">
-            <!-- 헤더 시작-->    
+<div class="warp">
             <div class="header fixed social">
-                <!-- 헤더 top 시작-->
                 <div class="header_top">
                     <div class="header_top_inner">
                         <h1>
-                            <a href="user_loginsuccess_form.jsp" aria-label="홈" class="logo"></a>
+                            <a href="index.jsp" aria-label="홈" class="logo"></a>
                             <div class="center"></div>
                         </h1>
-                       
-                        
 
-                        
                         <ul class="header_top_list">
                             <li class="header_top_item">
-                                <a href="user_logout_action.jsp" class="header_top_link"> 로그아웃</a>
+								 <a href="user_login_form.jsp" class="header_top_link">로그인</a>
                             </li>
                             <li class="header_top_item">
-                                <a href="user_info_form.jsp" class="header_top_link"> 마이페이지</a>
+                                <a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
                             </li>
                             <li class="header_top_item">
-                                <a href="cart_list_form.jsp" class="header_top_link"> 장바구니</a>
+                                <a href="user_login_form.jsp" class="header_top_link"> 장바구니</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 
 
-                <!-- 헤더 마지막 시작-->
                 <div class="portal_tartget vue-portal-target">
-                    <nav class="tabs">
-                        <ul class="ul_tab home_tabs inline">
-                           <li class="li_tab">
-                                <a href="product_list.jsp" class="tab">
-                                 <span class="tab_name">메뉴</span>
-                              </a>
-                           </li>
-                          <li class="li_tab">
-                               <a href="#" class="tab">
-                                 <span class="tab_name">추천</span>
-                               </a>
-                           </li>
-                           <li class="li_tab">
-                                <a href="board_list.jsp" class="tab updated">
-                                    <span class="tab_name">고객센터</span>
-                                </a>
-                            </li>
-                         </ul>
-                    </nav>
+                <nav class="tabs">
+                    <ul class="ul_tab home_tabs inline">
+                        <li class="li_tab">
+                            <a href="product_list.jsp" class="tab">
+                                <span class="tab_name">메뉴</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="#" class="tab">
+                                <span class="tab_name">추천</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="board_main.jsp" class="tab updated">
+                                <span class="tab_name">고객센터</span>
+
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </nav>
                 </div>
             </div>
-            
-            
 
 
             <!-- container 시작 -->
@@ -209,18 +202,7 @@
                                             <dd>
 
                                                 <span id="name_area"><%=user.getUserName() %></span>
-                                                <!--
-                                                <div class="name-change">
-                                                    <span>본인인증</span>
-                                                    <a href="javascript:changeName('kg');" class="btn-type v7">휴대전화 인증</a>
-                                                    <a href="javascript:changeName('ipin');" class="btn-type v7">IPIN 인증</a>
-                                                </div>
-                                                <div class="notice-type-ul CBrand3 inner-pad-top">
-                                                    <ul>
-                                                        <li>개명을 한 경우, 본인 인증 시 이름 정보 변경이 가능합니다.</li>
-                                                    </ul>
-                                                </div>
-                                                -->
+                                               
                                             </dd>
                                             
                                         </dl>

@@ -13,10 +13,7 @@
 OrderService orderService = new OrderService();
 String orderNoStr = request.getParameter("order_no");
 Order order = orderService.findOrderByOrderNo(Integer.parseInt(orderNoStr));
-sUserId = "user1";
-//String userId, String userPw, String userName, String userEmail, String userAddress, String userPhone, String userGender, String userJumin
-sUser=new User("user1",null,"테스트이름","테스트이메일","테스트주소","010-1234-5678","테스트성별",null);
-System.out.println(sUser);
+
 %>
 <!DOCTYPE html>
 <html>
@@ -24,7 +21,7 @@ System.out.println(sUser);
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/style.css" >
     <link rel="stylesheet" type="text/css" href="css/orderdetail.css" >
-    <title>도미노 피자</title>
+    <title>인생피자</title>
 </head>
 <body>
     <div class="warp">
@@ -34,7 +31,7 @@ System.out.println(sUser);
                 <div class="header_top">
                     <div class="header_top_inner">
                         <h1>
-                            <a href="/" aria-label="홈" class="logo"></a>
+                            <a href="user_loginsuccess_form.jsp" aria-label="홈" class="logo"></a>
                             <div class="center"></div>
                         </h1>
                         <!--
@@ -48,13 +45,13 @@ System.out.println(sUser);
                         
                         <ul class="header_top_list">
                             <li class="header_top_item">
-                                <a href="login.html" class="header_top_link"> 로그인</a>
+                                <a href="user_logout_action.jsp" class="header_top_link"> 로그아웃</a>
                             </li>
                             <li class="header_top_item">
-                                <a href="#" class="header_top_link"> 마이페이지</a>
+                                <a href="user_info_form.jsp" class="header_top_link"> 마이페이지</a>
                             </li>
                             <li class="header_top_item">
-                                <a href="#" class="header_top_link"> 관심상품</a>
+                                <a href="cart_list_form.jsp" class="header_top_link"> 장바구니</a>
                             </li>
                         </ul>
                     </div>
@@ -66,7 +63,7 @@ System.out.println(sUser);
                     <nav class="tabs">
                         <ul class="ul_tab home_tabs inline">
                            <li class="li_tab">
-                                <a href="#" class="tab">
+                                <a href="product_list.jsp" class="tab">
                                  <span class="tab_name">메뉴</span>
                               </a>
                            </li>
@@ -76,7 +73,7 @@ System.out.println(sUser);
                                </a>
                            </li>
                            <li class="li_tab">
-                                <a href="#" class="tab updated">
+                                <a href="board_main.jsp" class="tab updated">
                                     <span class="tab_name">고객센터</span>
                                 </a>
                             </li>
@@ -94,8 +91,8 @@ System.out.println(sUser);
                             <h2 class="page-title">나의 정보</h2>
                             <div class="depth-area">
                                 <ol>
-                                    <li><a href="/main">홈</a></li>
-                                    <li><a href="/mypage/myOrderList">나의 정보</a></li>
+                                    <li><a href="user_loginsuccess_form.jsp">홈</a></li>
+                                    <li><a href="user_info_form.jsp">나의 정보</a></li>
                                     <li><strong>주문내역</strong></li>
                                 </ol>
                             </div>
@@ -104,12 +101,8 @@ System.out.println(sUser);
                             <div class="menu-nav-wrap">
                                     <div class="menu-nav">
                                         <ul>
-                                            <li><a href="/mypage/myLevel">매니아 등급</a></li>
-                                            <li class="active"><a href="/mypage/myOrderList">주문내역</a></li>
-                                            <li><a href="/mypage/myCoupon">쿠폰함</a></li>
-                                            <li><a href="/mypage/myMoneyVoucher">금액상품권</a></li>
-                                            <li><a href="/mypage/qustionList">1:1문의/칭찬</a></li>
-                                            <li><a href="/member/userinfoConfirm">정보수정</a></li>
+                                            <li class="active"><a href="order_list_form.jsp">주문내역</a></li>
+                                            <li><a href="#">정보수정</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -117,8 +110,8 @@ System.out.println(sUser);
 
                             <div class="order-view">
                                 <div class="order-top">
-                                    <span class="type">포장</span>
-                                    	<%=order.getOrder_delivery()%>
+                                    <span class="type">배달</span>
+                                    	
                                     <span class="date">
                                         <span class="tit">주문일시</span>
                                         <%=order.getOrder_date()%></span>
@@ -142,9 +135,8 @@ System.out.println(sUser);
                                     <div class="menu-info">
                                         <div class="info-box">
                                             <div class="title-type2">주문내역</div>
-                                            <p><%=order.getOrder_name() %>  /  38,400원</p>
-                                            <p>[기본제공]갈릭디핑소스 x 2  / 0원</p>
-                                            <p>[기본제공]핫소스 x 1  / 0원</p>
+                                            <p><%=order.getOrder_name() %>  /  <%=order.getOrder_price() %>원</p>
+                                            
                                             </div>
                                     </div>
                                     <div class="pay-info">
@@ -156,9 +148,6 @@ System.out.println(sUser);
                                                 <dt>할인 금액</dt>
                                                 <dd><em>0</em>원</dd>
                                             </dl>
-                                            <ul class="apply">
-                                                    <li>kt_daldal_50% 50%</li>
-                                                </ul>
                                             <dl class="total">
                                                     <dt>결제금액</dt>
                                                     <dd><em><%=order.getOrder_price() %></em>원</dd>
@@ -168,10 +157,6 @@ System.out.println(sUser);
                                 <div class="order-info">
                                     <div class="title-type2">주문정보</div>
                                     <dl>
-                                        <dt>결제방법</dt>
-                                        <dd>
-                                            신용카드(선결제)&nbsp;<%=order.getOrder_price() %>&nbsp;원
-                                            </dd>
                                         <dd style="width:100%; color:#FF752D">
                                             </dd>
                                     </dl>
@@ -186,7 +171,7 @@ System.out.println(sUser);
                                     <dl>
                                         <dt>배달주소</dt>
                                             <dd>
-                                            <%=order.getOrder_address() %> <input type="hidden" id="myInput" value="">
+                                            <%=sUser.getUserAddress() %> <input type="hidden" id="myInput" value="">
                                             </dd>
                                     </dl>
                                     

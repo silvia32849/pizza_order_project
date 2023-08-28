@@ -1,28 +1,32 @@
-<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.itwill.pizza.product.Product"%>
-
 <%@page import="com.itwill.pizza.product.ProductService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%
-String sUserId=null;
-
 String noStr = request.getParameter("product_no");
 if (noStr == null || noStr.equals("")) {
 	response.sendRedirect("product_list.jsp");
 	return;
 }
 boolean isLogin = false;
-if (session.getAttribute("sUserId") != null) {
+if (session.getAttribute("sUserId") != null ) {
 	isLogin = true;
+	
 }
 
+
+
 ProductService ps = new ProductService();
-
 Product product = ps.productDetail(Integer.parseInt(noStr));
-
+if (product == null) {
+	out.println("<script>");
+	out.println("alert('매진된상품입니다.');");
+	out.println("location.href='product_list.jsp';");
+	out.println("</script>");
+	return;
+}
 %>
 
 <!DOCTYPE HTML>
@@ -43,8 +47,8 @@ Product product = ps.productDetail(Integer.parseInt(noStr));
 			alert('로그인 하세요');
 			location.href = 'user_login_form.jsp';
 		} else {
-			var left = Math.ceil((window.screen.width) / 5);
-			var top = Math.ceil((window.screen.height) / 3);
+			var left = Math.ceil(( window.screen.width)/5);
+			var top = Math.ceil(( window.screen.height)/3); 
 			console.log(left);
 			console.log(top);
 			var cartWin = window
@@ -79,9 +83,7 @@ Product product = ps.productDetail(Integer.parseInt(noStr));
 		location.href = 'product_list.jsp';
 	}
 </script>
-<script>
-	
-</script>
+
 <meta charset="euc-kr">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" id="viewport"
@@ -128,64 +130,74 @@ Product product = ps.productDetail(Integer.parseInt(noStr));
 <!--메인에는 sub.css 호출하지않음-->
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.dominos.co.kr/domino/pc/css/sub.css"> 
-
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/sub.css">
+  
 
 </head>
 <body>
 
-	<div id="wrap">
-		<header id="header">
-		<div class="top-wrap">
-				<div class="inner-box" id="tip-box-top">
-					<a href="index.jsp" class="btn-logo"> <i class="ico-logo"></i>
-						<h1 class="hidden">도미노피자</h1>
-					</a>
+		
+		 <div class="warp">
+            <div class="header fixed social">
+                <div class="header_top">
+                    <div class="header_top_inner">
+                        <h1>
+                            <a href="index.jsp" aria-label="홈" class="logo"></a>
+                            <div class="center"></div>
+                        </h1>
 
-					<ul class="header_top_list">
+                        <ul class="header_top_list">
                             <li class="header_top_item">
-                            <%if(sUserId!=null){%>
-                            	<a href="logout.html" class="header_top_link"> 로그아웃</a>
-                            <%}else {%>
-                                <a href="login.html" class="header_top_link"> 로그인</a>
-                            <%} %>
-                            	
+                            	<% if (isLogin) { %>
+								    <a href="user_logout_action.jsp" class="header_top_link">로그아웃</a>
+								<% } else { %>
+								    <a href="user_login_form.jsp" class="header_top_link">로그인</a>
+								<% } %>
+
                             </li>
                             <li class="header_top_item">
-                            <%if(sUserId!=null){%>
-                                <a href="user_info.jsp?userId=?<%=sUserId %>" class="header_top_link"> 마이페이지</a>
-                             <%}else {%>
-                             	<a href="user_login_form.jsp" class="header_top_link"> 로그인</a>
-                             <%} %>
+                                <a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
                             </li>
-                      </ul>
-				</div>
-			</div>
+                            <li class="header_top_item">
+                                <a href="user_login_form.jsp" class="header_top_link"> 장바구니</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
 
-			<!-- main 1dep menu -->
-			<div id="gnb" class="gnb-wrap">
-				<div class="gnb-inner">
-					<ul>
-						<li class="active"><a href="product_list.jsp"><span>메뉴</span></a>
-						</li>
-						<!-- <li><a href="/ecoupon/main"><span>e-쿠폰</span></a></li>
-						<li><a href="/voucher/list?gubun=M"><span>상품권 선물</span></a></li>
-						<li><a href="/event/list?gubun=E0200"><span>이벤트&middot;제휴</span></a>
-						</li>
-						<li><a href="/branch"><span>매장검색</span></a></li>
-						<li><a href="/company/contents/chainstore1"><span>가맹점
-									모집</span></a></li> -->
-					</ul>
+                <div class="portal_tartget vue-portal-target">
+                <nav class="tabs">
+                    <ul class="ul_tab home_tabs inline">
+                        <li class="li_tab">
+                            <a href="product_list.jsp" class="tab">
+                                <span class="tab_name">메뉴</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="#" class="tab">
+                                <span class="tab_name">추천</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="board_main.jsp" class="tab updated">
+                                <span class="tab_name">고객센터</span>
 
-				</div>
-			</div>
-			<!-- //main 1dep menu -->
-		</header>
-		<!-- //header -->
-		<script type="text/javascript"
-			src="/resources/js/doughOptions.js?ver=0.1"></script>
-		<!-- 도우&엣지 정보 -->
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </nav>
+                </div>
+            </div>
 
-
+		
 
 		<div id="container">
 			<section id="content">
@@ -197,7 +209,7 @@ Product product = ps.productDetail(Integer.parseInt(noStr));
 							<h2 class="page-title">메뉴</h2>
 							<div class="depth-area">
 								<ol>
-									<li><a href="index.html">홈</a></li>
+									<li><a href="index.jsp">홈</a></li>
 									<li><a href="product_list.jsp">메뉴</a></li>
 									<li><strong><%=product.getProduct_name() %></strong></li>
 								</ol>
@@ -225,6 +237,7 @@ Product product = ps.productDetail(Integer.parseInt(noStr));
 							</div>
 							<!-- //menu-list -->
 <script type="text/javascript">
+//이미지팝업
 	function getDetailSlide(imageName){
 		window.open("http://localhost/web_project_team1_aaaa/<%=product.getProduct_image()%>","imageView","width=500,height=500,top=50,left=50,location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no")
 	}
@@ -313,25 +326,52 @@ function yungyang(){
 }
 </style>
 
+<script type="text/javascript">
+	function size_checkbox(e){
+		console.log(e.target);
+		var spanTotalPrice=document.getElementById("total-price");
+		if(e.target.value=='M'){
+			spanTotalPrice.innerHTML=document.getElementById("price-m").innerHTML;
+		}else if(e.target.value=='L'){
+			
+			spanTotalPrice.innerHTML=document.getElementById("price-l").innerHTML;
+		}
+		
+	}
+	
+	
+</script>
 
 <form name="add_cart_form" method="POST" onsubmit="return add_cart();" action="cart_add_action.jsp"> 
         <h3>사이즈 선택</h3>
-        <div class="radio-container">
-            <label class="radio-label" for="size1">
-                <input type="radio" id="size1" name="size" value="M" checked="checked"/>
-                <span class="radio" ></span> M &nbsp;<%=formatMPrice %>원
-            </label>
+<div class="radio-container">
+    <label class="radio-label" for="size1">
+        <input type="radio" id="size1" name="size" value="M" checked="checked" onchange="size_checkbox(event);"/>
+        <input type="hidden" name="product_size" value="M"/>
+        <span class="radio" ></span> M &nbsp;<span class="price-m" id="price-m"><%=formatMPrice %></span>원
+    </label>
             
-            <label class="radio-label" for="size2">
-                <input type="radio" id="size2" name="size" value="L" />
-                <span class="radio" ></span> L &nbsp;<%=formatLPrice %>원
-            </label>
-        </div>
+    <label class="radio-label" for="size2">
+        <input type="radio" id="size2" name="size" value="L"  onchange="size_checkbox(event);"/>
+        <input type="hidden" name="product_size" value="L"/>
+        <span class="radio" ></span> L &nbsp;<span class="price-l" id="price-l"><%=formatLPrice %></span>원
+    </label>
+    
+</div>
         <br><br>
         <a href="javascript:add_cart_popup_window(this.parentElement);" title="장바구니[팝업]" class="btn-type">장바구니</a>
+        
         <a href="javascript:order_create_form();" title="주문하기[팝업]" class="btn-type">주문하기</a>
+        <input type="hidden" name="product_no" value="<%=product.getProduct_no()%>">
+		<input type="hidden" name="product_qty" value="1"> 
+		<input type="hidden" name="buyType" value="direct">
     </form>	
-							
+    <br><br>
+    <h3><div class="total-price">
+        <span >총 금액  <span id="total-price"><%=formatMPrice %></span>원</span>
+        <strong class="total-price_sum"></strong>
+    </div>
+	</h3>					
 									
 									</div>
 								</div>

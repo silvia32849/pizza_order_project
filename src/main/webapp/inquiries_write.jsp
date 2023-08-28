@@ -57,7 +57,7 @@
 					<div class="header_top">
 						<div class="header_top_inner">
 							<h1>
-								<a href="/" aria-label="홈" class="logo"></a>
+								<a href="index.jsp" aria-label="홈" class="logo"></a>
 								<div class="center"></div>
 							</h1>
 
