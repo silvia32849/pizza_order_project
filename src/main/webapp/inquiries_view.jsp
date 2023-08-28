@@ -30,6 +30,10 @@ isLogin = true;
 <head>
 <meta charset="EUC-KR">
 <title>inquiries view</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/sub.css">
 </head>
 
 <body>
