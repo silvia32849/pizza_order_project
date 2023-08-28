@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="login_check.jspf" %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +17,8 @@
 <link rel="stylesheet" type="text/css" href="css/font.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <link rel="stylesheet" type="text/css" href="css/sub.css">
+
+
 
 <title>DOMINO</title>
 
@@ -39,6 +44,10 @@
 		newsForm.action = "inquiries_list.jsp";
 		newsForm.submit();
 	}
+	
+System.out.println(sUser);
+
+
 </script>
 </head>
 <body>
@@ -62,12 +71,12 @@
 							</h1>
 
 							<ul class="header_top_list">
-								<li class="header_top_item"><a href="testtset.html"
+								<li class="header_top_item"><a href="user_info_form.jsp"
 									class="header_top_link"> 마이페이지</a></li>
-								<li class="header_top_item"><a href="testtset.html"
-									class="header_top_link"> 로그인</a></li>
-								<li class="header_top_item"><a href="testtset.html"
-									class="header_top_link"> 관심상품</a></li>
+									
+								<li class="header_top_item"><a href="user_logout_action" class="header_top_link"> 로그아웃</a></li>
+                            	<li class="header_top_item">
+                         	       <a href="user_login_form.jsp" class="header_top_link"> 장바구니</a>
 							</ul>
 						</div>
 					</div>
