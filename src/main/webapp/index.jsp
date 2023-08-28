@@ -19,7 +19,6 @@ if(session.getAttribute("sUserId")!=null){
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/font.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
-    <link rel="stylesheet" type="text/css" href="css/sub.css">
     
     <title>인생피자</title>
 
