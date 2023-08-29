@@ -28,7 +28,7 @@ if (session.getAttribute("sUserId") != null ) {
 
 
 
-<title>DOMINO</title>
+<title>인생피자</title>
 
 <script type="text/javascript">
 	function inquiriesCreate() {
@@ -49,11 +49,13 @@ if (session.getAttribute("sUserId") != null ) {
 	}
 
 	function inquiriesList() {
-		newsForm.action = "inquiries_list.jsp";
+		newsForm.action = "inquiries_main.jsp";
 		newsForm.submit();
 	}
 	
 System.out.println(sUser);
+
+	
 
 
 </script>
@@ -110,19 +112,25 @@ System.out.println(sUser);
 
 					<div class="portal_tartget vue-portal-target">
 						<nav class="tabs">
-							<ul class="ul_tab home_tabs inline">
-								<li class="li_tab"><a href="#" class="tab"> <span
-										class="tab_name">메뉴</span>
-								</a></li>
-								<li class="li_tab"><a href="#" class="tab"> <span
-										class="tab_name">추천</span>
-								</a></li>
-								<li class="li_tab"><a href="boardtestmain.jsp"
-									class="tab updated"> <span class="tab_name">고객센터</span>
+							                    <ul class="ul_tab home_tabs inline">
+                        <li class="li_tab">
+                            <a href="product_list.jsp" class="tab">
+                                <span class="tab_name">메뉴</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="#" class="tab">
+                                <span class="tab_name">추천</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="board_main.jsp" class="tab updated">
+                                <span class="tab_name">고객센터</span>
 
-								</a></li>
-
-							</ul>
+                            </a>
+                        </li>
+                       
+                    </ul>
 						</nav>
 					</div>
 				</div>
@@ -165,7 +173,7 @@ System.out.println(sUser);
 						<tr>
 							<td align=center><input type="button" value="문의하기"
 								onClick="inquiriesCreate()"> &nbsp; <input type="button"
-								value="게시판 목록" onClick="boardList()"></td>
+								value="게시판 목록" onClick="inquiriesList()"></td>
 						</tr>
 					</table>
 					</td>

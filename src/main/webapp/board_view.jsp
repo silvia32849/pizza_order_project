@@ -40,7 +40,7 @@
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/sub.css">
     
-<title>Insert title here</title>
+<title>인생피자</title>
 </head>
 
 <body>

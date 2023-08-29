@@ -29,7 +29,7 @@ isLogin = true;
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>inquiries view</title>
+<title>인생피자</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/font.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">

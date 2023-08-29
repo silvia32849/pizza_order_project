@@ -30,7 +30,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css" >
 <link rel="stylesheet" type="text/css" href="css/userinfo.css" >
-	
+<title>인생피자</title>	
 <script type="text/javascript">
 
 
@@ -557,7 +557,7 @@
                             <div class="info_list">
                                 <dl class="info_item">
                                     <dt class="business_title">
-                                        도미노 주식회사 · 대표이사 오광현, 김영훈
+                                        인생피자 주식회사
                                         <span class="blank"></span>
                                         사업자등록번호 : 000-00-00000
                                         <span class="blank"></span>

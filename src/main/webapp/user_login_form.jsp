@@ -26,7 +26,7 @@ if(fuser==null) {
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/login.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
-
+<title>인생피자</title>
 <script type="text/javascript">
 	function userCreate () {
 		f.action = "user_create_form.jsp";

@@ -31,6 +31,7 @@ if (session.getAttribute("sUserId") != null ) {
     
 </script>
 <head>
+<title>인생피자</title>
 </head>
 <body>
 

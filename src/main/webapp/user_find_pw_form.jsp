@@ -16,7 +16,7 @@ if (session.getAttribute("sUserId") != null) {
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/style.css" >
 <link rel="stylesheet" type="text/css" href="css/user_find_pw_form.css" >
-    
+<title>인생피자</title>
 <script type="text/javascript">
 	function pw_search () {
 		if(document.loginFrm.id.value == "") {
@@ -183,7 +183,7 @@ if (session.getAttribute("sUserId") != null) {
                             <div class="info_list">
                                 <dl class="info_item">
                                     <dt class="business_title">
-                                        크림 주식회사 · 대표 차경진
+                                        인생피자 주식회사
                                         <span class="blank"></span>
                                         사업자등록번호 : 000-00-00000
                                         <span class="blank"></span>

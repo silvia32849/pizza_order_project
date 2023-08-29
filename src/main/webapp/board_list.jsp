@@ -46,7 +46,7 @@ if (session.getAttribute("sUserId") != null ) {
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/sub.css">
     
-	
+	<title>인생피자</title>
 </head>
 <body>
 			 

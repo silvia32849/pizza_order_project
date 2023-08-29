@@ -36,6 +36,7 @@ if(session.getAttribute("sUserId")!=null){
             height: 400px; /* 이미지의 세로 크기를 조절 */
         }
     </style>
+    <title>인생피자</title>
 </head>
 <body>
        <div class="warp">

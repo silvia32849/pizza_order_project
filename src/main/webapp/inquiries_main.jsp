@@ -37,7 +37,7 @@ if (session.getAttribute("sUserId") != null ) {
 <!DOCTYPE html>
 <html>
 <head>
-
+<title>인생피자</title>
 </head>
 <body>
 		<div class="warp">

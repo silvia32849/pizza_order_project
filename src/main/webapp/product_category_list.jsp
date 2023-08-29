@@ -242,7 +242,7 @@ if(session.getAttribute("sUserId")!=null) {
                             <div class="info_list">
                                 <dl class="info_item">
                                     <dt class="business_title">
-                                        크림 주식회사 · 대표 차경진
+                                        인생피자 주식회사
                                         <span class="blank"></span>
                                         사업자등록번호 : 000-00-00000
                                         <span class="blank"></span>

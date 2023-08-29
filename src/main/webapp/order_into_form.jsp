@@ -131,7 +131,7 @@ User loginUser=userService.findUser(sUserId);
 	}
 </script>    
     
-    <title>도미노 피자</title>
+    <title>인생피자</title>
 </head>
 <body>
     <form name="order_create_form" method="post">

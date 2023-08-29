@@ -23,6 +23,7 @@ List<Order> orderList = orderService.findOrderByUserId(sUserId);
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/style.css" >
 <link rel="stylesheet" type="text/css" href="css/mypage.css" >
+<title>인생피자</title>
 <script type="text/javascript">
 	function order_delete_action(formId){
 		 if (confirm("정말 삭제하시겠습니까??") == true){    //확인
