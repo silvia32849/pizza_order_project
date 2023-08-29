@@ -47,19 +47,7 @@ if (product == null) {
 			alert('로그인 하세요');
 			location.href = 'user_login_form.jsp';
 		} else {
-			var left = Math.ceil(( window.screen.width)/5);
-			var top = Math.ceil(( window.screen.height)/3); 
-			console.log(left);
-			console.log(top);
-			var cartWin = window
-					.open(
-							"about:blank",
-							"cartForm",
-							"width=260,height=130,top="
-									+ top
-									+ ",left="
-									+ 0
-									+ ",location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no");
+			
 			document.add_cart_form.action = 'cart_add_action.jsp';
 			document.add_cart_form.target = 'cartForm';
 			document.add_cart_form.method = 'POST';

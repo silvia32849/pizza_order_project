@@ -23,9 +23,7 @@ List<Cart> cartList = cartService.getCartItemByUserId(sUserId);
 	<link rel="stylesheet" type="text/css" href="css/cartlist.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/font.css">
-    <link rel="stylesheet" type="text/css" href="css/common.css">
-    <link rel="stylesheet" type="text/css" href="css/sub.css">
+   
   
 <title>인생피자</title>
 </head>
