@@ -57,6 +57,6 @@ public interface UserMapper {
 	 * 인자로 전달되는 아이디를 가지는 사용자가 존재하는지의 여부를판별
 	 */
 	@Select("select count(*) cnt from userinfo where user_id=#{user_id}")
-	public int countByUserId(@Param("userId") String userId) throws Exception;
+	public int countByUserId(String userId) throws Exception;
 	
 }
