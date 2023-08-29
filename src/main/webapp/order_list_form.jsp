@@ -44,16 +44,14 @@ List<Order> orderList = orderService.findOrderByUserId(sUserId);
 </head>
 <body>
 
-    <div class="warp">
-        <!-- 헤더 시작-->    
-        <div class="header fixed social">
-            <!-- 헤더 top 시작-->
-            <div class="header_top">
-                <div class="header_top_inner">
-                    <h1>
-                        <a href="index.jsp" aria-label="홈" class="logo"></a>
-                        <div class="center"></div>
-                    </h1>
+   <div class="warp">
+            <div class="header fixed social">
+                <div class="header_top">
+                    <div class="header_top_inner">
+                        <h1>
+                            <a href="index.jsp" aria-label="홈" class="logo"></a>
+                            <div class="center"></div>
+                        </h1>
                     <!--
                     <div class="search_area">
                         <form>
@@ -94,27 +92,29 @@ List<Order> orderList = orderService.findOrderByUserId(sUserId);
 
                       
             <!-- 헤더 마지막 시작-->
-            <div class="portal_tartget vue-portal-target">
-            <nav class="tabs">
-                <ul class="ul_tab home_tabs inline">
-                    <li class="li_tab">
-                        <a href="product_list.jsp" class="tab">
-                            <span class="tab_name">메뉴</span>
-                        </a>
-                    </li>
-                    <li class="li_tab">
-                        <a href="#" class="tab">
-                            <span class="tab_name">추천</span>
-                        </a>
-                    </li>
-                    <li class="li_tab">
-                        <a href="board_main.jsp" class="tab updated">
-                            <span class="tab_name">고객센터</span>
+             <div class="portal_tartget vue-portal-target">
+                <nav class="tabs">
+                    <ul class="ul_tab home_tabs inline">
+                        <li class="li_tab">
+                            <a href="product_list.jsp" class="tab">
+                                <span class="tab_name">메뉴</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="#" class="tab">
+                                <span class="tab_name">추천</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="board_main.jsp" class="tab updated">
+                                <span class="tab_name">고객센터</span>
 
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </nav>
+                </div>
             </div>
         </div>
 
@@ -130,31 +130,35 @@ List<Order> orderList = orderService.findOrderByUserId(sUserId);
             <div class="sub-type mypage">
                 <div class="inner-box">
                     <div class="page-title-wrap">
-                        <h2 class="page-title">마이 페이지</h2>
+                        <h2 class="page-title">주문내역</h2>
                         <div class="depth-area">
                             <ol>
                                 <li>
-                                    <a href="#">홈</a>
+                                    <a href="index.jsp">홈</a>
                                 </li>
                                 <li>
-                                    <a href="#">마이 페이지</a>
+                                    <a href="user_info_form.jsp">마이 페이지</a>
                                 </li>
                                 <li>
-                                    <a href="#">주문내역</a>
+                                    <a>주문내역</a>
                                 </li>
                             </ol>
                         </div>
                     </div>
-                    <article class="mypage-wrap mypage-grade">
-                        <div class="menu-nav-wrap">
-                            <div class="menu-nav">
-                                <ul>
-                                    <li>
-                                        <a href="#">주문내역</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">정보수정</a>
-                                    </li>
+                    <article class="mypage-wrap mypage-grade mypage-info">
+                                <div class="menu-nav-wrap">
+                                    <div class="menu-nav">
+                                        <ul>
+                                            <li class="li_tab">
+                                                <a href="order_list_form.jsp" class="tab">
+                                                    <span class="tab_name">주문내역</span>
+                                                </a>
+                                            </li>
+                                            <li class="li_tab">
+                                                <a href="user_info_form.jsp" class="tab">
+                                                    <span class="tab_name">회원정보</span>
+                                                </a>
+                                            </li>
                                 </ul>
                             </div>
                         </div>

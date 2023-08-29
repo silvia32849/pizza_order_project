@@ -6,6 +6,8 @@
 
 <%
 String noStr = request.getParameter("product_no");
+//String sizeStr = request.getParameter("product_size");
+
 if (noStr == null || noStr.equals("")) {
 	response.sendRedirect("product_list.jsp");
 	return;
@@ -350,7 +352,7 @@ function yungyang(){
         <span class="radio" ></span> M &nbsp;<span class="price-m" id="price-m"><%=formatMPrice %></span>원
     </label>
             
-    <label class="radio-label" for="size2">
+     <label class="radio-label" for="size2">
         <input type="radio" id="size2" name="size" value="L"  onchange="size_checkbox(event);"/>
         <input type="hidden" name="product_size" value="L"/>
         <span class="radio" ></span> L &nbsp;<span class="price-l" id="price-l"><%=formatLPrice %></span>원
@@ -358,9 +360,8 @@ function yungyang(){
     
 </div>
         <br><br>
-        <a href="javascript:add_cart_popup_window(this.parentElement);" title="장바구니[팝업]" class="btn-type">장바구니</a>
+        <a href="javascript:add_cart_popup_window(this.parentElement);" title="장바구니[팝업]" class="btn-type">장바구니 담기</a>
         
-        <a href="javascript:order_create_form();" title="주문하기[팝업]" class="btn-type">주문하기</a>
         <input type="hidden" name="product_no" value="<%=product.getProduct_no()%>">
 		<input type="hidden" name="product_qty" value="1"> 
 		<input type="hidden" name="buyType" value="direct">

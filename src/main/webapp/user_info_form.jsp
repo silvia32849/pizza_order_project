@@ -67,7 +67,7 @@
 </script>
 
 
-<title>도미노피자</title>
+<title>인생피자</title>
 </head>
 <body>
 <div class="warp">
@@ -141,12 +141,12 @@
                     <div class="sub-type mypage">
                         <div class="inner-box">
                             <div class="page-title-wrap">
-                                <h2 class="page-title">나의 정보</h2>
+                                <h2 class="page-title">회원정보</h2>
                                 <div class="depth-area">
                                     <ol>
-                                        <li><a href="user_loginsuccess_form.jsp">홈</a></li>
-                                        <li><a href="user_info_form.jsp">나의 정보</a></li>
-                                        <li><strong>정보수정</strong></li>
+                                        <li><a href="index.jsp">홈</a></li>
+                                        <li><a href="user_info_form.jsp">마이페이지</a></li>
+                                        <li><strong>회원정보</strong></li>
                                     </ol>
                                 </div>
                             </div>
@@ -154,28 +154,26 @@
                                 <div class="menu-nav-wrap">
                                     <div class="menu-nav">
                                         <ul>
+                                        
+                                        	<li class="li_tab">
+                                                <a href="user_info_form.jsp" class="tab">
+                                                    <span class="tab_name">회원정보</span>
+                                                </a>
+                                            </li>
+                                            
                                             <li class="li_tab">
                                                 <a href="order_list_form.jsp" class="tab">
                                                     <span class="tab_name">주문내역</span>
                                                 </a>
                                             </li>
-                                            <li class="li_tab">
-                                                <a href="user_info_form.jsp" class="tab">
-                                                    <span class="tab_name">나의정보</span>
-                                                </a>
-                                            </li>
-                                            <li class="li_tab">
-                                                <a href="#" class="tab updated">
-                                                    <span class="tab_name">주소록</span>
-                        
-                                                </a>
-                                            </li>
+                                            
+                                           
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="info-wrap">
                                     <div class="user">
-                                            개인정보 확인
+                                           회원정보 확인
                                     </div>
                                     <div class="text-type">회원정보를 정확히 기입하시면 다양한 서비스를 원활하게 이용할 수 있습니다.</div>
                                 </div>
