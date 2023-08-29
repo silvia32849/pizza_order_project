@@ -1,3 +1,6 @@
+<%@page import="com.itwill.pizza.cart.Cart"%>
+<%@page import="com.itwill.pizza.cart.CartService"%>
+<%@page import="com.itwill.pizza.product.Product"%>
 <%@page import="com.itwill.pizza.orders.OrderItem"%>
 <%@page import="com.itwill.pizza.userinfo.User"%>
 <%@page import="com.itwill.pizza.userinfo.UserService"%>
@@ -28,6 +31,13 @@ Order order = orderService.findOrderByOrderNo(Integer.parseInt(orderNoStr));
 <link rel="stylesheet" type="text/css" href="css/style.css" >
     <link rel="stylesheet" type="text/css" href="css/orderdetail.css" >
     <title>인생피자</title>
+    <script type="text/javascript">
+    
+    
+    
+	</script>
+    
+    
 </head>
 <body>
     <div class="warp">
@@ -202,11 +212,13 @@ Order order = orderService.findOrderByOrderNo(Integer.parseInt(orderNoStr));
                                 </div>
                                 <div class="btn-wrap">
                                     <div class="t-l">
-                                                <a href="javascript:goList();" class="btn-type v5">목록</a>
+                                                <a href="order_list_form.jsp" class="btn-type v5">목록</a>
                                             </div>
                                             <div class="t-r">
-                                                        <a href="javascript:profileOrder('R');" class="btn-type v3">재주문</a>
+                             
+                                                        <a href="cart_list_form.jsp" class="btn-type v3">재주문</a>
                                                     </div>
+                                                   
                                                 </div>
                             </div>
                     
@@ -233,7 +245,7 @@ Order order = orderService.findOrderByOrderNo(Integer.parseInt(orderNoStr));
                             <div class="info_list">
                                 <dl class="info_item">
                                     <dt class="business_title">
-                                        크림 주식회사 · 대표 차경진
+                                        인생피자 주식회사
                                         <span class="blank"></span>
                                         사업자등록번호 : 000-00-00000
                                         <span class="blank"></span>
