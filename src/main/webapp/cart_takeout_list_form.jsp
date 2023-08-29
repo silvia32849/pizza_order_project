@@ -7,6 +7,11 @@
     pageEncoding="UTF-8"%>
 <%@include file="login_check.jspf" %>       
 <%
+boolean isLogin = false;
+if (session.getAttribute("sUserId") != null ) {
+	isLogin = true;
+	
+}
 
 CartService cartService=new CartService();
 List<Cart> cartList = cartService.getCartItemByUserId(sUserId); 
@@ -78,15 +83,30 @@ function changeNumber(desc, cart_no) {
                         </div>
                         -->
                         
-                        <ul class="header_top_list">
+                         <ul class="header_top_list">
                             <li class="header_top_item">
-                                <a href="login.html" class="header_top_link"> 로그인</a>
+                            	<% if (isLogin) { %>
+								    <a href="user_logout_action.jsp" class="header_top_link">로그아웃</a>
+								<% } else { %>
+								    <a href="user_login_form.jsp" class="header_top_link">로그인</a>
+								<% } %>
+
                             </li>
                             <li class="header_top_item">
-                                <a href="#" class="header_top_link"> 마이페이지</a>
+                             <% if (isLogin) { %>
+                                <a href="user_info_form.jsp" class="header_top_link"> 마이페이지</a>
+							<% } else { %>
+								<a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
+                           <% } %>
+                                
                             </li>
                             <li class="header_top_item">
-                                <a href="#" class="header_top_link"> 관심상품</a>
+                             <% if (isLogin) { %>
+                                <a href="cart_list_form.jsp" class="header_top_link"> 장바구니</a>
+                            <% } else { %>
+                                 <a href="user_login_form.jsp" class="header_top_link"> 장바구니</a>
+                            	 <% } %>
+                               
                             </li>
                         </ul>
                     </div>

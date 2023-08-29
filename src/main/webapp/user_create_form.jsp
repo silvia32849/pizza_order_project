@@ -3,6 +3,12 @@
     pageEncoding="UTF-8"%>
 <%
 
+boolean isLogin = false;
+if (session.getAttribute("sUserId") != null ) {
+	isLogin = true;
+	
+}
+
 String msg=(String)request.getAttribute("msg");
 if(msg==null)msg="";
 
@@ -206,16 +212,31 @@ if(msg==null)msg="";
                         -->
 
                     <ul class="header_top_list">
-                        <li class="header_top_item">
-                            <a href="user_login_form.jsp" class="header_top_link"> 로그인</a>
-                        </li>
-                        <li class="header_top_item">
-                            <a href="user_info_form.jsp" class="header_top_link"> 마이페이지</a>
-                        </li>
-                        <li class="header_top_item">
-                            <a href="cart_list_form.jsp" class="header_top_link"> 장바구니</a>
-                        </li>
-                    </ul>
+                            <li class="header_top_item">
+                            	<% if (isLogin) { %>
+								    <a href="user_logout_action.jsp" class="header_top_link">로그아웃</a>
+								<% } else { %>
+								    <a href="user_login_form.jsp" class="header_top_link">로그인</a>
+								<% } %>
+
+                            </li>
+                            <li class="header_top_item">
+                             <% if (isLogin) { %>
+                                <a href="user_info_form.jsp" class="header_top_link"> 마이페이지</a>
+							<% } else { %>
+								<a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
+                           <% } %>
+                                
+                            </li>
+                            <li class="header_top_item">
+                             <% if (isLogin) { %>
+                                <a href="cart_list_form.jsp" class="header_top_link"> 장바구니</a>
+                            <% } else { %>
+                                 <a href="user_login_form.jsp" class="header_top_link"> 장바구니</a>
+                            	 <% } %>
+                               
+                            </li>
+                        </ul>
                 </div>
             </div>
 

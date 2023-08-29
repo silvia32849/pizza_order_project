@@ -54,12 +54,21 @@ if (session.getAttribute("sUserId") != null ) {
 
                             </li>
                             <li class="header_top_item">
-                                <a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
+                             <% if (isLogin) { %>
+                                <a href="user_info_form.jsp" class="header_top_link"> 마이페이지</a>
+							<% } else { %>
+								<a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
+                           <% } %>
+                                
                             </li>
                             <li class="header_top_item">
-                                <a href="user_login_form.jsp" class="header_top_link"> 장바구니</a>
+                             <% if (isLogin) { %>
+                                <a href="cart_list_form.jsp" class="header_top_link"> 장바구니</a>
+                            <% } else { %>
+                                 <a href="user_login_form.jsp" class="header_top_link"> 장바구니</a>
+                            	 <% } %>
+                               
                             </li>
-                        </ul>
                     </div>
                 </div>
                 

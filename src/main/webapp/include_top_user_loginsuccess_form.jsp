@@ -1,10 +1,15 @@
 <%@page import="com.itwill.pizza.userinfo.UserService"%>
 <%@page import="com.itwill.pizza.userinfo.User"%>
-dlqslek<%@ include file="login_check.jspf" %>      
+<%@ include file="login_check.jspf" %>      
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 
 <%
+boolean isLogin = false;
+if (session.getAttribute("sUserId") != null ) {
+	isLogin = true;
+	
+}
 
 String contextPath = application.getContextPath();
 
@@ -33,20 +38,30 @@ String contextPath = application.getContextPath();
                             <div class="center"></div>
                         </h1>
 
-                        <ul class="header_top_list">
+                          <ul class="header_top_list">
                             <li class="header_top_item">
-                            	<% if (sUser != null) { %>
-                                <a href="user_login_form.jsp" class="header_top_link"> 로그아웃</a>
-       								<% } else { %>
-                                <a href="index.jsp" class="header_top_link"> 로그인</a>
-          								<% } %>
-                           
+                            	<% if (isLogin) { %>
+								    <a href="user_logout_action.jsp" class="header_top_link">로그아웃</a>
+								<% } else { %>
+								    <a href="user_login_form.jsp" class="header_top_link">로그인</a>
+								<% } %>
+
                             </li>
                             <li class="header_top_item">
-                                <a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
+                             <% if (isLogin) { %>
+                                <a href="user_info_form.jsp" class="header_top_link"> 마이페이지</a>
+							<% } else { %>
+								<a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
+                           <% } %>
+                                
                             </li>
                             <li class="header_top_item">
-                                <a href="user_login_form.jsp" class="header_top_link"> 장바구니</a>
+                             <% if (isLogin) { %>
+                                <a href="cart_list_form.jsp" class="header_top_link"> 장바구니</a>
+                            <% } else { %>
+                                 <a href="user_login_form.jsp" class="header_top_link"> 장바구니</a>
+                            	 <% } %>
+                               
                             </li>
                         </ul>
                     </div>

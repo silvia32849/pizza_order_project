@@ -3,28 +3,28 @@
     pageEncoding="UTF-8"%>
 <%@ include file="login_check.jspf" %>  
 <%
+  boolean isLogin = false;
+  if (session.getAttribute("sUserId") != null) {
+  	isLogin = true;
+  }
 
+  UserService userService = new UserService();
+  User user = userService.findUser(sUserId);
 
-	
-	UserService userService=new UserService();
-	User user=userService.findUser(sUserId);
-	
-	String email = user.getUserEmail();
-	int idx = email.indexOf("@");
-	String email1 = email.substring(0, idx);
-	String email2 = email.substring(idx+1);
-	
-	String jumin = user.getUserJumin();
-	String year = "19"+jumin.substring(0, 2);
-	String month = jumin.substring(2,4);
-	String day = jumin.substring(4, 6);
-	
-	String phone = user.getUserPhone();
-	String phone1 = phone.substring(4,8);
-	String phone2 = phone.substring(9);
-	
+  String email = user.getUserEmail();
+  int idx = email.indexOf("@");
+  String email1 = email.substring(0, idx);
+  String email2 = email.substring(idx + 1);
 
-%>    
+  String jumin = user.getUserJumin();
+  String year = "19" + jumin.substring(0, 2);
+  String month = jumin.substring(2, 4);
+  String day = jumin.substring(4, 6);
+
+  String phone = user.getUserPhone();
+  String phone1 = phone.substring(4, 8);
+  String phone2 = phone.substring(9);
+  %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,16 +79,30 @@
                             <div class="center"></div>
                         </h1>
 
-                        <ul class="header_top_list">
+                         <ul class="header_top_list">
                             <li class="header_top_item">
-								<a href="user_logout_action.jsp" class="header_top_link">로그아웃</a>
+                            	<% if (isLogin) { %>
+								    <a href="user_logout_action.jsp" class="header_top_link">로그아웃</a>
+								<% } else { %>
+								    <a href="user_login_form.jsp" class="header_top_link">로그인</a>
+								<% } %>
 
                             </li>
                             <li class="header_top_item">
-                                <a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
+                             <% if (isLogin) { %>
+                                <a href="user_info_form.jsp" class="header_top_link"> 마이페이지</a>
+							<% } else { %>
+								<a href="user_login_form.jsp" class="header_top_link"> 마이페이지</a>
+                           <% } %>
+                                
                             </li>
                             <li class="header_top_item">
-                                <a href="user_login_form.jsp" class="header_top_link"> 장바구니</a>
+                             <% if (isLogin) { %>
+                                <a href="cart_list_form.jsp" class="header_top_link"> 장바구니</a>
+                            <% } else { %>
+                                 <a href="user_login_form.jsp" class="header_top_link"> 장바구니</a>
+                            	 <% } %>
+                               
                             </li>
                         </ul>
                     </div>
