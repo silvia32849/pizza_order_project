@@ -78,18 +78,24 @@ if(session.getAttribute("sUserId")!=null) {
                 <div class="portal_tartget vue-portal-target">
                     <nav class="tabs">
                         <ul class="ul_tab home_tabs inline">
-                           <li class="li_tab">
-                                <a href="product_list.jsp" class="tab">
-                                 <span class="tab_name">전체 메뉴</span>
-                              </a>
-                           </li>
-                         
-                           <li class="li_tab">
-                                <a href="borad_list.jsp" class="tab updated">
-                                    <span class="tab_name">고객센터</span>
-                                </a>
-                            </li>
-                         </ul>
+                        <li class="li_tab">
+                            <a href="product_list.jsp" class="tab">
+                                <span class="tab_name">메뉴</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="#" class="tab">
+                                <span class="tab_name">추천</span>
+                            </a>
+                        </li>
+                        <li class="li_tab">
+                            <a href="board_main.jsp" class="tab updated">
+                                <span class="tab_name">고객센터</span>
+
+                            </a>
+                        </li>
+                       
+                    </ul>
                     </nav>
                 </div>
             </div>
