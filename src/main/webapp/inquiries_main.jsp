@@ -22,11 +22,15 @@ if (sUser == null) {
     response.sendRedirect("user_login_form.jsp");
 }
 
+System.out.println("유저아이디:"+sUser);
+
 boolean isLogin = false;
 if (session.getAttribute("sUserId") != null ) {
 	isLogin = true;
 	
 }
+
+
 %>
 
 

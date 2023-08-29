@@ -17,7 +17,7 @@
 	
 	
     
- boolean isLogin = false;
+boolean isLogin = false;
 if (session.getAttribute("sUserId") != null ) {
 isLogin = true;
 	
