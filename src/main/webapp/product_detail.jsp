@@ -352,12 +352,6 @@ function yungyang(){
         <span class="radio" ></span> M &nbsp;<span class="price-m" id="price-m"><%=formatMPrice %></span>원
     </label>
             
-     <label class="radio-label" for="size2">
-        <input type="radio" id="size2" name="size" value="L"  onchange="size_checkbox(event);"/>
-        <input type="hidden" name="product_size" value="L"/>
-        <span class="radio" ></span> L &nbsp;<span class="price-l" id="price-l"><%=formatLPrice %></span>원
-    </label>
-    
 </div>
         <br><br>
         <a href="javascript:add_cart_popup_window(this.parentElement);" title="장바구니[팝업]" class="btn-type">장바구니 담기</a>

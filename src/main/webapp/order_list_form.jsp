@@ -25,19 +25,19 @@ List<Order> orderList = orderService.findOrderByUserId(sUserId);
 <link rel="stylesheet" type="text/css" href="css/mypage.css" >
 <title>인생피자</title>
 <script type="text/javascript">
-	function order_delete_action(formId){
-		 if (confirm("정말 삭제하시겠습니까??") == true){    //확인
-		     document.removefrm.submit();
-			var delete_form= document.getElementById(formId);
-			delete_form.method='POST';
-			delete_form.action='order_delete_action.jsp';
-			delete_form.submit();
-		 }else{   //취소
-		     return false;
+function order_delete_action(formId){
+	 if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+	     document.removefrm.submit();
+		var delete_form= document.getElementById(formId);
+		delete_form.method='POST';
+		delete_form.action='order_delete_action.jsp';
+		delete_form.submit();
+	 }else{   //취소
+	     return false;
 
-		 }
-	
-	}
+	 }
+
+}
 </script>
     
     <title>인생피자</title>

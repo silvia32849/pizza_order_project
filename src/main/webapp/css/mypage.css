@@ -21,7 +21,33 @@ body {
     box-sizing: border-box;
     letter-spacing: -0.75px;
     
-    
+.order-list ul li .order-top .close:after, .order-list ul li .order-top .close:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: #000;
+}
+
+::before, ::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.order-list ul li .order-top .close {
+    position: absolute;
+    top: 19px;
+    right: 30px;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+
+
 
 }
 
